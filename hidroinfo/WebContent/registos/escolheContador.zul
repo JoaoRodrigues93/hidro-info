@@ -1,0 +1,42 @@
+<?page title="Escolher contador" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Escolha de contador" id="winescolher" width="600px" height="400px" mode="modal" closable="true" border="normal"
+apply="mz.co.hidroinfo.controller.EscolherContadorController">
+<borderlayout width="100%" height="100%">
+	<north>
+	<hlayout>
+		<textbox id="tb_pesquisa"></textbox>
+		<button id="bt_pesquisa" label="Pesquisar contador"></button>
+		<grid>
+		<columns>
+		<column></column>
+		</columns>
+		<rows>
+			<row id="rw_dadosLeitura" value="${arg}"></row>
+		</rows>
+		</grid>
+	</hlayout>
+	</north>
+	<center>
+		<listbox id="lb_contador" mold="paging">
+		<listhead>
+			<listheader>Codigo</listheader>
+			<listheader>Número de contador</listheader>
+			<listheader>Proprietário do contador</listheader>
+			<listheader>Escolha</listheader>
+		</listhead>
+		<template name="model">
+		<listitem value="${each}">
+			<listcell label="${each.id}" ></listcell>
+			<listcell label="${each.numero}"></listcell>
+			<listcell label="${each.proprietario.nome}"></listcell>
+			<listcell>
+			<button label="Escolher" forward="onClick=lb_contador.onContadorEscolhe"></button>
+			</listcell>
+		</listitem>
+		</template>
+		</listbox>
+	</center>
+</borderlayout>
+</window>
+</zk>

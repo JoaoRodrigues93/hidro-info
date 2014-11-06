@@ -1,0 +1,49 @@
+<?page title="Contador" contentType="text/html;charset=UTF-8"?>
+
+<window title="Contador" width="100%" height="100%" border="normal" apply="mz.co.hidroinfo.controller.ContadorController">
+<borderlayout width="100%" height="100%">
+<north>
+<vlayout>
+	<grid>
+		<columns>
+			<column></column>
+			<column></column>
+		</columns>
+		<rows>
+			<row>
+			<cell> <label value="Número do contador:"></label> </cell>
+			<cell> <textbox id="tb_numeroContador"></textbox> </cell>
+			</row>
+			<row id="rw_proprietario" >
+				<cell> <label value="Proprietario do contador:"></label></cell>
+				<cell id="cl_cliente">
+				<textbox id="tb_escolherCliente"></textbox>
+					<button id="bt_escolherCliente" label="Escolher cliente..." ></button>
+				</cell>
+			</row>
+		</rows>
+	</grid>
+	<hbox align="center" pack="center">
+	<button id="bt_guardar" label="Guardar"></button>
+	<button id="bt_alterar" label="Alterar"></button>
+	<button id="bt_eliminar" label="Eliminar"></button>
+	<button id="bt_limpar" label="Limpar"></button>
+	</hbox>
+	</vlayout>
+</north>
+<center>
+	<listbox id="lb_contador">
+	<listhead>
+		<listheader label="Numero do Contador"></listheader>
+		<listheader label="Proprietário do contador" ></listheader>
+	</listhead>
+	<template name="model">
+	<listitem value="${each}">
+		<listcell label="${each.numero}" ></listcell>
+		<listcell label="${each.proprietario.nome}"></listcell>
+	</listitem>
+	</template>
+	</listbox>
+</center>
+</borderlayout>	
+</window>

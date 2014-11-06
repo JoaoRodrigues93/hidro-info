@@ -1,0 +1,63 @@
+<vlayout>
+	<label value="Dados do cliente: ${cliente.nome}" style="font-size: 14px; font-weight:bold; text-align:center;" ></label>
+	<grid>
+	<columns>
+		<column width="30%" ></column>
+		<column width="70%" style="font-weight:bold" ></column>
+	</columns>
+		<rows>
+		<row>
+			Código:
+			<label value="${cliente.id}" style="font-weight:bold" />
+		</row>
+		<row>
+			Nuit:
+			<label value="${cliente.nuit}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Nome:
+			<label value="${cliente.nome}" style="font-weight:bold"  />
+		</row>
+		<row>
+			BI:
+			<label value="${cliente.bi}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Telefone:
+			<label value="${cliente.contacto.telefone}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Email:
+			<label value="${cliente.contacto.email}" style="font-weight:bold" />
+		</row>
+		<row>
+			Cidade:
+			<label value="${cliente.endereco.cidade}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Bairro:
+			<label value="${cliente.endereco.bairro}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Avenida:
+			<label value="${cliente.endereco.avenida}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Rua:
+			<label value="${cliente.endereco.rua}" style="font-weight:bold" />
+		</row>
+		<row>
+			Quarteirao:
+			<label value="${cliente.endereco.quarteirao}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Número de casa
+			<label value="${cliente.endereco.casaNumero}" style="font-weight:bold" />
+		</row>
+		<row>
+			Codigo local:
+			<label value="${cliente.endereco.codigoLocal}" style="font-weight:bold"  />
+		</row>
+		</rows>
+	</grid>
+</vlayout>
