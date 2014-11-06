@@ -1,0 +1,43 @@
+
+/*!
+CSS: Para cliente.zul
+*/
+
+.tabela {
+	/*!
+	top right bottom left
+	*/
+	margin: 20px 10px 0px 10px;
+}
+
+.navegacao,.conteudo {
+	border:none;
+	margin: 5px 5px 5px 5px;
+}
+
+.navegacao {
+	padding:5px 5px 5px 25px;
+}
+
+
+.navegacao .clientes {
+	
+}
+
+.navegacao .operacoes {
+	margin-left:40px;
+}
+
+
+
+.pesquisa {
+	margin-left:20px;
+	background: none;
+	border:none;
+}
+
+.adiciona {
+	margin-left:60px;
+	background: none;
+	border:none;
+}

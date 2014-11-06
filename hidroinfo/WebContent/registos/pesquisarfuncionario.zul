@@ -1,0 +1,62 @@
+<?page title="Pesquisa" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Pesquisa" border="normal" apply="controller.ControladorPesquisa"
+onOpen="">
+	<grid>
+									<rows>
+
+										<row>
+
+											<cell>
+
+												
+												
+													<textbox id="bi" style="width:250px;"/>
+										<button label="Procurar" style="width:120px;"
+									 forward="onClick$Insere" />
+					
+				<button label="Adicionar " style="width:120px;"
+									 forward="onClick$Regista" />
+				
+			
+
+											</cell>
+
+
+										</row>
+
+
+
+										<row>
+											<cell colspan="2">
+												<listbox id="lst_funcionario"
+													rows="18">
+													<listhead>
+														<listheader
+															label="Nome" />
+														<listheader
+															label="BI" />
+														<listheader
+															label="Nuit" />
+														<listheader
+															label="Telefone" />
+														
+														<listheader
+															label="Email" />
+																<listheader
+															label="Bairro" />
+														<listheader
+															label="Opções" />
+														
+															
+													</listhead>
+												</listbox>
+											</cell>
+										</row>
+
+									</rows>
+
+
+								</grid>
+</window>
+</zk>

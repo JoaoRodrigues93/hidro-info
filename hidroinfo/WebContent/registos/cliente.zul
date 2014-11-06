@@ -1,0 +1,25 @@
+<?page title="Hidro - Cliente" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
+<zk>
+<window sclass="" id="wincliente" border="none" height="100%" width="100%" apply="mz.co.hidroinfo.controller.ClienteController" >
+<borderlayout>
+<north sclass="navegacao">
+<hlayout valign="middle"  >
+<hbox sclass="clientes" align="center" >
+<button id="bt_domestico" zclass="btn btn-primary" label="Doméstico" ></button>
+<button id="bt_colectivo" zclass="btn btn-default" label="Colectivo" ></button>
+</hbox>
+<hbox align="center" sclass="operacoes" id="operacoes">
+	<textbox id="tb_pesquisa"  width="400px" placeholder="pesquise aqui um cliente"></textbox>	
+	<button id="pesquisa" sclass="pesquisa" image="/imagens/search.ico" >pesquisar</button>
+	<button id="adiciona" sclass="adiciona" image="/imagens/add.ico" >adicionar</button>
+</hbox>
+</hlayout>
+</north>
+
+<center id="tabela" sclass="conteudo">
+</center>
+</borderlayout>
+</window>
+</zk>

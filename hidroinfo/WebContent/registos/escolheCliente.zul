@@ -1,0 +1,40 @@
+<?page title="Escolha de cliente" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Escolha de cliente" id="winescolher" width="600px" height="400px" mode="modal" closable="true" border="normal"
+apply="mz.co.hidroinfo.controller.EscolherClienteController">
+<borderlayout width="100%" height="100%">
+	<north>
+	<hlayout>
+		<textbox id="tb_pesquisa"></textbox>
+		<button id="bt_pesquisa" label="Pesquisar cliente"></button>
+		<grid>
+		<columns>
+		<column></column>
+		</columns>
+		<rows>
+			<row id="rw_dadosContador" value="${arg}" ></row>
+		</rows>
+		</grid>
+	</hlayout>
+	</north>
+	<center>
+		<listbox id="lb_cliente" mold="paging">
+		<listhead>
+			<listheader>Codigo</listheader>
+			<listheader>Nome de cliente</listheader>
+			<listheader>Escolha</listheader>
+		</listhead>
+		<template name="model">
+		<listitem value="${each}">
+			<listcell label="${each.id}" ></listcell>
+			<listcell label="${each.nome}"></listcell>
+			<listcell>
+			<button label="Escolher" forward="onClick=lb_cliente.onClienteEscolhe"></button>
+			</listcell>
+		</listitem>
+		</template>
+		</listbox>
+	</center>
+</borderlayout>
+</window>
+</zk>

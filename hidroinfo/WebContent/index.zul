@@ -1,0 +1,16 @@
+<?page title="Hidro Info - Sistema de gestão de fornecimento de água"?>
+<?link rel="stylesheet" type="text/css" href="/bootstrap.css" ?>
+<?link rel="stylesheet" type="text/css" href="/style.css" ?>
+<window id="win" border="none" height="100%">
+	<borderlayout>
+		<north sclass="header" id="header">
+			<include src="header.zul"></include>
+		</north>
+		<center sclass="content" id="content">
+			<button sclass="btn btn-success" >Botão</button>
+		</center>
+		<south sclass="footer" id="footer">
+			<include src="footer.zul"></include>
+		</south>
+	</borderlayout>
+</window>

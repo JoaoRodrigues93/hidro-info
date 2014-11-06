@@ -1,0 +1,70 @@
+<zk>
+
+<window id="winAlterarColectivo" title="Alteração de cliente colectivo" border="normal" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteColectivoController" >
+	<grid id="gd_clienteAlterar">
+		<columns>
+		<column></column>
+		<column></column>
+		</columns>
+		<rows>
+		<row id="rw_dadosCliente" value="${arg}" spans="2">
+		<cell><label value="Dados do cliente a alterar" ></label></cell>
+		</row>
+			<row>
+				<cell>Nome:</cell> <cell> <textbox id="tb_nome" value="${arg.clienteAlterar.nome}"> </textbox> </cell>
+			</row>
+			<row>
+				<cell>Bi:</cell> <cell> <textbox id="tb_representante" value="${arg.clienteAlterar.representante}" > </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Nuit:</cell> <cell> <textbox id="tb_nuit" value="${arg.clienteAlterar.nuit}" > </textbox> </cell>
+			</row>
+			
+			<row spans="2">
+				<cell align="center" >Endereço</cell>
+			</row>
+			
+			<row>
+				<cell>Cidade:</cell> <cell> <textbox id="tb_cidade" value="${arg.clienteAlterar.endereco.cidade}" > </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Bairro:</cell> <cell> <textbox id="tb_bairro" value="${arg.clienteAlterar.endereco.bairro}" > </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Avenida:</cell> <cell> <textbox id="tb_avenida" value="${arg.clienteAlterar.endereco.avenida}" > </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Rua:</cell> <cell> <textbox id="tb_rua" value="${arg.clienteAlterar.endereco.rua}"></textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>quarteirao:</cell> <cell> <textbox id="tb_quarteirao" value="${arg.clienteAlterar.endereco.quarteirao}"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Número da residência:</cell> <cell> <textbox id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}"> </textbox> </cell>
+			</row>
+			
+			<row spans="2" >
+				<cell align="center" >Contacto</cell>
+			</row>
+			
+			<row>
+				<cell>Telefone:</cell> <cell> <textbox id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>E-mail</cell> <cell> <textbox id="tb_email" value="${arg.clienteAlterar.contacto.email}"> </textbox> </cell>
+			</row>
+			<row>
+				<cell align="right" > <button id="bt_alterar" >Confirmar alteração</button> </cell> 
+				<cell align="left" > <button id="bt_limpar">Limpar</button> </cell>
+			</row>
+		</rows>
+	</grid>
+</window>
+</zk>

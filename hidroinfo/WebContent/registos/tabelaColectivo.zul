@@ -1,0 +1,53 @@
+	<listbox id="lb_cliente" emptyMessage="Nenhum cliente colectivo por mostrar" sclass="tabela"
+	apply="mz.co.hidroinfo.controller.ClienteColectivoController">
+		<listhead>
+			<listheader>
+			Codigo
+			</listheader>
+			<listheader>
+			Nome
+			</listheader>
+			<listheader>
+			Representante
+			</listheader>
+			<listheader>
+			NUIT
+			</listheader>
+			<listheader>
+			Cidade
+			</listheader>
+			<listheader>
+			Telefone
+			</listheader>
+			<listheader>
+			Opcoes
+			</listheader>
+		</listhead>
+		<template name="model">
+			<listitem value="${each}" popup="detail_${each.id}" style="cursor:pointer">
+				<listcell label="${each.id}"  >
+				<popup id="detail_${each.id}" height="460px" width="400px" >
+					<include src="/registos/colectivo_detail.zul"
+					cliente="${each}"></include>
+				</popup>
+				</listcell>
+				<listcell label="${each.nome}"  >
+				</listcell>
+				<listcell label="${each.representante}"  >
+				</listcell>
+				<listcell label="${each.nuit}"  >
+				</listcell>
+				<listcell label="${each.endereco.cidade}">
+				</listcell>
+				<listcell label="${each.contacto.telefone}"  >
+				</listcell>
+				<listcell>
+				<hbox>
+				<button   image="/imagens/edit.ico" forward="lb_cliente.onClienteColectivoUpdate"  ></button>
+				<button image="/imagens/delete.ico" forward="onClick=lb_cliente.onClienteColectivoDelete"></button>
+				</hbox>
+				</listcell>
+			</listitem>
+		</template>
+		
+	</listbox>

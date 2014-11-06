@@ -1,0 +1,95 @@
+<?page title="Registar Leitura no contador" contentType="text/html;charset=UTF-8"?>
+
+<window title="Registar Leitura no contador" width="100%" height="100%"
+	border="normal"
+	apply="mz.co.hidroinfo.controller.LeituraContadorController">
+	<borderlayout width="100%" height="100%">
+		<north>
+			<vlayout>
+				<grid>
+					<columns>
+						<column />
+						<column />
+					</columns>
+					<rows>
+						<row id="rw_contador">
+							<cell>Contador:</cell>
+							<cell>
+								<textbox id="tb_contador" />
+								<button id="bt_escolherContador"
+									label="Escolher contador..." />
+							</cell>
+						</row>
+						<row id="rw_leitor">
+							<cell>Leitor:</cell>
+							<cell>
+								<textbox id="tb_leitor" />
+								<button id="bt_escolherLeitor"
+									label="Escolher leitor..." />
+							</cell>
+						</row>
+						<row>
+							<cell>Data da leitura actual:</cell>
+							<cell>
+								<datebox id="db_dataActual" />
+							</cell>
+						</row>
+						<row>
+							<cell>Data da leitura anterior:</cell>
+							<cell>
+								<datebox id="db_dataAnterior" />
+							</cell>
+						</row>
+						<row>
+							<cell>Leitura actual:</cell>
+							<cell>
+								<intbox id="ib_leituraActual" />
+							</cell>
+						</row>
+						<row>
+							<cell>Leitura anterior:</cell>
+							<cell>
+								<intbox id="ib_leituraAnterior" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+				<hbox>
+					<button id="bt_guardar" label="Guardar"></button>
+					<button id="bt_alterar" label="Alterar"></button>
+					<button id="bt_eliminar" label="Eliminar"></button>
+					<button id="bt_limpar" label="Limpar"></button>
+				</hbox>
+			</vlayout>
+		</north>
+		<center>
+			<listbox id="lb_leitura">
+				<listhead>
+					<listheader label="Leitura actual" />
+					<listheader label="Leitura anterior" />
+					<listheader label="Data leitura actual" />
+					<listheader label="Data leitura anterior" />
+					<listheader label="Número de contador" />
+					<listheader label="Opções" />
+				</listhead>
+				<template name="model">
+					<listitem>
+						<listcell label="${each.leituraActual}"></listcell>
+						<listcell label="${each.leituraAnterior}">
+						</listcell>
+						<listcell>
+							<datebox value="${each.dataActual.time}" buttonVisible="false" format="short" readonly="true" ></datebox>
+						</listcell>
+						<listcell>
+							<datebox
+								value="${each.dataAnterior.time}" buttonVisible="false" format="short" readonly="true" >
+							</datebox>
+						</listcell>
+						<listcell label="${each.contador.numero}"></listcell>
+						<listcell label="Opções"></listcell>
+					</listitem>
+				</template>
+			</listbox>
+		</center>
+	</borderlayout>
+</window>

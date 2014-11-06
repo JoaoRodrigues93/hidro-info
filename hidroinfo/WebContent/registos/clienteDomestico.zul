@@ -1,0 +1,69 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
+
+<window id="winclientedomestico"  title="Registo de Cliente doméstico" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteDomesticoController" >
+		<columns>
+		<column></column>
+		<column></column>
+		</columns>
+		<rows>
+		<row id="rw_dadosCliente" spans="2" value="${arg}"><cell><label value="Dados do cliente"></label></cell></row>
+			<row>
+				<cell>Nome:</cell> <cell> <textbox id="tb_nome"></textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Bi:</cell> <cell> <textbox id="tb_bi"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Nuit:</cell> <cell> <textbox id="tb_nuit"> </textbox> </cell>
+			</row>
+			
+			<row spans="2">
+				<cell align="center" >Endereço</cell>
+			</row>
+			
+			<row>
+				<cell>Cidade:</cell> <cell> <textbox id="tb_cidade"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Bairro:</cell> <cell> <textbox id="tb_bairro"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Avenida:</cell> <cell> <textbox id="tb_avenida"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Rua:</cell> <cell> <textbox id="tb_rua"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>quarteirao:</cell> <cell> <textbox id="tb_quarteirao"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>Número da residência:</cell> <cell> <textbox id="tb_casaNumero"> </textbox> </cell>
+			</row>
+			
+			<row spans="2" >
+				<cell align="center" >Contacto</cell>
+			</row>
+			
+			<row>
+				<cell>Telefone:</cell> <cell> <textbox id="tb_telefone"> </textbox> </cell>
+			</row>
+			
+			<row>
+				<cell>E-mail</cell> <cell> <textbox id="tb_email"> </textbox> </cell>
+			</row>
+			<row>
+				<cell align="right"> <button id="bt_guardar">Guardar</button> </cell> 
+				<cell align="left" > <button id="bt_limpar">Limpar</button> </cell>
+			</row>
+			
+		</rows>
+	</grid>
+</window>
