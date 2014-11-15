@@ -38,22 +38,30 @@ public Menu_reclamacaoController(){
 @Listen ("onClick=#btn_reclamacao")
 public void setReclamacao (){
 	setReclamacaoAttributes();
+	if(pagina.getFirstChild()!=null)
+		pagina.removeChild(pagina.getFirstChild());
 	Div div =(Div) Executions.createComponents("/gestao/reclamacao.zul", pagina, null);
 }
 
 @Listen ("onClick = #btn_alertas")
 public void setAlertas(){
 	setAlertasAttributes();
+	if(pagina.getFirstChild()!=null)
+		pagina.removeChild(pagina.getFirstChild());
 	Component comp = Executions.createComponents("/gestao/avisoDeCorte.zul", pagina, null);
 }
 @Listen ("onClick = #btn_notificacao")
 public void setNotificacao(){
 	setNotificacaoAttributes();
+	if(pagina.getFirstChild()!=null)
+		pagina.removeChild(pagina.getFirstChild());
 	Component comp = Executions.createComponents("/gestao/notificacao.zul", pagina, null);
 }
 @Listen ("onClick = #btn_factura")
 public void setFactura(){
 	setFactura();
+	if(pagina.getFirstChild()!=null)
+		pagina.removeChild(pagina.getFirstChild());
 	Component comp = Executions.createComponents("/gestao/enviarFactura.zul", pagina, null);
 }
 
