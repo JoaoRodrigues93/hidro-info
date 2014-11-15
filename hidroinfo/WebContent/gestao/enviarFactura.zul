@@ -1,5 +1,5 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
-<window title="new page title" border="normal" apply="mz.co.hidroinfo.controller.EnviarFacturaController">
+<window  apply="mz.co.hidroinfo.controller.EnviarFacturaController">
 	<listbox id="lb_facturas">
 	<listhead>
 		<listheader label="Codigo" sort="auto" />

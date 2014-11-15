@@ -1,6 +1,6 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="new page title" id="wd_notificacao" border="normal" apply="mz.co.hidroinfo.controller.NotificacaoController">
+<window  id="wd_notificacao" apply="mz.co.hidroinfo.controller.NotificacaoController">
 	<grid>
 		<columns>
 			<column label=""/>
