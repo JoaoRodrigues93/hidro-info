@@ -1,0 +1,32 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<window title="new page title" border="normal" apply="mz.co.hidroinfo.controller.EnviarFacturaController">
+	<listbox id="lb_facturas">
+	<listhead>
+		<listheader label="Codigo" sort="auto" />
+		<listheader label="Nome" sort="auto" />
+		<listheader label="Telefone" sort="auto" />
+		<listheader label="Valor" sort="auto" />
+		<listheader label="Data" sort="auto" />
+		<listheader label="Estado" sort="auto" />
+	</listhead>
+	<template name="model">
+		<listitem>
+			<listcell label="${each.id}">
+			</listcell>
+			<listcell label="${each.leituraContador.contador.proprietario.nome}">
+			</listcell>
+			<listcell label="${each.leituraContador.contador.proprietario.contacto.telefone}">
+			</listcell>
+			<listcell label="${each.valorAPagar}">
+			</listcell>
+			<listcell>
+			<datebox value="${each.dataEmissao.time}" format="short" buttonVisible="false" readonly="true" ></datebox>
+			</listcell>
+			<listcell label="${each.estado?'Enviada':'Não Enviada'}">
+			</listcell>
+		</listitem>
+	</template>
+</listbox>
+<button label="Enviar" id="btn_enviar"></button>
+
+</window>

@@ -1,16 +1,11 @@
 <?page title="Hidro Info - Sistema de gestão de fornecimento de água"?>
-<?link rel="stylesheet" type="text/css" href="/bootstrap.css" ?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css" ?>
 <?link rel="stylesheet" type="text/css" href="/style.css" ?>
-<window id="win" border="none" height="100%">
-	<borderlayout>
-		<north sclass="header" id="header">
-			<include src="header.zul"></include>
-		</north>
-		<center sclass="content" id="content">
-			<button sclass="btn btn-success" >Botão</button>
-		</center>
-		<south sclass="footer" id="footer">
-			<include src="footer.zul"></include>
-		</south>
-	</borderlayout>
+<window position="center" id="wdw_login" mode="modal" apply="mz.co.hidroinfo.controller.LoginController">
+	<div zclass="form-signin">
+		<label zclass="form-signin-heading h1" value="Entrar no Sistema"></label>
+		<textbox zclass="form-control" id="tb_username" placeholder="Nome do usuario" ></textbox>
+		<textbox zclass="form-control" type="password" id="tb_password" placeholder="A palavra-passe"  ></textbox>
+			<button zclass="btn btn-lg btn-primary btn-block" id="bt_login" label="Login"></button>
+		</div>
 </window>

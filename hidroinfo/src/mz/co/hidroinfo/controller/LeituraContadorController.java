@@ -8,10 +8,15 @@ import java.util.Map;
 
 import mz.co.hidroinfo.dao.FacturaDao;
 import mz.co.hidroinfo.dao.LeituraContadorDao;
+import mz.co.hidroinfo.dao.PrecarioDao;
+import mz.co.hidroinfo.model.Cliente;
+import mz.co.hidroinfo.model.ClienteColectivo;
+import mz.co.hidroinfo.model.ClienteDomestico;
 import mz.co.hidroinfo.model.Contador;
 import mz.co.hidroinfo.model.Factura;
 import mz.co.hidroinfo.model.Leitor;
 import mz.co.hidroinfo.model.LeituraContador;
+import mz.co.hidroinfo.model.Precario;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -134,9 +139,27 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 	}
 	
 	public void criarFactura (LeituraContador leitura) {
+		PrecarioDao dao = new PrecarioDao();
 		Factura factura = new Factura();
 		String periodo;
 		float vpagar, taxaPorMetro=10,taxaFixa=100;
+		Cliente cliente = leitura.getContador().getProprietario();
+		
+		if(cliente instanceof ClienteColectivo){
+					Precario colectivo = dao.pegaTarifa("Coletivo");
+					if (colectivo !=null){
+						taxaPorMetro = colectivo.getTaxa_por_metro_cubico();
+						taxaFixa = colectivo.getTaxa_por_metro_cubico();
+						}
+		}
+		else if(cliente instanceof ClienteDomestico){
+		Precario domestico = dao.pegaTarifa("Domestico");
+		if (domestico !=null){
+		taxaPorMetro = domestico.getTaxa_por_metro_cubico();
+		taxaFixa = domestico.getTaxa_por_metro_cubico();
+		}
+		}
+		
 		int leituraAnterior, leituraActual;
 		leituraActual = leitura.getLeituraActual();
 		leituraAnterior = leitura.getLeituraAnterior();

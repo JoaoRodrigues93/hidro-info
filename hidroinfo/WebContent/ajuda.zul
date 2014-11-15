@@ -1,0 +1,8 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+
+<window border="none">
+<hbox  pack="center" align="center" >
+	<label value="Secção destinada a ajuda" style="font-size:64px; color:#0000FF; font-weight:bold; text-align:center;" >
+	</label>
+</hbox>
+</window>

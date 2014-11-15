@@ -1,0 +1,24 @@
+<?page title="Hidroinfo" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="../bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="../style.css"?>
+<zk>
+<window id="minimenu" border="none" height="100%" width="100%" apply="mz.co.hidroinfo.controller.Menu_reclamacaoController" >
+<borderlayout>
+<north sclass="navegacao">
+<hlayout valign="middle"  >
+<hbox sclass="minimenu" align="center" >
+<button id="btn_notificacao" sclass="btn btn-default" label="Enviar Notificacao" ></button>
+<button id="btn_factura" sclass="btn btn-default" label="Enviar Facturas" ></button>
+<button id="btn_reclamacao" sclass="btn btn-default" label="Reclamacoes" ></button>
+<button id="btn_alertas" sclass="btn btn-default" label="Enviar Alertas" ></button>
+</hbox>
+
+</hlayout>
+</north>
+
+
+<center id="pagina" sclass="conteudo">
+</center>
+</borderlayout>
+</window>
+</zk>

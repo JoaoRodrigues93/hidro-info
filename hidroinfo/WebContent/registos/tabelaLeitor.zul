@@ -1,0 +1,35 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+
+<listbox id="lb_leitor"
+	apply="mz.co.hidroinfo.controller.Mini_MenuController">
+	<listhead>
+		<listheader label="Código" />
+		<listheader label="Nome" />
+		<listheader label="BI" />
+		<listheader label="NUIT" />
+		<listheader label="Telefone" />
+		<listheader label="E-mail" />
+		<listheader label="Bairro" />
+	</listhead>
+	<template name="model">
+		<listitem>
+			<listcell label="${each.id}"></listcell>
+			<listcell label="${each.nome}"></listcell>
+			<listcell label="${each.bi}"></listcell>
+			<listcell label="${each.nuit}"></listcell>
+			<listcell label="${each.telefone}"></listcell>
+			<listcell label="${each.email}"></listcell>
+			<listcell label="${each.bairro}"></listcell>
+			<listcell>
+				<hbox>
+					<button image="/imagens/edit.ico"
+						forward="lb_cliente.onLeitorUpdate">
+					</button>
+					<button image="/imagens/delete.ico"
+						forward="onClick=lb_cliente.onLeitorDelete">
+					</button>
+				</hbox>
+			</listcell>
+		</listitem>
+	</template>
+</listbox>

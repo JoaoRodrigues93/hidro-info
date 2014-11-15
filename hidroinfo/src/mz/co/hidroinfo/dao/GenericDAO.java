@@ -50,7 +50,7 @@ public class GenericDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public T findById(Long id) {
+	public T findById(Integer id) {
 		Session sess = getSession();
 		Transaction tx = sess.beginTransaction();
 		T item = (T) sess.get(_clazz, id);

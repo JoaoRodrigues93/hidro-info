@@ -8,13 +8,17 @@ package mz.co.hidroinfo.controller;
 import mz.co.hidroinfo.dao.FuncionarioDao;
 import mz.co.hidroinfo.model.Funcionario;
 import mz.co.hidroinfo.model.Leitor;
+import mz.co.hidroinfo.model.Operador;
 
 import org.zkoss.zhtml.Button;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.event.ForwardEvent;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Window;
 
 
 
@@ -26,7 +30,7 @@ public class ControladorLeitor extends GenericForwardComposer {
 	private Button btn_add, btn_reg;
 
 	private Textbox nome, bi, nuit, telefone, email, bairro;
-	
+	private Window winleitor;
 	Leitor l;
 	public void onClick$Regista(ForwardEvent e){
 		l=new Leitor();
@@ -43,9 +47,10 @@ public class ControladorLeitor extends GenericForwardComposer {
 		FuncionarioDao fv=new FuncionarioDao();
 		fv.create(l);
 	
-		
-
-		Messagebox.show("Leitor registado com sucesso!");
+		Listbox lb_leitor = (Listbox)winleitor.getAttribute("lb_leitor");
+		ListModelList<Leitor> model = (ListModelList) lb_leitor.getModel();
+		model.add(l);
+		Clients.showNotification("Operador registado com sucesso!");
 		onClick$limparCampos();
 	}
 	public void onClick$limparCampos(){

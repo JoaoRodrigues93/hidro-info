@@ -1,0 +1,68 @@
+<?page title="Hidroinfo - Reclamacao" contentType="text/html;charset=UTF-8"?>
+
+	<div width="100%" height="100%" apply="mz.co.hidroinfo.controller.ReclamacaoController">
+
+<style>
+
+.titulo {
+	color:#0000FF; font-size: 18px; font-weight:bold; text-align:right;
+}
+
+.corpo {
+	border:none;
+	color:#000000;
+	font-size:14px;
+}
+
+east {
+
+}
+
+center{
+
+}
+
+</style>
+
+<borderlayout width="100%" height="100%" >
+					<center style="padding:15px 15px 15px 15px; border:none;" >
+						<listbox id="lst_reclamacao" height="200px" rows="5">
+							<listhead>
+								<listheader label="Codigo" sort="auto" />
+								<listheader label="Data" sort="auto" />
+								<listheader label="Assunto" sort="auto" />
+								<listheader label="Cliente" sort="auto" />		
+							</listhead>
+							<template name="model">
+
+								<listitem value="${each}">
+									<listcell>
+										<label value="${each.cod}"></label>
+									</listcell>
+									<listcell>
+									<datebox value="${each.data.time}" format="short" buttonVisible="false" readonly="true" 	>
+									
+									</datebox>
+									</listcell>
+									<listcell>
+										<label
+											value="${each.assunto}">
+										</label>
+									</listcell>
+
+									<listcell>
+										<label value="${each.cliente.nome}"></label>
+									</listcell>
+
+								</listitem>
+							</template>
+						</listbox>
+		</center>
+		<east style="padding: 10px 10px 10px 10px; border:none;">
+		<vbox align="end" pack="end" >
+			<label id="lb_assunto" zclass="titulo"  value="Nenhum dado por mostrar" ></label>
+			<textbox id="txt_mensagem" cols="60" sclass="corpo"  rows="20" value="Nenhum dado por mostrar" ></textbox>
+		</vbox>
+		</east>
+		</borderlayout>
+	</div>

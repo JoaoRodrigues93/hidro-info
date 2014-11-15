@@ -7,8 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 
@@ -17,15 +15,21 @@ public class Factura {
 	
 	@Id @GeneratedValue (strategy = GenerationType.AUTO)
 	private int id;
-	@Temporal (TemporalType.DATE)
 	private Calendar dataLimite;
-	@Temporal (TemporalType.DATE)
 	private Calendar dataEmissao;
 	private String periodoFacturacao;
 	private float valorAPagar;
 	@OneToOne
 	private LeituraContador leituraContador;
+	private boolean estado;
 	
+	
+	public boolean isEstado() {
+		return estado;
+	}
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 	public int getId() {
 		return id;
 	}

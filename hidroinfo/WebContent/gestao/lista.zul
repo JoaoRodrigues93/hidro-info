@@ -1,0 +1,74 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window apply="mz.co.teste.controller.ReclamacaoController">
+
+
+		<grid>
+			<rows>
+				<row>
+					<cell>
+					
+						<listbox id="lst_reclamacao" height="200px" rows="5">
+			<listhead>
+				<listheader label="Codigo" sort="auto" />
+				<listheader label="Cliente" sort="auto" />
+				<listheader label="Assunto" sort="auto" />
+
+				<listheader label="Data" sort="auto" />
+
+			</listhead>
+			<template name="....">
+	
+				<listitem value="${each}">
+					<listcell>
+						<label value="1111"></label>
+					</listcell>
+					<listcell>
+						<label value="hjoivcseryui"></label>
+					</listcell>
+					<listcell>
+						<label value="aaaaaaaaghjkwdj"></label>
+					</listcell>
+
+					<listcell>
+					
+						<label value="12/12/12"></label>
+					</listcell>
+
+				</listitem>
+			</template>
+		</listbox>
+					
+					
+					
+					</cell>
+					<cell> 
+					<label value="${each.details }"> </label>
+					
+					</cell>
+				</row>
+			</rows>
+		</grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</window>
+</zk>

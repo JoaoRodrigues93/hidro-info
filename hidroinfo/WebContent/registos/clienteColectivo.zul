@@ -1,5 +1,4 @@
-<zk>
-<window id="winclientecolectivo" title="Registo de Cliente Colectivo" border="normal" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteColectivoController" >
+<window id="winclientecolectivo" title="Registo de Cliente Colectivo" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteColectivoController" >
 	<grid>
 		<columns>
 		<column></column>
@@ -66,4 +65,3 @@
 		</rows>
 	</grid>
 </window>
-</zk>
