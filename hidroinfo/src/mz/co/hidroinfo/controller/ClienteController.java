@@ -97,11 +97,11 @@ public class ClienteController extends SelectorComposer<Component>{
 		Map<String, Object> arguments = new HashMap<String, Object>();
 		if (tipoCliente == DOMESTICO){
 		arguments.put("tabelaDomestico", tabela.getFirstChild());
-		win = (Window) Executions.createComponents("clienteDomestico.zul", null,arguments);
+		win = (Window) Executions.createComponents("/registos/clienteDomestico.zul", null,arguments);
 		}
 		else if (tipoCliente == COLECTIVO){
 		arguments.put("tabelaColectivo", tabela.getFirstChild());
-		win = (Window) Executions.createComponents("clienteColectivo.zul", null,arguments);
+		win = (Window) Executions.createComponents("/registos/clienteColectivo.zul", null,arguments);
 		}
 		win.doHighlighted();
 	}
@@ -112,7 +112,7 @@ public class ClienteController extends SelectorComposer<Component>{
 		if(child !=null){
 			tabela.removeChild(child);
 		}
-		tabelaDomestico = (Listbox) Executions.createComponents("tabelaDomestico.zul", tabela, null);
+		tabelaDomestico = (Listbox) Executions.createComponents("/registos/tabelaDomestico.zul", tabela, null);
 	}
 	
 	public void setTabelaColectivo (){
@@ -121,7 +121,7 @@ public class ClienteController extends SelectorComposer<Component>{
 		if(child !=null){
 			tabela.removeChild(child);
 		}
-		tabelaColectivo = (Listbox) Executions.createComponents("tabelaColectivo.zul", tabela, null);
+		tabelaColectivo = (Listbox) Executions.createComponents("/registos/tabelaColectivo.zul", tabela, null);
 	}
 	
 	public void setDomesticoAttributes (){

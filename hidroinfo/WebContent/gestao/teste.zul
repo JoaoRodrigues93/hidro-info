@@ -1,0 +1,294 @@
+<?page title="Hidro - Efectuar Pagamento" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="../style.css"?>
+<window width="100%" height="100%">
+
+	<div>
+		<style>
+
+			.titulo { color:#0000FF; font-size: 18px; font-weight:bold;
+			text-align:left; }
+
+			.corpo { border:none; color:#000000; font-size:14px; }
+
+			east {
+
+			}
+
+			center{
+
+			}
+
+		</style>
+
+		<columnlayout>
+			<columnchildren width="30%" style="padding:5px">
+				<panel height="350px" framable="false" border="none"
+					maximizable="true" style="margin-bottom:10px">
+					<panelchildren>
+
+						<grid height="100%">
+
+							<rows>
+								<row id="rw_fatura">
+									<cell>
+										<label
+											value="Dados da Factura">
+										</label>
+									</cell>
+								</row>
+								<row>
+									<cell>Fatura No:</cell>
+									<cell>
+										<textbox readonly="true"
+											id="itb_idFatura">
+										</textbox>
+									</cell>
+								</row>
+
+								<row>
+									<cell>Nome:</cell>
+									<cell>
+										<textbox readonly="true"
+											id="tb_nome">
+										</textbox>
+									</cell>
+								</row>
+
+								<row>
+									<cell>Classe:</cell>
+									<cell>
+										<textbox readonly="true"
+											id="tb_classe">
+										</textbox>
+									</cell>
+								</row>
+
+								<row>
+									<cell>Cod. Cliente:</cell>
+									<cell>
+										<intbox readonly="true"
+											id="itb_codCliente">
+										</intbox>
+									</cell>
+								</row>
+
+								<row>
+									<cell>Data Emissao:</cell>
+									<cell>
+										<datebox id="dt_emissao"
+											format="short" buttonVisible="false" readonly="true">
+										</datebox>
+									</cell>
+								</row>
+
+								<row>
+									<cell>Data Limite Pagamento:</cell>
+									<cell>
+										<datebox id="dt_limitePagamento"
+											format="short" buttonVisible="false" readonly="true">
+										</datebox>
+									</cell>
+								</row>
+
+								<row>
+									<cell>Periodo de Facturacao:</cell>
+									<cell>
+										<textbox id="tb_faturacao"
+											readonly="true">
+										</textbox>
+									</cell>
+								</row>
+
+								<row>
+									<cell>Valor em MTN:</cell>
+									<cell>
+										<textbox id="dtb_valor"
+											readonly="true">
+										</textbox>
+									</cell>
+								</row>
+
+
+
+							</rows>
+						</grid>
+
+
+
+					</panelchildren>
+				</panel>
+			</columnchildren>
+			<columnchildren width="70%" style="padding:5px">
+				<panel height="350px" framable="false" border="none"
+					maximizable="true" style="margin-bottom:10px">
+					<panelchildren>
+
+						<grid height="100%" width="100%"
+							style="border:normal">
+							<columns>
+								<column label="" />
+								<column label="" />
+							</columns>
+							<rows>
+								<row spans="2">
+									<cell>
+										<hlayout spacing="11px">
+											<label
+												value="Divida em MTn:">
+											</label>
+
+											<textbox id="tb_divida"
+												placeholder="divida" readonly="true">
+											</textbox>
+										</hlayout>
+									</cell>
+
+									<cell>
+										<hlayout spacing="30px"
+											style="align:right">
+											<intbox id="itb_codFac"
+												placeholder="Código da factura" constraint="no empty"
+												style="align:right">
+											</intbox>
+											<button id="bt_factura"
+												zclass="btn btn-primary" label="Facturar"
+												style="align:right">
+											</button>
+										</hlayout>
+									</cell>
+								</row>
+								<row spans="1">
+									<cell>
+										<hlayout spacing="20px">
+											<label
+												value="Tolal em MTn:">
+											</label>
+											<textbox id="tb_total"
+												placeholder="tolal" readonly="true">
+											</textbox>
+										</hlayout>
+									</cell>
+									<cell>
+										<label zclass="titulo">
+											Pagamentos Diarios
+										</label>
+									</cell>
+									<cell></cell>
+
+								</row>
+								<row spans="1">
+									<cell></cell>
+									<cell></cell>
+									<cell>
+										<vlayout spacing="0px">
+											<hbox spacing="30px"
+												vflex="20px">
+
+												<label>Data:</label>
+												<datebox id="dt_dataPag"
+													format="short" buttonVisible="false" readonly="true"
+													placeholder="dd/mes/aaaa" style="align:right">
+												</datebox>
+											</hbox>
+										</vlayout>
+									</cell>
+								</row>
+
+								<row spans="1">
+
+									<cell>
+																				
+												<groupbox>
+
+													<grid>
+														<rows>
+															<row>
+																<cell>
+																	<label
+																		value="Valor entregue:">
+																	</label>
+																</cell>
+																<cell>
+																	<textbox
+																		id="tb_vlrEntregue" placeholder="valor entregue">
+																	</textbox>
+																</cell>
+															</row>
+															<row>
+																<cell>
+																	<label
+																		value="Troco:">
+																	</label>
+																</cell>
+																<cell>
+																	<textbox
+																		id="tb_troco" readonly="true"
+																		placeholder="Troco do cliente">
+
+																	</textbox>
+																</cell>
+															</row>
+															<row>
+																<cell></cell>
+																<cell
+																	align="center">
+																	<button
+																		id="btn_pagar" zclass="btn btn-primary">
+																		Pagar
+																	</button>
+																</cell>
+															</row>
+
+														</rows>
+													</grid>
+												</groupbox>
+										</cell>	 <cell></cell>
+											<cell>
+												<listbox
+													id="lst_pagamento"
+													emptyMessage="Nao existe pagamentos efectuados">
+													<listhead>
+														<listheader>
+															Nome
+
+														</listheader>
+														<listheader>
+															Factura Nº.
+
+														</listheader>
+													</listhead>
+													<template
+														name="model">
+														<listitem
+															value="${each}">
+															<listcell
+																label="${each.factura.leituraContador.contador.proprietario.nome}">
+
+															</listcell>
+															<listcell
+																label="${each.factura.id}">
+
+															</listcell>
+
+														</listitem>
+
+													</template>
+
+												</listbox>
+												</cell>
+										
+									
+								</row>
+							</rows>
+						</grid>
+
+
+					</panelchildren>
+				</panel>
+			</columnchildren>
+		</columnlayout>
+
+	</div>
+
+</window>

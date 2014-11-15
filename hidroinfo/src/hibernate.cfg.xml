@@ -51,7 +51,15 @@
 		<mapping class="mz.co.hidroinfo.model.Precario"/>
 		<mapping class="mz.co.hidroinfo.model.Operador"/>	
 		<mapping class="mz.co.hidroinfo.model.Factura"/>
-		
+		<mapping class="mz.co.hidroinfo.model.Reclamacao" />
+		<mapping class="mz.co.hidroinfo.model.Pagamento"/>
+		<mapping class="mz.co.hidroinfo.model.Notificacao"/>
+		<mapping class="mz.co.hidroinfo.model.NotificacaoIndividual"/>
+		<mapping class="mz.co.hidroinfo.model.NotificacaoColectiva"/>
+		<mapping class="mz.co.hidroinfo.model.MensagemFactura"/>
+		<mapping class="mz.co.hidroinfo.model.MensagemAviso"/>
+		<mapping class="mz.co.hidroinfo.model.MensagemAvisoColectiva"/>
+		<mapping class="mz.co.hidroinfo.model.MensagemAvisoIndividual"/>
 	</session-factory>
 </hibernate-configuration>
 

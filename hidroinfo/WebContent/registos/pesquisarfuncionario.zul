@@ -17,8 +17,6 @@ onOpen="">
 					
 				<button label="Adicionar " style="width:120px;"
 									 forward="onClick$Regista" />
-				
-			
 
 											</cell>
 

@@ -1,0 +1,52 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" id="wd_notificacao" border="normal" apply="mz.co.hidroinfo.controller.NotificacaoController">
+	<grid>
+		<columns>
+			<column label=""/>
+			<column label=""/>
+		</columns>
+			<rows>
+				<row>
+					<cell>Destinatário:</cell>
+					<cell>Assunto:</cell>
+				</row>
+				<row>
+					<cell>
+						<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destina">
+							<comboitem label="Todos"></comboitem>
+							<comboitem label="individual"  id="cbb_item_individual">
+							</comboitem>
+						</combobox>
+						<textbox id="tb_cliente" >
+						</textbox>
+					</cell>
+					
+					<cell>
+						Assunto:
+						<textbox id="txt_assunto">
+						</textbox>
+					</cell>
+				</row>
+					
+				<row>
+					Mensagem:
+				</row>
+				<row>
+					<cell colspan="2" >
+						<textbox rows="5" width="100%" id="txt_mensagem"></textbox>
+					</cell>
+				</row>
+				<row>
+					<cell>
+						Data:12/14/14
+					</cell>
+					<cell rowspan="2">
+						<button label="Enviar" id="btn_enviar"></button>
+					</cell>
+				</row>
+			</rows>
+		
+	</grid>
+</window>
+</zk>

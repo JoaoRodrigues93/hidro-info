@@ -1,0 +1,50 @@
+<?page title="Hidro Info" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css" ?>
+
+<window id="wd_menu" border="none" height="100%" width="100%"
+	apply="mz.co.hidroinfo.controller.MenuController">
+	<borderlayout width="100%" height="100%" sclass="well">
+		<north id="nt_menu" sclass="nt_menu" height="100px">
+			<hlayout>
+				<hbox sclass="nav-menu" pack="center" align="center">
+					<image src="/imagens/hidroinfo.PNG"></image>
+					<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_pagamentos" label="Pagamentos">
+					</button>
+					<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_clientes" label="Clientes">
+					</button>
+					<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_funcionarios" label="Funcionarios">
+					</button>
+					<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_relatorios" label="Relatóros">
+					</button>
+					<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_notificacoes" label="Notificações">
+					</button>
+					<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_administracao" label="Administração">
+					</button>
+					<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_ajuda" label="Ajuda">
+					</button>
+				</hbox>
+				<div style="margin-left:90px;">
+						<div>
+						<label zclass="text-primary text-muted" style="text-decoration:underline;" value="Sessão Iniciada"></label>
+						</div>
+						<div>
+						<label id="lb_usuario" zclass="text-primary text-right h4"></label>
+						</div>
+						<div>
+						<button id="bt_sair" label="Sair" zclass="btn btn-default">
+						</button>
+						</div>
+				</div>
+			</hlayout>
+		</north>
+		<center id="ct_conteudo"></center>
+	</borderlayout>
+</window>

@@ -1,0 +1,18 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
+<window id="wd_administracao" width="100%" height="100%"  apply="mz.co.hidroinfo.controller.AdministracaoController">
+
+	<borderlayout width="100%" height="100%">
+		<north sclass="navegacao">
+		<hbox>
+			<button id="bt_precario" label="Preçario" zclass="btn btn-default" >
+			</button>
+			<button id="bt_leituraContador" label="Registar Leituras" zclass="btn btn-default">
+			</button>
+			<button id="bt_contador" label="Contadores" zclass="btn btn-default"></button>
+		</hbox>
+		</north>
+		<center sclass="conteudo" id="ct_conteudo">
+		</center>
+	</borderlayout>
+</window>

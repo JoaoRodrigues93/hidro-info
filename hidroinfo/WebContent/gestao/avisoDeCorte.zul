@@ -1,0 +1,69 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" border="normal" apply="mz.co.hidroinfo.controller.AvisoDeCorteController" id="wd_aviso">
+
+
+<grid>
+		<columns>
+			<column label=""/>
+			<column label=""/>
+		</columns>
+			<rows>
+				<row>
+					
+				</row>
+				<row>
+					<cell>
+						Destinatário:<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destina">
+							<comboitem label="Todos"></comboitem>
+							<comboitem label="individual"  id="cbb_item_individual">
+							</comboitem>
+						</combobox>
+						<textbox id="tb_cliente">
+						</textbox>
+					</cell>
+					<cell>
+					</cell>
+				</row>
+					
+				<row>
+					Mensagem:
+				</row>
+				<row>
+					<cell colspan="2" >
+						<textbox rows="5" width="100%" id="txt_mensagem"></textbox>
+					</cell>
+				</row>
+				<row>
+					<cell>
+						Data:12/14/14
+					</cell>
+				</row>
+			</rows>
+		
+	</grid>
+
+<listbox id="lb_destinatarios">
+	<listhead>
+		<listheader label="Codigo" sort="auto" />
+		<listheader label="Nome" sort="auto" />
+		<listheader label="Telefone" sort="auto" />
+		<listheader label="Estado" sort="auto" />
+	</listhead>
+	<template name="model">
+		<listitem>
+			<listcell  label="${each.id}">
+			</listcell>
+			<listcell label="${each.cliente.nome}">
+			</listcell>
+			<listcell label="${each.cliente.contacto.telefone}">
+			</listcell>
+			<listcell label="${each.confirmacao?'Enviado':'Não Enviado'}">
+			</listcell>
+		</listitem>
+	</template>
+</listbox>
+<button label="Enviar" id="btn_enviar"></button>
+
+</window>
+</zk>

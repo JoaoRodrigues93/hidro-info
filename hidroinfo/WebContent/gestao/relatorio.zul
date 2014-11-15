@@ -1,0 +1,122 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Relatório" border="normal" height="100%" width="100%" apply="mz.co.hidroinfo.controller.RelatorioController">
+
+
+	<borderlayout hflex="1" vflex="1">
+        <north  border="none" >
+        </north>
+        
+        <west width="25%" border="none" collapsible="true"  splittable="true" minsize="300">
+           		 <vbox >
+						<label value="Relatórios" id="lbl_relatorios"/>
+						<radiogroup id="rdg_relatorios" >
+							<vbox>
+							<radio label="Clientes Em Divida" />
+
+							<radio label="Quantidade Clientes" />
+
+							<radio label="Valores Pagos" />
+
+							</vbox>
+
+						</radiogroup>
+
+						<label value="Locais" id="lbl_locais"/>
+						<combobox id="cbx_cidades"  placeholder="Escolha Cidade Desejada" forward="onSelect">
+							<comboitem label="Maputo"/>
+							<comboitem label="Matola" />
+							<comboitem label="xai-xai" />
+							<comboitem label="Inhambane" />
+							<comboitem label="Beira" />
+							<comboitem label="Chimoio" />
+							<comboitem label="Tete" />
+							<comboitem label="Quelimane" />
+							<comboitem label="Nampula" />
+							<comboitem label="Lichinga" />
+							<comboitem label="Pemba" />
+						</combobox>
+
+						<combobox id="cbx_bairros" visible="false" placeholder="Escolha Bairro">
+						</combobox>
+
+						<label value="Categoria" id="lbl_categoria"/>
+
+						<radiogroup id="rdg_categoria">
+							<vbox>
+							<radio label="Doméstico"/>
+
+							<radio label="Colectivo"/>
+							</vbox>
+						</radiogroup>
+						
+						<label value="Periodo" id="lbl_periodo" />
+						
+						<combobox id="cbx_periodo" placeholder="Escolha Periodo">
+							<comboitem label="Diariamente"/>
+							<comboitem label="Semanalmente"/>
+							<comboitem label="Mensalmente"/>						
+						</combobox>
+						
+				        <datebox placeholder="Escolha a Data" id="calendario"/>
+                            
+						<button label="Gerar" id="btn_gerar" width="40%"/>
+					</vbox>
+        </west>
+        <center id="mainContent" border="normal" >
+					<grid>
+                    <rows>
+                        <row>
+                            <cell width="99%" align="right">
+									<label value="Relatorio de Actividades" />
+                            </cell>
+                        </row>
+                                              
+
+                        <row >
+                            <cell>                            
+                            	<label value= "Lista de Valores Pagos"/>
+                            	<listbox id="lst_relatorio" width="40%" > 
+                                    <listhead>                                        
+                                        <listheader label="Dia"/> 
+                                        <listheader label="Valor em Meticais" />
+                                    </listhead>
+                                </listbox>
+                              </cell>
+                            </row>
+                                
+                               <row>
+                                <cell>
+                                	
+                                	<label value="Total de Clientes Domesticos: " id="lbl_domestico" />
+                               		 <textbox id="txt_totalClientesDomestico" readonly="true"/>
+                                </cell>
+                               </row>
+                                
+                                <row>
+                                <cell>
+                                	 <label value="Total de Clientes Colectivo: " id="lbl_colectivo" />
+                               		 <textbox id="txt_totalClientesColectivo" readonly="true" />
+                                </cell>
+                               </row> 
+                            <row>
+                                <cell>
+                              	  <label value= "Lista de Clientes em Divida"/>
+                                	<listbox id="lst_clientesDivida" width="60%" > 
+                                    <listhead>                                        
+                                        <listheader label="Nome"/> 
+                                        <listheader label="Valor em Divida" />
+                                    </listhead>
+                                </listbox>
+                                </cell>
+                              </row>
+                        
+                    </rows>
+                </grid>
+
+        </center>
+        <south border="none">
+        </south>
+    </borderlayout>
+</window>
+</zk>

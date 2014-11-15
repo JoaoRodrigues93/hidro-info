@@ -1,0 +1,30 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+
+<div apply="mz.co.hidroinfo.controller.MontanteFuncionarioController"
+	width="750px" height="100%">
+	<label>De:</label>
+	<vlayout spacing="10px">
+		<hlayout spacing="250px"><datebox constraint="no future, no empty" id="dt_dataPagamento"
+			placeholder="dd/mes/yyy">
+		</datebox>
+		<button label="Procurar" id="btn_procurar" sclass="btn btn-primary"></button>
+	</hlayout>
+	<listbox id="lst_montante" height="100%" rows="10" mold="paging" autopaging="true"  >
+		<listhead>
+			<listheader label="Funcionario" />
+			<listheader label="Montante em MT" />
+		</listhead>
+		<template name="model">
+			<listitem value="${each}">
+				<listcell label="${each.operador.nome}" />
+				<listcell label="${each.valorCobrado}" />
+			</listitem>
+		</template>
+		<listfoot>
+			<listfooter label="Total" />
+
+			<listfooter id="lf_total"></listfooter>
+		</listfoot>
+	</listbox>
+</vlayout>
+</div>

@@ -17,7 +17,15 @@ public class PrecarioDao extends GenericDAO<Precario> {
 		super(Precario.class);
 	}
 	
-
+	public Precario pegaTarifa(String tarifa) {
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+		Criteria criteria = session.createCriteria(Precario.class);
+		criteria.add(Restrictions.eq("tipo_de_tarifa", tarifa));
+		Precario preco = (Precario) criteria.uniqueResult();
+		tx.commit();
+		return preco;
+	}
 
 	}
 

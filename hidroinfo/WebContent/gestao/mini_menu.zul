@@ -1,0 +1,27 @@
+<?page title="Hidro - Cliente" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
+<zk>
+<window id="minimenu" border="none" height="100%" width="100%" apply="mz.co.hidroinfo.controller.Mini_MenuController" >
+<borderlayout>
+<north sclass="navegacao">
+<hlayout valign="middle"  >
+<hbox sclass="minimenu" align="center" >
+<button id="btn_operador" zclass="btn btn-default" label="Operador" ></button>
+<button id="btn_leitor" zclass="btn btn-default" label="Leitor" ></button>
+<button id="btn_montante" zclass="btn btn-default" label="Montante" ></button>
+</hbox>
+<hbox align="center" sclass="operacoes" id="operacoes">
+	<textbox id="tb_pesquisa"  width="400px" placeholder="procura por um funcionario?"></textbox>	
+	<button id="bt_pesquisa" sclass="pesquisa" image="/imagens/search.ico" >pesquisar</button>
+	<button id="bt_adiciona" sclass="adiciona" image="/imagens/add.ico" >adicionar</button>
+</hbox>
+</hlayout>
+</north>
+
+
+<center id="pagina" sclass="conteudo">
+</center>
+</borderlayout>
+</window>
+</zk>
