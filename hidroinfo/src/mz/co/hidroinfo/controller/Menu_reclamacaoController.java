@@ -59,7 +59,7 @@ public void setNotificacao(){
 }
 @Listen ("onClick = #btn_factura")
 public void setFactura(){
-	setFactura();
+	setFacturaAttributes();
 	if(pagina.getFirstChild()!=null)
 		pagina.removeChild(pagina.getFirstChild());
 	Component comp = Executions.createComponents("/gestao/enviarFactura.zul", pagina, null);
@@ -73,7 +73,7 @@ public void setReclamacaoAttributes (){
 	btn_factura.setDisabled(false);
 	alteraEstilo(btn_reclamacao, btn_notificacao, btn_factura, btn_alertas);
 }
-public void setFaturaAttributes (){
+public void setFacturaAttributes (){
 	tipoMenu = FATURA;
 	btn_reclamacao.setDisabled(false);
 	btn_alertas.setDisabled(false);
