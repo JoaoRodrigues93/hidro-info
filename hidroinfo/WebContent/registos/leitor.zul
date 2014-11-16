@@ -94,7 +94,7 @@
 			</row>
 			<row>
 				<cell>
-					<label>bairro</label>
+					<label>Bairro de trabalho</label>
 				</cell>
 				<cell>
 					<textbox id="bairro"/>

@@ -13,16 +13,23 @@ import org.zkoss.zk.ui.event.ForwardEvent;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Center;
 import org.zkoss.zul.Div;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Listcell;
+import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Messagebox;
+import org.zkoss.zul.Row;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 import mz.co.hidroinfo.dao.*;
+import mz.co.hidroinfo.model.ClienteColectivo;
+import mz.co.hidroinfo.model.Contacto;
+import mz.co.hidroinfo.model.Endereco;
 import mz.co.hidroinfo.model.Leitor;
 import mz.co.hidroinfo.model.Operador;
 
@@ -37,19 +44,26 @@ private final int MONTANTE=2;
 @Wire
 private Button btn_operador;
 @Wire
+private Row rw_dadosOperador;
+@Wire
 private Button btn_leitor;
 @Wire 
 private Button btn_montante;
 @Wire
 private Button bt_pesquisa;
 @Wire
-private Button bt_adiciona;
+private Button bt_adiciona, bt_alterar;
+
+@Wire
+private Textbox tb_nome,tb_bi,tb_nuit,tb_telefone,tb_email,tb_username,
+tb_password, tb_insira_password;
 @Wire
 private Textbox tb_pesquisa;
 @Wire
 private Center pagina;
+
 @Wire
-private Window minimenu;
+private Window operadorWin;
 private FuncionarioDao daoFuncionario;
 @Wire
 private Listbox lb_operador;
@@ -76,10 +90,12 @@ public void doAfterCompose(Component comp) throws Exception{
 @Listen ("onClick=#btn_operador")
 public void setOperador(){
 	setOperadorAttributes();
+	actualizaTabelaOperador();
 }
 @Listen ("onClick=#btn_leitor")
 public void SetLeitor(){
 	setLeitorAttributes();
+	actualizaTabelaLeitor();
 }
 @Listen ("onClick=#btn_montante")
 public void setMontante(){
@@ -172,6 +188,70 @@ public void adiciona () {
 	
 	if(win!=null)
 		win.doHighlighted();
+}
+@Listen ("onOperadorDelete = #lb_operador")
+public void onClickApagar (ForwardEvent event) {
+	System.out.println("Apagando um funcionario operador");
+	Button bt_apagar =(Button) event.getOrigin().getTarget();
+	Listcell celula = (Listcell)bt_apagar.getParent().getParent();
+	Listitem item = (Listitem)celula.getParent();
+	Operador operadorApagar = (Operador)item.getValue();
+	lb_operador.removeChild(item);
+	String nome = operadorApagar.getNome();
+	operadorDao.delete(operadorApagar);
+	System.out.println("Apagando um funcionario operador");
+	Clients.showNotification("Os dados do funcionario "+nome+" foram apagados");
+}	
+@Listen ("onLeitorDelete = #lb_leitor")
+public void onClick (ForwardEvent event) {
+	System.out.println("Apagando um funcionario leitor");
+	Button bt_apagar =(Button) event.getOrigin().getTarget();
+	Listcell celula = (Listcell)bt_apagar.getParent().getParent();
+	Listitem item = (Listitem)celula.getParent();
+	Operador operadorApagar = (Operador)item.getValue();
+	lb_leitor.removeChild(item);
+	String nome = operadorApagar.getNome();
+	operadorDao.delete(operadorApagar);
+	System.out.println("Apagando um funcionario leitor");
+	Clients.showNotification("Os dados do funcionario "+nome+" foram apagados");
+}
+
+@Listen ("onOperadorUpdate = #lb_operador")
+public void onClickAlterar (ForwardEvent event){
+	Clients.showNotification("maluka");
+	Button bt_alterar =(Button) event.getOrigin().getTarget();
+	Listcell celula = (Listcell)bt_alterar.getParent().getParent();
+	Listitem itemAlterar = (Listitem)celula.getParent();
+	Operador op = (Operador)itemAlterar.getValue();
+	Map<String, Object> arguments = new HashMap<String, Object>(); 
+	arguments.put("funAlterar",op);
+	arguments.put("lb_operador",lb_operador);
+	Window win = (Window)Executions.createComponents("/registos/alteracaoOperador.zul", null, arguments);
+	win.doHighlighted();
+}
+
+@Listen ("onClick = #bt_alterar")
+public void alterarOperador () {
+
+	Map<String, Object> arguments = (Map)rw_dadosOperador.getValue();
+	Operador op =(Operador)arguments.get("funAlterar");
+	lb_operador = (Listbox) arguments.get("lb_operador");
+	ListModelList<Operador> lista = (ListModelList)lb_operador.getModel();
+	lista.remove(op);
+	setValues(op);
+	operadorDao.update(op);
+	lista.add(0, op);
+	operadorWin.detach();;
+	Clients.showNotification("Dados do cliente "+op.getNome()+" foram alterados");
+}
+public void setValues (Operador operador){
+operador.setBi(tb_bi.getText());
+operador.setEmail(tb_email.getText());
+operador.setNome(tb_nome.getText());
+operador.setNuit(Integer.valueOf(tb_nuit.getText()));
+operador.setTelefone(Integer.valueOf(tb_telefone.getText()));
+operador.setUsername(tb_username.getText());
+operador.setPassword(tb_password.getText());
 }
 
 }

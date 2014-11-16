@@ -47,7 +47,7 @@ public class MenuController extends SelectorComposer<Component> {
 	private final String PAGAMENTOSZUL="/gestao/pagamento.zul";
 	private final String CLIENTESZUL="/registos/cliente.zul";
 	private final String FUNCIONARIOSZUL="/gestao/mini_menu.zul";
-	private final String RELATORIOSZUL="/gestao/relatoriozul";
+	private final String RELATORIOSZUL="/gestao/relatorio.zul";
 	private final String NOTIFICAOESZUL="/gestao/menu_reclamacao.zul";
 	private final String ADMINISTRACAOZUL="/administracao/administracao.zul";
 	private final String AJUDAZUL="/ajuda.zul";
