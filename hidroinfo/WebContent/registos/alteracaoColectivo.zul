@@ -14,6 +14,7 @@
 				<cell>Nome:</cell> <cell> <textbox id="tb_nome" value="${arg.clienteAlterar.nome}"> </textbox> </cell>
 			</row>
 			<row>
+			
 				<cell>Bi:</cell> <cell> <textbox id="tb_representante" value="${arg.clienteAlterar.representante}" > </textbox> </cell>
 			</row>
 			

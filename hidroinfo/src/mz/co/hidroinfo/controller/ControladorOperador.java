@@ -1,15 +1,20 @@
 package mz.co.hidroinfo.controller;
 import mz.co.hidroinfo.dao.FuncionarioDao;
+import mz.co.hidroinfo.dao.OperadorDao;
+import mz.co.hidroinfo.model.ClienteColectivo;
 import mz.co.hidroinfo.model.Funcionario;
 import mz.co.hidroinfo.model.Operador;
 
 import org.zkoss.zhtml.Button;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.event.ForwardEvent;
+import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
+import org.zkoss.zul.Listcell;
+import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
@@ -114,4 +119,6 @@ public class ControladorOperador extends GenericForwardComposer {
 		
 
 }
+	
+	
 }

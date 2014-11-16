@@ -1,0 +1,92 @@
+<zk>
+
+<window id="operadorWin" title="Alteracao de funcionario operador" border="normal" width="400px" closable="true" apply="mz.co.hidroinfo.controller.Mini_MenuController">
+<grid id="gd_funAlterar">
+	<columns>
+	<column></column>
+	<column  ></column>
+	</columns>
+		<rows>
+			<row id="rw_dadosOperador" value="${arg}" spans="2">
+			<cell><label value="Dados do funcionario a alterar" ></label></cell>
+				</row>
+				<row>
+				<cell>
+					<label>Nome</label>
+				</cell>
+				<cell>
+					<textbox id="tb_nome" sclass="textboxstyle" value="${arg.funAlterar.nome}"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label>BI</label>
+				</cell>
+				<cell>
+					<textbox id="tb_bi" sclass="textboxstyle" value="${arg.funAlterar.bi}"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label>NUIT</label>
+				</cell>
+				<cell>
+					<textbox id="tb_nuit" sclass="textboxstyle" value="${arg.funAlterar.nuit}"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label>Telefone</label>
+				</cell>
+				<cell>
+					<textbox id="tb_telefone" sclass="textboxstyle" value="${arg.funAlterar.telefone}"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label>Email</label>
+				</cell>
+				<cell>
+					<textbox  constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" id="tb_email" sclass="textboxstyle" value="${arg.funAlterar.email}"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label>Username</label>
+				</cell>
+				<cell>
+				<textbox id="tb_username" sclass="textboxstyle" value="${arg.funAlterar.operador.username}"/>	
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label>Password</label>
+				</cell>
+				<cell>
+					<textbox id="tb_password" type="password" sclass="textboxstyle" value="${arg.funAlterar.operador.password}"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label>Insira denovo o Password</label>
+				</cell>
+				<cell>
+					<textbox id="tb_insira_password" type="password" sclass="textboxstyle" value="${arg.funAlteraroperador.password}" />
+				</cell>
+			</row>
+			<row>
+				
+				<cell align="right">
+					<button id="btn_confirmar" 
+					sclass="botaostyle" >Confirmar alteracao</button>
+					</cell>
+				<cell align="left" >
+					<button id="btn_limpar" 
+						 sclass="botaostyle" >Limpar</button>
+				</cell>
+				
+			</row>
+		</rows>
+	</grid>
+</window>
+</zk>

@@ -160,6 +160,10 @@ public class PagamentoController extends SelectorComposer<Component> {
 		valorEntr = Float.valueOf(tb_vlrEntregue.getValue());
 		divida = Float.valueOf(tb_divida.getValue());
 		total = total();
+		int id=Integer.valueOf(itb_idFatura.getValue());
+		Factura factura = daoFac.findById(id);
+		if (factura ==null){
+		
 		if (valorEntr > total) {
 			troco = valorEntr - total;
 			tb_troco.setValue(String.valueOf(troco));
@@ -174,7 +178,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 		} else
 			Messagebox.show("valor insuficiente");
 		dt_dataPag.setValue(data);
-	}
+	}}
 	
 	public void actualizaPagamento(){
 		List<Pagamento> lista = pagDao.pegaPagamento(new GregorianCalendar());
