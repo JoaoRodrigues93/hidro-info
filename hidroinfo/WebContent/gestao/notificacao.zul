@@ -49,7 +49,10 @@
 			</rows>
 	</grid>
 	
-	<listbox id="lb_notificacaoes" mold="paging" rows="6" >
+
+
+	<listbox id="lb_notificacaoes" mold="paging" rows="8" >
+
 	<listhead>
 		<listheader label="Codigo" sort="auto" />
 		<listheader label="Assunto" sort="auto" />
