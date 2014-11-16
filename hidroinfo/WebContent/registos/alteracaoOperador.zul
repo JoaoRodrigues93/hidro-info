@@ -1,5 +1,4 @@
 <zk>
-
 <window id="operadorWin" title="Alteracao de funcionario operador" border="normal" width="400px" closable="true" apply="mz.co.hidroinfo.controller.Mini_MenuController">
 <grid id="gd_funAlterar">
 	<columns>
@@ -55,7 +54,7 @@
 					<label>Username</label>
 				</cell>
 				<cell>
-				<textbox id="tb_username" sclass="textboxstyle" value="${arg.funAlterar.operador.username}"/>	
+				<textbox id="tb_username" sclass="textboxstyle" value="${arg.funAlterar.username}"/>	
 				</cell>
 			</row>
 			<row>
@@ -63,7 +62,7 @@
 					<label>Password</label>
 				</cell>
 				<cell>
-					<textbox id="tb_password" type="password" sclass="textboxstyle" value="${arg.funAlterar.operador.password}"/>
+					<textbox id="tb_password" type="password" sclass="textboxstyle" value="${arg.funAlterar.password}"/>
 				</cell>
 			</row>
 			<row>
@@ -71,7 +70,7 @@
 					<label>Insira denovo o Password</label>
 				</cell>
 				<cell>
-					<textbox id="tb_insira_password" type="password" sclass="textboxstyle" value="${arg.funAlteraroperador.password}" />
+					<textbox id="tb_insira_password" type="password" sclass="textboxstyle" value="${arg.funAlterar.password}" />
 				</cell>
 			</row>
 			<row>
