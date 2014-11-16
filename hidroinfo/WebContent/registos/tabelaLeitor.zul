@@ -27,7 +27,7 @@
 			<listcell>
 				<hbox>
 					<button image="/imagens/edit.ico"
-						forward="lb_cliente.onLeitorUpdate">
+						forward="lb_leitor.onLeitorUpdate">
 					</button>
 					<button image="/imagens/delete.ico"
 						forward="onClick=lb_leitor.onLeitorDelete">
