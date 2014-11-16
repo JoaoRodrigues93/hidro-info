@@ -8,17 +8,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Notificacao {
+public class Notificacao{
 	@Id @GeneratedValue (strategy = GenerationType.AUTO)
-	private int id;
-	
-	
-	private String asssunto;
-	
-	private String mensagem;
+	protected int id;
+	protected String asssunto;
+	protected String mensagem;
 	
 	public Notificacao(){}
-	
+		
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getAsssunto() {
 		return asssunto;
 	}

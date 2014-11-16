@@ -5,9 +5,12 @@ import java.util.List;
 
 
 
+
+
 //import jxl.biff.drawing.ComboBox;
 import mz.co.hidroinfo.dao.NotificacaoDao;
 import mz.co.hidroinfo.model.Cliente;
+import mz.co.hidroinfo.model.Factura;
 import mz.co.hidroinfo.model.Notificacao;
 
 
@@ -23,6 +26,8 @@ import mz.co.hidroinfo.model.NotificacaoIndividual;
 import org.zkoss.zul.Combobox;
 import org.zkoss.zul.Comboitem;
 import org.zkoss.zul.Label;
+import org.zkoss.zul.ListModelList;
+import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
@@ -53,9 +58,17 @@ public class NotificacaoController extends SelectorComposer<Component>{
 	private Label lb_item_individual;
 	private Notificacao novaNotificacao;
 	private NotificacaoDao dao;
+	ListModelList<Notificacao> notificacaoModel;
 	@Wire
 	private Window wd_notificacao;
+	@Wire
+	private Listbox lb_notificacaoes;
 	
+	
+	
+	public NotificacaoController(){
+		dao=new NotificacaoDao();
+	}
 	public void doAfterCompose(Component comp){
 		try {
 			super.doAfterCompose(comp);
@@ -63,6 +76,7 @@ public class NotificacaoController extends SelectorComposer<Component>{
 			e.printStackTrace();
 		}
 		tb_cliente.setVisible(false);
+		preencherNotificacaoes();
 	}
 	
 	
@@ -79,6 +93,7 @@ public class NotificacaoController extends SelectorComposer<Component>{
 			}catch(NullPointerException ex){
 				Clients.showNotification("Selecione os destinatarios\nSe sao 'Todos Clientes' ou\n'Individual'", "error", null, null, 2000);
 			}
+		preencherNotificacaoes();
 	}
 	
 	
@@ -150,5 +165,11 @@ public class NotificacaoController extends SelectorComposer<Component>{
 			return false;
 		}
 		else return true;
+	}
+
+	public void preencherNotificacaoes(){
+		List<Notificacao> notificacoes=dao.findAll();
+		notificacaoModel = new ListModelList<Notificacao>(notificacoes);
+		lb_notificacaoes.setModel(notificacaoModel);
 	}
 }
