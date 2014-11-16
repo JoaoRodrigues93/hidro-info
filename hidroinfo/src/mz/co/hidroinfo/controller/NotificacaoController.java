@@ -4,6 +4,7 @@ import java.awt.Button;
 import java.util.List;
 
 
+
 //import jxl.biff.drawing.ComboBox;
 import mz.co.hidroinfo.dao.NotificacaoDao;
 import mz.co.hidroinfo.model.Cliente;
@@ -55,22 +56,41 @@ public class NotificacaoController extends SelectorComposer<Component>{
 	@Wire
 	private Window wd_notificacao;
 	
+	public void doAfterCompose(Component comp){
+		try {
+			super.doAfterCompose(comp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		tb_cliente.setVisible(false);
+	}
+	
 	
 	
 	@Listen ("onClick=#btn_enviar")
 	public void enviarMensagem(){
-		if(cbb_destinatario.getSelectedItem().getLabel().compareToIgnoreCase("Individual")==0){
-			registaIndividual();;
-		}
-		else
-			registaColectiva();
+		try{
+			if(cbb_destinatario.getSelectedItem().getLabel().compareToIgnoreCase("Individual")==0){
+				registaIndividual();;
+			}
+			else{
+				registaColectiva();
+			}
+			}catch(NullPointerException ex){
+				Clients.showNotification("Selecione os destinatarios\nSe sao 'Todos Clientes' ou\n'Individual'", "error", null, null, 2000);
+			}
 	}
 	
 	
 	@Listen ("onSelect = #cbb_destinatario")
 	public void escolherIndividual(){
 		if(cbb_destinatario.getSelectedItem().getLabel().compareToIgnoreCase("Individual")==0){
+			tb_cliente.setVisible(true);
 			envioIndividual();
+		}
+		else{
+			tb_cliente.setVisible(false);
+			tb_cliente.setText(" ");
 		}
 	}
 	
@@ -90,11 +110,20 @@ public class NotificacaoController extends SelectorComposer<Component>{
 		novaNotificacao.setMensagem(txt_mensagem.getText());
 		novaNotificacao.setCliente(clienteEscolhido);
 		try{
-			dao.create(novaNotificacao);
+			if(validarString(novaNotificacao.getAsssunto())||validarString(novaNotificacao.getMensagem())){
+				dao.create(novaNotificacao);
+				txt_assunto.setText("");
+				txt_mensagem.setText("");
+				tb_cliente.setText("");
+				tb_cliente.setVisible(false);
+				Clients.showNotification("A Notificação foi enviada com sucesso");
+			}else{
+				Clients.showNotification("Os campos de 'mensagem' e 'assunto' nao podem estar vazios", "error", null, null, 2000);
+			}
 		}catch(Exception ex){
 			Clients.showNotification("A Notificação nao foi enviada:\nContacte o administrador do Sistema");
 		}
-		Clients.showNotification("A Notificação foi enviada com sucesso");
+		
 	}
 	
 	public void registaColectiva (){
@@ -103,10 +132,23 @@ public class NotificacaoController extends SelectorComposer<Component>{
 		novaNotificacao.setAsssunto(txt_assunto.getText());
 		novaNotificacao.setMensagem(txt_mensagem.getText());
 		try{
-			dao.create(novaNotificacao);
+			if(validarString(novaNotificacao.getAsssunto())||validarString(novaNotificacao.getMensagem())){
+				dao.create(novaNotificacao);
+				txt_assunto.setText("");
+				txt_mensagem.setText("");
+				Clients.showNotification("A Notificação foi enviada com sucesso");
+			}else{
+				Clients.showNotification("Os campos de 'mensagem' e 'assunto' nao podem estar vazios", "error", null, null, 3000);
+			}
 		}catch(Exception ex){
 			Clients.showNotification("A Notificação nao foi enviada:\nContacte o administrador do Sistema");
 		}
-		Clients.showNotification("A Notificação foi enviada com sucesso");
+	}
+	
+	private boolean validarString(String str){
+		if(str.compareToIgnoreCase("")==0){
+			return false;
+		}
+		else return true;
 	}
 }

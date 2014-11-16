@@ -70,7 +70,7 @@ public class EscolherClienteNotificacaoController extends SelectorComposer<Compo
 		Window wd_notificacao = (Window) winescolher.getAttribute("wd_notificacao");
 		clienteEscolhido = cl;
 		String nome=null;
-		Messagebox.show("id "+clienteEscolhido.getId());
+		//Messagebox.show("id "+clienteEscolhido.getId());
 		if(cl instanceof ClienteDomestico)
 			nome = ((ClienteDomestico)cl).getNome();
 		else if (cl instanceof ClienteColectivo)

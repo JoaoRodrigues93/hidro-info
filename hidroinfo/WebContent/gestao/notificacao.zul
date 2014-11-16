@@ -1,3 +1,5 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css" ?>
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
 <window  id="wd_notificacao" apply="mz.co.hidroinfo.controller.NotificacaoController">
@@ -8,13 +10,13 @@
 		</columns>
 			<rows>
 				<row>
-					<cell>Destinatário:</cell>
-					<cell>Assunto:</cell>
+					<cell><label sclass="text-primary">Destinatário:</label></cell>
+					<cell><label sclass="text-primary">Assunto:</label></cell>
 				</row>
 				<row>
 					<cell>
-						<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destina">
-							<comboitem label="Todos"></comboitem>
+						<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destinatarios">
+							<comboitem label="Todos Clientes"></comboitem>
 							<comboitem label="individual"  id="cbb_item_individual">
 							</comboitem>
 						</combobox>
@@ -23,14 +25,13 @@
 					</cell>
 					
 					<cell>
-						Assunto:
 						<textbox id="txt_assunto">
 						</textbox>
 					</cell>
 				</row>
 					
 				<row>
-					Mensagem:
+					<label sclass="text-primary">Mensagem:</label>
 				</row>
 				<row>
 					<cell colspan="2" >
@@ -42,7 +43,7 @@
 						Data:12/14/14
 					</cell>
 					<cell rowspan="2">
-						<button label="Enviar" id="btn_enviar"></button>
+						<button label="Enviar" id="btn_enviar" zclass="btn btn-primary"></button>
 					</cell>
 				</row>
 			</rows>
