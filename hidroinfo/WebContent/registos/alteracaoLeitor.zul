@@ -61,11 +61,11 @@
 			<row>
 				
 				<cell align="right">
-					<button id="btn_confirmar" label="Confirmar alteracao"
+					<button id="btn_confirmarLeitor" label="Confirmar alteracao"
 					sclass="botaostyle" />
 					</cell>
 				<cell align="left" >
-					<button id="btn_limpar" label="Limpar"
+					<button id="btn_limparLeitor" label="Limpar"
 						 sclass="botaostyle" />
 				</cell>
 				

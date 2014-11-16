@@ -44,26 +44,26 @@ private final int MONTANTE=2;
 @Wire
 private Button btn_operador;
 @Wire
-private Row rw_dadosOperador;
+private Row rw_dadosOperador, rw_dadosLeitor;
 @Wire
-private Button btn_leitor;
+private Button btn_leitor, btn_confirmarLeitor;
 @Wire 
 private Button btn_montante;
 @Wire
 private Button bt_pesquisa;
 @Wire
-private Button bt_adiciona, bt_alterar;
+private Button bt_adiciona, btn_confirmar, btn_limparLeitor;
 
 @Wire
 private Textbox tb_nome,tb_bi,tb_nuit,tb_telefone,tb_email,tb_username,
-tb_password, tb_insira_password;
+tb_password, tb_insira_password, tb_bairro;
 @Wire
 private Textbox tb_pesquisa;
 @Wire
 private Center pagina;
 
 @Wire
-private Window operadorWin;
+private Window operadorWin=null,winAlterarLeitor=null;
 private FuncionarioDao daoFuncionario;
 @Wire
 private Listbox lb_operador;
@@ -208,19 +208,19 @@ public void onClick (ForwardEvent event) {
 	Button bt_apagar =(Button) event.getOrigin().getTarget();
 	Listcell celula = (Listcell)bt_apagar.getParent().getParent();
 	Listitem item = (Listitem)celula.getParent();
-	Operador operadorApagar = (Operador)item.getValue();
+	Leitor leitorApagar = (Leitor)item.getValue();
 	lb_leitor.removeChild(item);
-	String nome = operadorApagar.getNome();
-	operadorDao.delete(operadorApagar);
+	String nome = leitorApagar.getNome();
+	leitorDao.delete(leitorApagar);
 	System.out.println("Apagando um funcionario leitor");
 	Clients.showNotification("Os dados do funcionario "+nome+" foram apagados");
 }
 
 @Listen ("onOperadorUpdate = #lb_operador")
 public void onClickAlterar (ForwardEvent event){
-	Clients.showNotification("maluka");
-	Button bt_alterar =(Button) event.getOrigin().getTarget();
-	Listcell celula = (Listcell)bt_alterar.getParent().getParent();
+	
+	Button btn_confirmar =(Button) event.getOrigin().getTarget();
+	Listcell celula = (Listcell)btn_confirmar.getParent().getParent();
 	Listitem itemAlterar = (Listitem)celula.getParent();
 	Operador op = (Operador)itemAlterar.getValue();
 	Map<String, Object> arguments = new HashMap<String, Object>(); 
@@ -230,7 +230,7 @@ public void onClickAlterar (ForwardEvent event){
 	win.doHighlighted();
 }
 
-@Listen ("onClick = #bt_alterar")
+@Listen ("onClick = #btn_confirmar")
 public void alterarOperador () {
 
 	Map<String, Object> arguments = (Map)rw_dadosOperador.getValue();
@@ -242,7 +242,34 @@ public void alterarOperador () {
 	operadorDao.update(op);
 	lista.add(0, op);
 	operadorWin.detach();;
-	Clients.showNotification("Dados do cliente "+op.getNome()+" foram alterados");
+	Clients.showNotification("Dados do operador "+op.getNome()+" foram alterados");
+}
+@Listen ("onLeitorUpdate = #lb_leitor")
+public void onClickAlterarLeitor (ForwardEvent event){
+	Button btn_confirmarLeitor =(Button) event.getOrigin().getTarget();
+	Listcell celula = (Listcell)btn_confirmarLeitor.getParent().getParent();
+	Listitem itemAlterar = (Listitem)celula.getParent();
+	Leitor op = (Leitor)itemAlterar.getValue();
+	Map<String, Object> arguments = new HashMap<String, Object>(); 
+	arguments.put("funAlterar",op);
+	arguments.put("lb_leitor",lb_leitor);
+	Window win = (Window)Executions.createComponents("/registos/alteracaoLeitor.zul", null, arguments);
+	win.doHighlighted();
+}
+
+@Listen ("onClick = #btn_confirmarLeitor")
+public void alterarleitor () {
+
+	Map<String, Object> arguments = (Map)rw_dadosLeitor.getValue();
+	Leitor leitor =(Leitor)arguments.get("funAlterar");
+	lb_leitor = (Listbox) arguments.get("lb_leitor");
+	ListModelList<Leitor> lista = (ListModelList)lb_leitor.getModel();
+	lista.remove(leitor);
+	setValuesLeitor(leitor);
+	leitorDao.update(leitor);
+	lista.add(0, leitor);
+	winAlterarLeitor.detach();;
+	Clients.showNotification("Dados do leitor"+leitor.getNome()+" foram alterados");
 }
 public void setValues (Operador operador){
 operador.setBi(tb_bi.getText());
@@ -252,6 +279,42 @@ operador.setNuit(Integer.valueOf(tb_nuit.getText()));
 operador.setTelefone(Integer.valueOf(tb_telefone.getText()));
 operador.setUsername(tb_username.getText());
 operador.setPassword(tb_password.getText());
+}
+public void clearValues (){
+tb_username.setText(null);
+tb_telefone.setText(null);
+tb_password.setText(null);
+tb_bi.setText(null);
+tb_email.setText(null);
+tb_nome.setText(null);
+tb_nuit.setText(null);
+tb_insira_password.setText(null);}
+
+@Listen ("onClick=#btn_limpar")
+public void limparDadosOperador (){
+	clearValues();
+}
+public void setValuesLeitor (Leitor leitor){
+leitor.setBi(tb_bi.getText());
+leitor.setEmail(tb_email.getText());
+leitor.setNome(tb_nome.getText());
+leitor.setNuit(Integer.valueOf(tb_nuit.getText()));
+leitor.setTelefone(Integer.valueOf(tb_telefone.getText()));
+leitor.setBairro(tb_bairro.getText());
+
+}
+public void clearValuesLeitor (){
+tb_bairro.setText(null);
+tb_telefone.setText(null);
+tb_bi.setText(null);
+tb_email.setText(null);
+tb_nome.setText(null);
+tb_nuit.setText(null);
+}
+
+@Listen ("onClick=#btn_limparLeitor")
+public void limparDadosLeitor (){
+	clearValuesLeitor();
 }
 
 }
