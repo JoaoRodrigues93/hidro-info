@@ -73,6 +73,7 @@ public class EnviarFacturaController extends SelectorComposer{
 			mensagem=escreverFactura(id,valorAPagar,leituraAnterior,leituraActual);
 			if(!factura.isEstado()){
 				sender.mandarSMS(numero, mensagem);
+				
 				factura.setEstado(true);
 			}
 			facturaDao.update(factura);
