@@ -47,7 +47,26 @@
 					</cell>
 				</row>
 			</rows>
-		
 	</grid>
+	
+	<listbox id="lb_notificacaoes">
+	<listhead>
+		<listheader label="Codigo" sort="auto" />
+		<listheader label="Assunto" sort="auto" />
+		<listheader label="Mensagem" sort="auto" />
+<!-- 		<listheader label="Destinatarios" sort="auto" /> comentado pois nao consegui colocar os destinatarios-->
+	</listhead>
+	<template name="model">
+		<listitem>
+			<listcell label="${each.id}">
+			</listcell>
+			<listcell label="${each.asssunto}">
+			</listcell>
+			<listcell label="${each.mensagem}">
+			</listcell>
+<!-- 			aqui temos que tentar colocar os destinatarios se é pra uma pessoa ou para todos nao tou a conseguir  -->
+		</listitem>
+	</template>
+</listbox>
 </window>
 </zk>
