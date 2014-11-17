@@ -240,7 +240,8 @@ public void onClickAlterar (ForwardEvent event){
 public void alterarOperador () {
 	String pass=tb_insira_password.getText();
 	if(!tb_password.getText().equals(pass)){
-		Clients.showNotification("o password deve ser igual");
+		Clients.showNotification("o password deve ser igual", "error", null, null, 2000);
+		
 	}else{
 	Map<String, Object> arguments = (Map)rw_dadosOperador.getValue();
 	Operador op =(Operador)arguments.get("funAlterar");
