@@ -31,7 +31,7 @@
 					<label>NUIT</label>
 				</cell>
 				<cell>
-					<textbox id="tb_nuit" sclass="textboxstyle" value="${arg.funAlterar.nuit}"/>
+					<intbox id="tb_nuit" sclass="textboxstyle" value="${arg.funAlterar.nuit}"/>
 				</cell>
 			</row>
 			<row>
@@ -39,7 +39,7 @@
 					<label>Telefone</label>
 				</cell>
 				<cell>
-					<textbox id="tb_telefone" sclass="textboxstyle" value="${arg.funAlterar.telefone}"/>
+					<intbox id="tb_telefone" sclass="textboxstyle"   value="${arg.funAlterar.telefone}"/>
 				</cell>
 			</row>
 			<row>
@@ -47,7 +47,7 @@
 					<label>Email</label>
 				</cell>
 				<cell>
-					<textbox id="tb_email" sclass="textboxstyle" value="${arg.funAlterar.email}"/>
+					<textbox id="tb_email" sclass="textboxstyle" value="${arg.funAlterar.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
 				</cell>
 			</row>
 			<row>
@@ -68,7 +68,7 @@
 					<button id="btn_limparLeitor" label="Limpar"
 						 sclass="botaostyle" />
 				</cell>
-				
+
 			</row>
 		</rows>
 	</grid>

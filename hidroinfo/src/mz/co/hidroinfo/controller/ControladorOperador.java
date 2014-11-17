@@ -12,6 +12,7 @@ import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Intbox;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
@@ -29,15 +30,20 @@ public class ControladorOperador extends GenericForwardComposer {
 @Wire
 	private Button btn_add, btn_reg;
 @Wire
-	private Textbox nome, bi, nuit, telefone, email, username, password, insira_password;
+	private Textbox nome, bi, email, username, password, insira_password;
 @Wire
 	private Window winoperador;
+@Wire
+private Intbox nuit, telefone;
 	
 	Operador o;
 	public void onClick$Regista(ForwardEvent e){
 		o=new Operador();
 		
-		
+		String pass=insira_password.getText();
+		if(!password.getText().equals(pass)){
+			Clients.showNotification("o password deve ser igual");
+		}else{
 		o.setBi(bi.getText());
 		o.setEmail(email.getText());
 		o.setNome(nome.getText());
@@ -56,7 +62,7 @@ public class ControladorOperador extends GenericForwardComposer {
 		model.add(o);
 		Clients.showNotification("Operador registado com sucesso!");
 		onClick$limparCampos();
-	}
+	}}
 	public void onClick$limparCampos(){
 		nome.setText(null);
 		bi.setText(null);
@@ -80,8 +86,8 @@ public class ControladorOperador extends GenericForwardComposer {
 		o.setBi(bi.getText());
 		o.setEmail(email.getText());
 		o.setNome(nome.getText());
-		o.setNuit(Integer.parseInt(nuit.getValue()));
-		o.setTelefone(Integer.parseInt(telefone.getValue()));
+		o.setNuit(nuit.getValue());
+		o.setTelefone(telefone.getValue());
 		o.setUsername(username.getText());
 		o.setPassword(password.getText());
 		
@@ -110,8 +116,8 @@ public class ControladorOperador extends GenericForwardComposer {
 		o.setBi(bi.getText());
 		o.setEmail(email.getText());
 		o.setNome(nome.getValue());
-		o.setNuit(Integer.parseInt(nuit.getValue()));
-		o.setTelefone(Integer.parseInt(telefone.getValue()));
+		o.setNuit(nuit.getValue());
+		o.setTelefone(telefone.getValue());
 		o.setUsername(username.getText());
 		o.setPassword(password.getText());
 		

@@ -17,6 +17,7 @@ import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Center;
 import org.zkoss.zul.Div;
+import org.zkoss.zul.Intbox;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
@@ -55,12 +56,14 @@ private Button bt_pesquisa;
 private Button bt_adiciona, btn_confirmar, btn_limparLeitor;
 
 @Wire
-private Textbox tb_nome,tb_bi,tb_nuit,tb_telefone,tb_email,tb_username,
+private Textbox tb_nome,tb_bi,tb_email,tb_username,
 tb_password, tb_insira_password, tb_bairro;
 @Wire
 private Textbox tb_pesquisa;
 @Wire
 private Center pagina;
+@Wire
+private Intbox tb_nuit, tb_telefone;
 
 @Wire
 private Window operadorWin=null,winAlterarLeitor=null;
@@ -232,7 +235,10 @@ public void onClickAlterar (ForwardEvent event){
 
 @Listen ("onClick = #btn_confirmar")
 public void alterarOperador () {
-
+	String pass=tb_insira_password.getText();
+	if(!tb_password.getText().equals(pass)){
+		Clients.showNotification("o password deve ser igual");
+	}else{
 	Map<String, Object> arguments = (Map)rw_dadosOperador.getValue();
 	Operador op =(Operador)arguments.get("funAlterar");
 	lb_operador = (Listbox) arguments.get("lb_operador");
@@ -243,7 +249,7 @@ public void alterarOperador () {
 	lista.add(0, op);
 	operadorWin.detach();;
 	Clients.showNotification("Dados do operador "+op.getNome()+" foram alterados");
-}
+}}
 @Listen ("onLeitorUpdate = #lb_leitor")
 public void onClickAlterarLeitor (ForwardEvent event){
 	Button btn_confirmarLeitor =(Button) event.getOrigin().getTarget();
@@ -259,7 +265,7 @@ public void onClickAlterarLeitor (ForwardEvent event){
 
 @Listen ("onClick = #btn_confirmarLeitor")
 public void alterarleitor () {
-
+	
 	Map<String, Object> arguments = (Map)rw_dadosLeitor.getValue();
 	Leitor leitor =(Leitor)arguments.get("funAlterar");
 	lb_leitor = (Listbox) arguments.get("lb_leitor");

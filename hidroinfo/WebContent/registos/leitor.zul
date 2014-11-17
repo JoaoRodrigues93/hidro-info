@@ -73,7 +73,7 @@
 					<label>NUIT</label>
 				</cell>
 				<cell>
-					<textbox id="nuit"  />
+					<intbox id="nuit"  />
 				</cell>
 			</row>
 			<row>
@@ -81,7 +81,7 @@
 					<label>Telefone</label>
 				</cell>
 				<cell>
-					<textbox id="telefone"/>
+					<intbox id="telefone"/>
 				</cell>
 			</row>
 			<row>
@@ -89,7 +89,7 @@
 					<label>Email</label>
 				</cell>
 				<cell>
-					<textbox id="email" />
+					<textbox id="email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
 				</cell>
 			</row>
 			<row>
