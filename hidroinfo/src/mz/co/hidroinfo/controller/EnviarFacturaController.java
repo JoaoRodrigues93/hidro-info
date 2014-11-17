@@ -56,7 +56,7 @@ public class EnviarFacturaController extends SelectorComposer{
 	
 	@Listen ("onClick = #btn_enviar")
 	public void enviarFacturas(){
-		
+		int i=0,erro=0;
 		String mensagem="",numero;
 		float valorAPagar,leituraActual,leituraAnterior;
 		int id;
@@ -72,12 +72,22 @@ public class EnviarFacturaController extends SelectorComposer{
 			
 			mensagem=escreverFactura(id,valorAPagar,leituraAnterior,leituraActual);
 			if(!factura.isEstado()){
-				sender.mandarSMS(numero, mensagem);
-				
-				factura.setEstado(true);
+				if(sendsms.mandarSMS(numero, mensagem)){
+					factura.setEstado(true);
+					facturaDao.update(factura);
+					i++;
+				}
+				else{
+					++erro;
+				}
 			}
-			facturaDao.update(factura);
 		}
+		if(i!=0)
+			Clients.showNotification("Facturas foram enviadas para "+i+" clientes");
+		if((i==0) && (erro==0))
+			Clients.showNotification("Nenhuma factura foi enviada pois todas as facturas ja tinham sido enviadas");
+		if(erro!=0)
+			Clients.showNotification(erro+" facturas nao foram enviadas, verifique as configurações do servidor de SMS", "error", null, null, 4000);
 		pesquisarFacturas();
 	}
 	

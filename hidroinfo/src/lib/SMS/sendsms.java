@@ -141,7 +141,7 @@ public class sendsms {
 
     public static String send () {
 
-
+    	String manuel = null;
        String returnstring;
    
        returnstring = null;
@@ -180,7 +180,7 @@ public class sendsms {
           connection.setDoInput(true); 
 
           String res=connection.getResponseMessage(); 
-		
+          manuel=res;
           System.out.println("Response Code  ->"+res); 
 	
           int code = connection.getResponseCode () ; 
@@ -203,20 +203,28 @@ public class sendsms {
        catch(IOException e) {
           System.out.println("unable to create new url"+e.getMessage());
        }
-       return returnstring;
+       //return returnstring;
+       return manuel;
    }
     
     
     
     //inseri apenas o segunte script
-    public static void mandarSMS(String number, String texto){   
+    public static boolean mandarSMS(String number, String texto){   
+    	try{
         sendsms.init();
         sendsms.server = "http://127.0.0.1:7070/";
         sendsms.user = "test";
         sendsms.password = "test";
         sendsms.phonenumber = number;
         sendsms.text = texto;
-        Clients.showNotification(texto+" numero #"+number);
-        sendsms.send();
+        String str=sendsms.send();
+        if (str.compareToIgnoreCase("ok")==0)
+        	return true;
+        else
+        	return false;
+    	}catch(Exception ex){
+    		return false;
+    	}
     }  
 }

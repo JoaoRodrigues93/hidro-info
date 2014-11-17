@@ -1,6 +1,8 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css" ?>
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <window  apply="mz.co.hidroinfo.controller.EnviarFacturaController">
-	<listbox id="lb_facturas">
+	<listbox id="lb_facturas" mold="paging" rows="13">
 	<listhead>
 		<listheader label="Codigo" sort="auto" />
 		<listheader label="Nome" sort="auto" />
@@ -27,6 +29,6 @@
 		</listitem>
 	</template>
 </listbox>
-<button label="Enviar" id="btn_enviar"></button>
+<button label="Enviar" id="btn_enviar" zclass="btn btn-primary"></button>
 
 </window>
