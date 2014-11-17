@@ -19,7 +19,7 @@
 					<label style="color: #00aff0;font-size:10px">
 						Cod. Cliente
 					</label>
-					<textbox value="${arg.pagamento.factura.leituraContador.contador.proprietario.id}"
+					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.id}"
 						style="height: 50px; width: 100px; background-color: #ffffff"
 						disabled="true">
 					</textbox>
@@ -30,7 +30,7 @@
 					<label style="color: #00aff0;font-size:10px">
 						Nome
 					</label>
-					<textbox value="${arg.pagamento.factura.leituraContador.contador.proprietario.nome}"
+					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.nome}"
 						style="height: 50px; width: 100px" disabled="true">
 					</textbox>
 
@@ -40,7 +40,7 @@
 					<label style="color: #00aff0;font-size:10px">
 						NUIT
 					</label>
-					<textbox value="${arg.arg.pagamento.factura.leituraContador.contador.proprietario.nuit}"
+					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.nuit}"
 						style="height: 50px; width: 100px" disabled="true">
 					</textbox>
 
@@ -52,7 +52,7 @@
 					<label style="color: #00aff0;font-size:10px">
 						Cod. Local
 					</label>
-					<textbox value="${arg.pagamento.factura.leituraContador.contador.proprietario.endereco.codigoLocal}"
+					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.endereco.codigoLocal}"
 						style="height: 50px; width: 100px" disabled="true">
 					</textbox>
 					
@@ -62,7 +62,7 @@
 					<label style="color: #00aff0;font-size:10px">
 						Valor a Pagar
 					</label>
-					<textbox value="${arg.pagamento.valor_a_pagar}"
+					<textbox value="${arg.recibo.pagamento.valor_a_pagar}"
 						style="height: 50px; width: 100px" disabled="true">
 					</textbox>
 				</vbox>
