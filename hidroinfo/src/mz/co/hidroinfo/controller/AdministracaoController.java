@@ -21,6 +21,12 @@ public class AdministracaoController extends SelectorComposer<Component> {
 	@Wire
 	private Button bt_contador;
 	
+	@Override 
+	public void doAfterCompose(Component comp) throws Exception{
+		super.doAfterCompose(comp);
+		escolhePrecario();
+	}
+	
 	@Listen ("onClick = #bt_precario")
 	public void escolhePrecario(){
 		alterAparenciaDeBotoes(bt_precario, bt_leituraContador, bt_contador);
