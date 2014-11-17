@@ -13,8 +13,10 @@ import mz.co.hidroinfo.model.Operador;
 import org.zkoss.zhtml.Button;
 import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.event.ForwardEvent;
+import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Intbox;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
@@ -25,11 +27,15 @@ import org.zkoss.zul.Window;
 
 
 public class ControladorLeitor extends GenericForwardComposer {
-
+@Wire
 	private Listbox lst_client;
+@Wire
+private Intbox nuit, telefone;
+@Wire
 	private Button btn_add, btn_reg;
-
-	private Textbox nome, bi, nuit, telefone, email, bairro;
+@Wire
+	private Textbox nome, bi, email, bairro;
+@Wire
 	private Window winleitor;
 	Leitor l;
 	public void onClick$Regista(ForwardEvent e){

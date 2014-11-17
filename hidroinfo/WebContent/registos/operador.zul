@@ -30,7 +30,7 @@
 					<label>NUIT</label>
 				</cell>
 				<cell>
-					<textbox id="nuit" sclass="textboxstyle" />
+					<intbox id="nuit" sclass="textboxstyle" />
 				</cell>
 			</row>
 			<row>
@@ -38,7 +38,7 @@
 					<label>Telefone</label>
 				</cell>
 				<cell>
-					<textbox id="telefone" sclass="textboxstyle" />
+					<intbox id="telefone" sclass="textboxstyle" />
 				</cell>
 			</row>
 			<row>
@@ -46,7 +46,7 @@
 					<label>Email</label>
 				</cell>
 				<cell>
-					<textbox id="email" sclass="textboxstyle" />
+					<textbox id="email" sclass="textboxstyle" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
 				</cell>
 			</row>
 			<row>

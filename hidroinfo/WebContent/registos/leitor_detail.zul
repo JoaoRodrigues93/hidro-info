@@ -1,0 +1,42 @@
+<vlayout>
+	<label value="Dados do funcionario: ${leitor.nome}" style="font-size: 14px; font-weight:bold; text-align:center;" ></label>
+	<grid>
+	<columns>
+		<column width="30%" ></column>
+		<column width="70%" style="font-weight:bold" ></column>
+	</columns>
+		<rows>
+		<row>
+			Código:
+			<label value="${leitor.id}" style="font-weight:bold" />
+		</row>
+		
+		<row>
+			Nome:
+			<label value="${leitor.nome}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Nuit:
+			<label value="${leitor.nuit}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Bi:
+			<label value="${leitor.bi}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Telefone:
+			<label value="${leitor.telefone}" style="font-weight:bold"  />
+		</row>
+		<row>
+			Email:
+			<label value="${leitor.email}" style="font-weight:bold" />
+		</row>
+		<row>
+			Bairro de trabalho:
+			<label value="${leitor.bairro}" style="font-weight:bold"  />
+		</row>
+		
+		
+		</rows>
+	</grid>
+</vlayout>
