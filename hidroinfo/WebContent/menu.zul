@@ -47,20 +47,24 @@
 		</north>
 		<center id="ct_conteudo">
 		
-		<grid width="100%" height="500px" style="border:none">
-		<rows>
-		<row >
-		<cell><label style="color:#0000FF; font-size: 58px; font-weight:bold; text-align:center" >Bem vindo ao Hidro-info</label></cell>
-		
-		</row >
-		<row spans="1">
-		<cell><label style="color:#0000FF; font-size: 16px; font-weight:bold; text-align:center">Hidro-info é um software de gestão de água simples para facilitar a vida do usuario. Criado por: 
-		Azevedo, Manuel <br/> Carsan, Nureicha \n Garife, Yolanda \n Mateus, Severino \n Munguambe, Nelson \n Rodrigues, Joao</label></cell>
-		<cell><image src="/imagens/hidroinfoBig.png"></image></cell>
-		</row>
-		
-		</rows>
-		</grid>
+			<html>
+	<![CDATA[
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<h1 class="text-center">Bem vindo ao Hidro-info</h1>
+<style>
+ .center {
+	 text-align:center;
+ 	margin-left:35%;
+ 	margin-right:35%;
+ 	width:30%;
+ 	height:400px;
+ }
+</style>
+<p>
+<img height="400px" class="center" width="300px" src="imagens/torneiras.png">
+</p>
+<p class="center"> &copy; Todos os direitos reservados.2014</p>
+]]></html>
 		
 		</center>
 	</borderlayout>

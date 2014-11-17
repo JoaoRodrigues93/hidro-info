@@ -1,6 +1,6 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="Relatório" border="normal" height="100%" width="100%" apply="mz.co.hidroinfo.controller.RelatorioController">
+<window  border="none" height="100%" width="100%" apply="mz.co.hidroinfo.controller.RelatorioController">
 
 
 	<borderlayout hflex="1" vflex="1">
