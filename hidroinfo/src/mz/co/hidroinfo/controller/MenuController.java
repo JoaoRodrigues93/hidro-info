@@ -210,7 +210,7 @@ public class MenuController extends SelectorComposer<Component> {
 	}
 	
 	public void escolheMenuAdministrador(){
-		bt_clientes.setDisabled(true);
-		bt_pagamentos.setDisabled(true);
+		bt_clientes.setDisabled(false);
+		bt_pagamentos.setDisabled(false);
 	}
 }
