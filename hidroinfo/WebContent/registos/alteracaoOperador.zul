@@ -1,4 +1,5 @@
 <zk>
+
 <window id="operadorWin" title="Alteracao de funcionario operador" border="normal" width="400px" closable="true" apply="mz.co.hidroinfo.controller.Mini_MenuController">
 <grid id="gd_funAlterar">
 	<columns>
@@ -70,7 +71,7 @@
 					<label>Insira denovo o Password</label>
 				</cell>
 				<cell>
-					<textbox id="tb_insira_password" type="password" sclass="textboxstyle" value="${arg.funAlterar.password}" />
+					<textbox id="tb_insira_password" type="password" sclass="textboxstyle"  />
 				</cell>
 			</row>
 			<row>
