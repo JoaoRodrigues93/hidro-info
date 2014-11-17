@@ -39,7 +39,7 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
 
 
-
+//nossa como esta isto
 public class NotificacaoController extends SelectorComposer<Component>{
 	@Wire
 	private Button btn_enviar;
