@@ -1,5 +1,8 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
+
 <window  border="none" height="100%" width="100%" apply="mz.co.hidroinfo.controller.RelatorioController">
 
 
@@ -9,7 +12,7 @@
         
         <west width="25%" border="none" collapsible="true"  splittable="true" minsize="300">
            		 <vbox >
-						<label value="Relatórios" id="lbl_relatorios"/>
+						<label value="Relatórios" id="lbl_relatorios" sclass="text-primary"/>
 						<radiogroup id="rdg_relatorios" >
 							<vbox>
 							<radio label="Clientes Em Divida" />
@@ -22,7 +25,7 @@
 
 						</radiogroup>
 
-						<label value="Locais" id="lbl_locais"/>
+						<label value="Locais" id="lbl_locais" sclass="text-primary"/>
 						<combobox id="cbx_cidades"  placeholder="Escolha Cidade Desejada" forward="onSelect">
 							<comboitem label="Maputo"/>
 							<comboitem label="Matola" />
@@ -40,7 +43,7 @@
 						<combobox id="cbx_bairros" visible="false" placeholder="Escolha Bairro">
 						</combobox>
 
-						<label value="Categoria" id="lbl_categoria"/>
+						<label value="Categoria" id="lbl_categoria" sclass="text-primary"/>
 
 						<radiogroup id="rdg_categoria">
 							<vbox>
@@ -50,7 +53,7 @@
 							</vbox>
 						</radiogroup>
 						
-						<label value="Periodo" id="lbl_periodo" />
+						<label value="Periodo" id="lbl_periodo" sclass="text-primary"/>
 						
 						<combobox id="cbx_periodo" placeholder="Escolha Periodo">
 							<comboitem label="Diariamente"/>
@@ -60,23 +63,24 @@
 						
 				        <datebox placeholder="Escolha a Data" id="calendario"/>
                             
-						<button label="Gerar" id="btn_gerar" width="40%"/>
+						<button label="Gerar" id="btn_gerar" width="40%" zclass="btn btn-primary"/>
 					</vbox>
         </west>
         <center id="mainContent" border="normal" >
 					<grid>
                     <rows>
                         <row>
+                        
                             <cell width="99%" align="right">
-									<label value="Relatorio de Actividades" />
+									<label value="Relatorio de Actividades" sclass="text-primary"/>
                             </cell>
                         </row>
                                               
 
                         <row >
                             <cell>                            
-                            	<label value= "Lista de Valores Pagos"/>
-                            	<listbox id="lst_relatorio" width="40%" > 
+                            	<label value= "Lista de Valores Pagos" sclass="text-primary"/>
+                            	<listbox id="lst_relatorio" width="60%" > 
                                     <listhead>                                        
                                         <listheader label="Dia"/> 
                                         <listheader label="Valor em Meticais" />
@@ -84,24 +88,31 @@
                                 </listbox>
                               </cell>
                             </row>
-                                
-                               <row>
-                                <cell>
-                                	
-                                	<label value="Total de Clientes Domesticos: " id="lbl_domestico" />
+                               
+                             
+                            <row>
+                               	<cell>
+                               		<label value="Total de Clientes Domesticos: " id="lbl_domestico" sclass="text-primary"/>                  
                                		 <textbox id="txt_totalClientesDomestico" readonly="true"/>
                                 </cell>
-                               </row>
+                            </row>
                                 
                                 <row>
                                 <cell>
-                                	 <label value="Total de Clientes Colectivo: " id="lbl_colectivo" />
+                                	 <label value="Total de Clientes Colectivo: " id="lbl_colectivo" sclass="text-primary"/>
                                		 <textbox id="txt_totalClientesColectivo" readonly="true" />
                                 </cell>
                                </row> 
+                           	<row>
+                           		<cell><label value=" "></label>
+                           		</cell>
+                           		
+                           		<cell><label value=" "></label>
+                           		</cell>
+                           	</row>
                             <row>
                                 <cell>
-                              	  <label value= "Lista de Clientes em Divida"/>
+                              	  <label value= "Lista de Clientes em Divida" sclass="text-primary"/>
                                 	<listbox id="lst_clientesDivida" width="60%" > 
                                     <listhead>                                        
                                         <listheader label="Nome"/> 
