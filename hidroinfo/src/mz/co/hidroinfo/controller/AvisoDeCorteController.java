@@ -67,8 +67,7 @@ public class AvisoDeCorteController extends SelectorComposer{
 	private Button btn_enviar;
 	@Wire
 	private Listbox lb_destinatarios;
-	@Wire
-	private Textbox tb_cliente;
+	
 	@Wire
 	private Window wd_aviso;
 	@Wire
@@ -88,7 +87,20 @@ public class AvisoDeCorteController extends SelectorComposer{
 	
 	@Listen ("onClick=#btn_enviar")
 	public void enviar(){
+		try{
+			if(!(txt_mensagem.getText().compareToIgnoreCase("")==0)){
+				enviarAposValidar();
+			}else
+				Clients.showNotification("O campo da mensagem não pode estar vazio", "error", null, null, 4000);
+			
+		}catch(NullPointerException ex){
+			Clients.showNotification("Selecione os destinatarios\nSe sao 'Todos Clientes' ou\n'Individual'", "error", null, null, 4000);
+		}
+	}
+	
+	private void enviarAposValidar(){
 		int i=0;
+		int erro=0;
 		destinatarioModel=new ListModelList<MensagemAvisoIndividual>();
 		destinatarioModel.addAll((Collection<? extends MensagemAvisoIndividual>) lb_destinatarios.getListModel());
 		List<MensagemAvisoIndividual> avisos=destinatarioModel.getInnerList();
@@ -99,20 +111,27 @@ public class AvisoDeCorteController extends SelectorComposer{
 				.next();
 			Cliente ce=mensagemAvisoIndividual.getCliente();
 			if (ce instanceof ClienteColectivo) {
-				Clients.showNotification("o nome"+ ((ClienteColectivo) ce).getNome());
+				//Clients.showNotification("o nome"+ ((ClienteColectivo) ce).getNome());
 			}
 			if (ce instanceof ClienteDomestico) {
-				Clients.showNotification("o nome"+ ((ClienteDomestico) ce).getNome());
+				//Clients.showNotification("o nome"+ ((ClienteDomestico) ce).getNome());
 			}
 			mensagemAvisoIndividual.setMensagem(txt_mensagem.getText());
-			mandarMensagem(mensagemAvisoIndividual);
-			destinatarioModel.getElementAt(i).setConfirmacao(true);
-			lb_destinatarios.setModel(destinatarioModel);
-			
-			i++;
+			if(!mandarMensagem(mensagemAvisoIndividual)){
+				erro++;
+				
+			}else{
+				avisoDao.create(mensagemAvisoIndividual);
+				destinatarioModel.getElementAt(i).setConfirmacao(true);
+				lb_destinatarios.setModel(destinatarioModel);
+				i++;
+			}
 		}
 		lb_destinatarios.setModel(destinatarioModel);
-		Clients.showNotification("Mensagens enviadas");
+		if(i==0){
+			Clients.showNotification(erro+" mensagens nao foram enviadas, verifique as configurações do servidor de SMS", "error", null, null, 4000);
+		}else
+			Clients.showNotification("Mensagem enviada para "+i+" clientes");
 	}
 	
 	
@@ -133,7 +152,7 @@ public class AvisoDeCorteController extends SelectorComposer{
 		Window win = (Window) Executions.createComponents("/registos/escolheClienteAviso.zul", null, null);
 		win.doHighlighted();
 		win.setAttribute("destinatarioModel", destinatarioModel);
-		win.setAttribute("tb_cliente", tb_cliente);
+		//win.setAttribute("tb_cliente", tb_cliente);
 		win.setAttribute("clienteEscolhido", clienteEscolhido);
 		win.setAttribute("wd_aviso", wd_aviso);
 		win.setAttribute("lb_destinatarios", lb_destinatarios);
@@ -153,9 +172,11 @@ public class AvisoDeCorteController extends SelectorComposer{
 	}
 	
 	
-	public void mandarMensagem(MensagemAvisoIndividual mensagemAvisoIndividual){
-		sendsms.mandarSMS(mensagemAvisoIndividual.getCliente().getContacto().getTelefone(), mensagemAvisoIndividual.getMensagem());
-		avisoDao.create(mensagemAvisoIndividual);
+	public boolean mandarMensagem(MensagemAvisoIndividual mensagemAvisoIndividual){
+		try{
+			return sendsms.mandarSMS(mensagemAvisoIndividual.getCliente().getContacto().getTelefone(), mensagemAvisoIndividual.getMensagem());
+		}catch(Exception ex){
+			return false;
+		}
 	}
-	
 }

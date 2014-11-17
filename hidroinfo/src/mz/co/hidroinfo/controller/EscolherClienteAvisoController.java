@@ -68,7 +68,7 @@ public class EscolherClienteAvisoController extends SelectorComposer<Component> 
 		Listitem item =(Listitem) bt.getParent().getParent();
 		Cliente cl = (Cliente) item.getValue();
 		Cliente clienteEscolhido = (Cliente)win_escolherAviso.getAttribute("clienteEscolhido");
-		Textbox tb_cliente = (Textbox) win_escolherAviso.getAttribute("tb_cliente");
+		//Textbox tb_cliente = (Textbox) win_escolherAviso.getAttribute("tb_cliente");
 		Window wd_aviso = (Window) win_escolherAviso.getAttribute("wd_aviso");
 		Listbox lb_destinatarios=(Listbox) win_escolherAviso.getAttribute("lb_destinatarios");
 		ListModelList<MensagemAvisoIndividual> destinatarioModel=(ListModelList<MensagemAvisoIndividual>) win_escolherAviso.getAttribute("destinatarioModel");
@@ -81,7 +81,7 @@ public class EscolherClienteAvisoController extends SelectorComposer<Component> 
 		else if (cl instanceof ClienteColectivo)
 			nome = ((ClienteColectivo)cl).getNome();
 		
-		tb_cliente.setText(nome);
+		//tb_cliente.setText(nome);
 		win_escolherAviso.detach();
 		
 		MensagemAvisoIndividual mensagem=new MensagemAvisoIndividual();

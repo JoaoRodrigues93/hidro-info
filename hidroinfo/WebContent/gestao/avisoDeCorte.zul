@@ -1,6 +1,8 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css" ?>
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="new page title" border="normal" apply="mz.co.hidroinfo.controller.AvisoDeCorteController" id="wd_aviso">
+<window apply="mz.co.hidroinfo.controller.AvisoDeCorteController" id="wd_aviso">
 
 
 <grid>
@@ -14,20 +16,20 @@
 				</row>
 				<row>
 					<cell>
-						Destinatário:<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destina">
+						<label sclass="text-primary">Destinatário:</label>
+						<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destina">
 							<comboitem label="Todos"></comboitem>
 							<comboitem label="individual"  id="cbb_item_individual">
 							</comboitem>
 						</combobox>
-						<textbox id="tb_cliente">
-						</textbox>
+						
 					</cell>
 					<cell>
 					</cell>
 				</row>
 					
 				<row>
-					Mensagem:
+					<label sclass="text-primary">Mensagem:</label>
 				</row>
 				<row>
 					<cell colspan="2" >
@@ -36,14 +38,14 @@
 				</row>
 				<row>
 					<cell>
-						Data:12/14/14
+						<button label="Enviar" id="btn_enviar" zclass="btn btn-primary"></button>
 					</cell>
 				</row>
 			</rows>
 		
 	</grid>
 
-<listbox id="lb_destinatarios">
+<listbox id="lb_destinatarios" mold="paging" rows="8">
 	<listhead>
 		<listheader label="Codigo" sort="auto" />
 		<listheader label="Nome" sort="auto" />
@@ -63,7 +65,7 @@
 		</listitem>
 	</template>
 </listbox>
-<button label="Enviar" id="btn_enviar"></button>
+
 
 </window>
 </zk>

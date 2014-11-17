@@ -40,10 +40,10 @@
 				</row>
 				<row>
 					<cell>
-						Data:12/14/14
+						<button label="Enviar" id="btn_enviar" zclass="btn btn-primary"></button>
 					</cell>
 					<cell rowspan="2">
-						<button label="Enviar" id="btn_enviar" zclass="btn btn-primary"></button>
+						
 					</cell>
 				</row>
 			</rows>
@@ -51,7 +51,7 @@
 	
 
 
-	<listbox id="lb_notificacaoes" mold="paging" rows="8" >
+	<listbox id="lb_notificacaoes" mold="paging" rows="7" >
 
 	<listhead>
 		<listheader label="Codigo" sort="auto" />
