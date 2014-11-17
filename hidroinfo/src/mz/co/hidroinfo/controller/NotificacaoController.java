@@ -125,7 +125,7 @@ public class NotificacaoController extends SelectorComposer<Component>{
 		novaNotificacao.setMensagem(txt_mensagem.getText());
 		novaNotificacao.setCliente(clienteEscolhido);
 		try{
-			if(validarString(novaNotificacao.getAsssunto())||validarString(novaNotificacao.getMensagem())){
+			if(validarString(novaNotificacao.getAsssunto())&&validarString(novaNotificacao.getMensagem())){
 				dao.create(novaNotificacao);
 				txt_assunto.setText("");
 				txt_mensagem.setText("");
@@ -147,7 +147,7 @@ public class NotificacaoController extends SelectorComposer<Component>{
 		novaNotificacao.setAsssunto(txt_assunto.getText());
 		novaNotificacao.setMensagem(txt_mensagem.getText());
 		try{
-			if(validarString(novaNotificacao.getAsssunto())||validarString(novaNotificacao.getMensagem())){
+			if(validarString(novaNotificacao.getAsssunto())&&validarString(novaNotificacao.getMensagem())){
 				dao.create(novaNotificacao);
 				txt_assunto.setText("");
 				txt_mensagem.setText("");
