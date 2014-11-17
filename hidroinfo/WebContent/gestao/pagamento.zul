@@ -10,7 +10,7 @@
 				<rows>
 					<row id="rw_fatura" >
 						<cell colspan="2" sclass="text-primary">
-							<label style="font-size:20px; text-align:center;">Dados da Factura</label>
+							<label style="font-size:20px">Dados da Factura</label>
 						</cell>
 					</row>
 					<row>

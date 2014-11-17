@@ -165,9 +165,9 @@ private Pagamento pag;
 		valorEntr = Float.valueOf(tb_vlrEntregue.getValue());
 		divida = Float.valueOf(tb_divida.getValue());
 		total = total();
-	//	int id = Integer.valueOf(itb_idFatura.getValue());
-		//Factura factura = daoFac.findById(id);
-		//if (factura == null) {
+	//int id = Integer.valueOf(itb_idFatura.getValue());
+	//	Factura factura = pagDao.findAll().get(0);
+	//	if (factura !=null) {
 
 			if (valorEntr > total) {
 				troco = valorEntr - total;

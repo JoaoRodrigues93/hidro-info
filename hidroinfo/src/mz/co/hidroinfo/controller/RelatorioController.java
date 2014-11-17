@@ -13,6 +13,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.ForwardEvent;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Calendar;
 import org.zkoss.zul.Datebox;
@@ -126,7 +127,9 @@ public class RelatorioController extends GenericForwardComposer {
 //		 
 //	}
 	
-	public void onClick$Gerar(ForwardEvent fe){
+	public void onClickGerar(ForwardEvent event){
+		popularValores();
+		calcularPagamentoDoMes();calcularPagamentoSemana();
 		
 	}
 	
