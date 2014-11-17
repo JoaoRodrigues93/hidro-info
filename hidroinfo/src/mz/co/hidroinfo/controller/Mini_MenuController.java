@@ -87,7 +87,7 @@ public Mini_MenuController (){
 @Override 
 public void doAfterCompose(Component comp) throws Exception{
 	super.doAfterCompose(comp);
-	//setMontante();
+	//SetLeitor();
 }
 
 @Listen ("onClick=#btn_operador")
@@ -128,6 +128,7 @@ public void setOperadorAttributes (){
 	lb_operador = (Listbox) Executions.createComponents("/registos/tabelaOperador.zul", pagina, null);
 	actualizaTabelaOperador();
 	desactivaBusca(false);
+	
 }
 
 public void setLeitorAttributes (){
@@ -141,6 +142,7 @@ public void setLeitorAttributes (){
 	lb_leitor = (Listbox) Executions.createComponents("/registos/tabelaLeitor.zul", pagina, null);
 	actualizaTabelaLeitor();
 	desactivaBusca(false);
+	
 }
 public void setMontanteAttributes (){
 	tipoMenu=MONTANTE;
@@ -149,6 +151,7 @@ public void setMontanteAttributes (){
 	btn_operador.setDisabled(false);
 	mudaCorBotao(btn_montante, btn_leitor, btn_operador);
 	desactivaBusca(true);
+	
 }
 
 public void actualizaTabelaOperador () {
@@ -322,5 +325,6 @@ tb_nuit.setText(null);
 public void limparDadosLeitor (){
 	clearValuesLeitor();
 }
+
 
 }

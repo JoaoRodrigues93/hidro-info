@@ -35,6 +35,12 @@ public Menu_reclamacaoController(){
 	
 }
 
+@Override 
+public void doAfterCompose(Component comp) throws Exception{
+	super.doAfterCompose(comp);
+	setNotificacao();
+}
+
 @Listen ("onClick=#btn_reclamacao")
 public void setReclamacao (){
 	setReclamacaoAttributes();
@@ -87,7 +93,7 @@ public void setNotificacaoAttributes (){
 	btn_reclamacao.setDisabled(false);
 	btn_alertas.setDisabled(false);
 	btn_notificacao.setDisabled(true);
-	btn_notificacao.setDisabled(false);
+	btn_factura.setDisabled(false);
 	alteraEstilo(btn_notificacao, btn_factura,btn_reclamacao, btn_alertas);
 }
 public void setAlertasAttributes (){
