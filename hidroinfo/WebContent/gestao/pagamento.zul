@@ -9,12 +9,12 @@
 			<grid style="border:none;" >
 				<rows>
 					<row id="rw_fatura" >
-						<cell colspan="2" >
-							<label zclass="h2" value="Dados da Factura:"></label>
+						<cell colspan="2" sclass="text-primary">
+							<label style="font-size:20px; text-align:center;">Dados da Factura</label>
 						</cell>
 					</row>
 					<row>
-						<cell>Fatura No:</cell>
+						<cell><label sclass="text-primary">Fatura No:</label></cell>
 						<cell>
 							<textbox readonly="true"
 								id="itb_idFatura" zclass="form-control" >
@@ -23,7 +23,7 @@
 					</row>
 
 					<row>
-						<cell>Nome:</cell>
+						<cell><label sclass="text-primary">Nome:</label></cell>
 						<cell>
 							<textbox readonly="true" id="tb_nome" zclass="form-control">
 							</textbox>
@@ -31,7 +31,7 @@
 					</row>
 
 					<row>
-						<cell>Classe:</cell>
+						<cell><label sclass="text-primary">Classe:</label></cell>
 						<cell>
 							<textbox readonly="true" id="tb_classe" zclass="form-control">
 							</textbox>
@@ -39,7 +39,7 @@
 					</row>
 
 					<row>
-						<cell>Cod. Cliente:</cell>
+						<cell><label sclass="text-primary">Cod. Cliente:</label></cell>
 						<cell>
 							<intbox readonly="true"
 								id="itb_codCliente" zclass="form-control">
@@ -48,7 +48,7 @@
 					</row>
 
 					<row>
-						<cell>Data Emissao:</cell>
+						<cell><label sclass="text-primary">Data Emissao:</label></cell>
 						<cell>
 							<datebox id="dt_emissao" format="short"
 								buttonVisible="false" readonly="true" sclass="form-control">
@@ -57,7 +57,7 @@
 					</row>
 
 					<row>
-						<cell>Data Limite Pagamento:</cell>
+						<cell><label sclass="text-primary">Data Limite Pagamento:</label></cell>
 						<cell>
 							<datebox id="dt_limitePagamento"
 								format="short" buttonVisible="false" readonly="true" sclass="form-control">
@@ -66,7 +66,7 @@
 					</row>
 
 					<row>
-						<cell>Periodo de Facturacao:</cell>
+						<cell><label sclass="text-primary">Periodo de Facturacao:</label></cell>
 						<cell>
 							<textbox id="tb_faturacao"
 								readonly="true" sclass="form-control">
@@ -75,7 +75,7 @@
 					</row>
 
 					<row>
-						<cell>Valor em MTN:</cell>
+						<cell><label sclass="text-primary">Valor em MTN:</label></cell>
 						<cell>
 							<textbox id="dtb_valor" readonly="true" sclass="form-control">
 							</textbox>
@@ -139,7 +139,7 @@
 							<vlayout spacing="0px">
 								<hbox spacing="30px" vflex="20px">
 
-									<label>Data:</label>
+									<label sclass="text-primary">Data:</label>
 									<datebox id="dt_dataPag"
 										format="short" buttonVisible="false" readonly="true"
 										placeholder="dd/mes/aaaa" style="align:right">
@@ -165,7 +165,7 @@
 											</cell>
 											<cell>
 												<textbox
-													id="tb_vlrEntregue" placeholder="valor entregue">
+													id="tb_vlrEntregue" placeholder="valor entregue" constraint="no empty">
 												</textbox>
 											</cell>
 										</row>
@@ -201,11 +201,11 @@
 								emptyMessage="Nao existe pagamentos efectuados">
 								<listhead>
 									<listheader>
-										Nome
+										<label>Nome</label>
 
 									</listheader>
 									<listheader>
-										Factura Nº.
+										<label>Factura Nº.</label>
 
 									</listheader>
 								</listhead>

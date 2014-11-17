@@ -157,6 +157,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 
 	@Listen("onClick = #btn_pagar")
 	public void efectuarPagamento() {
+		Clients.showNotification("botao clicado");
 		Calendar dataPag = new GregorianCalendar();
 		dataPag.setTime(data);
 		float valorEntr, troco, total, divida;
