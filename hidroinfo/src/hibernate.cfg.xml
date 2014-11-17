@@ -60,6 +60,7 @@
 		<mapping class="mz.co.hidroinfo.model.MensagemAviso"/>
 		<mapping class="mz.co.hidroinfo.model.MensagemAvisoColectiva"/>
 		<mapping class="mz.co.hidroinfo.model.MensagemAvisoIndividual"/>
+		<mapping class="mz.co.hidroinfo.model.Recibo" />
 	</session-factory>
 </hibernate-configuration>
 

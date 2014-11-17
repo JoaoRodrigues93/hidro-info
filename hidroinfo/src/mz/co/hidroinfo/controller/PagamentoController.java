@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import mz.co.hidroinfo.dao.*;
 import mz.co.hidroinfo.model.*;
@@ -14,6 +16,7 @@ import mz.co.hidroinfo.model.*;
 import org.apache.poi.hssf.record.formula.eval.StringValueEval;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Desktop;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
@@ -73,7 +76,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 	private final float MULTA = 20;
 	private Date data;
 	private PagamentoDao pagDao;
-	
+
 	@WireVariable
 	private Session _sess;
 
@@ -83,7 +86,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 		pagDao = new PagamentoDao();
 		data = new GregorianCalendar().getTime();
 		operadoraActual = LoginController.operadorActual;
-		
+
 	}
 
 	public void doAfterCompose(Component comp) {
@@ -93,7 +96,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		actualizaPagamento();
 	}
 
@@ -102,7 +105,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 		// Clients.showNotification("Chegou");
 
 		Factura fa = daoFac.findById(itb_codFac.getValue());
-		fac =fa;
+		fac = fa;
 		if (fa != null) {
 			Cliente cl = fa.getLeituraContador().getContador()
 					.getProprietario();
@@ -115,7 +118,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 			} else if (cl instanceof ClienteColectivo) {
 				nome = ((ClienteColectivo) cl).getNome();
 				tb_classe.setValue("Colectivo");
-				
+
 			}
 			tb_nome.setValue(nome);
 			itb_idFatura.setValue(String.valueOf(fa.getId()));
@@ -160,27 +163,52 @@ public class PagamentoController extends SelectorComposer<Component> {
 		valorEntr = Float.valueOf(tb_vlrEntregue.getValue());
 		divida = Float.valueOf(tb_divida.getValue());
 		total = total();
-		int id=Integer.valueOf(itb_idFatura.getValue());
+		int id = Integer.valueOf(itb_idFatura.getValue());
 		Factura factura = daoFac.findById(id);
-		if (factura ==null){
-		
-		if (valorEntr > total) {
-			troco = valorEntr - total;
-			tb_troco.setValue(String.valueOf(troco));
-			Pagamento pag = new Pagamento();
-			pag.setDivida(divida);
-			pag.setDataPagamento(dataPag);
-			pag.setOperador(operadoraActual);
-			pag.setValor_a_pagar(total);
-			pag.setFactura(fac);
-			pagDao.create(pag);
-			modelPagamento.add(0, pag);
-		} else
-			Messagebox.show("valor insuficiente");
-		dt_dataPag.setValue(data);
-	}}
-	
-	public void actualizaPagamento(){
+		if (factura == null) {
+
+			if (valorEntr > total) {
+				troco = valorEntr - total;
+				tb_troco.setValue(String.valueOf(troco));
+				Pagamento pag = new Pagamento();
+				pag.setDivida(divida);
+				pag.setDataPagamento(dataPag);
+				pag.setOperador(operadoraActual);
+				pag.setValor_a_pagar(total);
+				pag.setFactura(fac);
+				pagDao.create(pag);
+				modelPagamento.add(0, pag);
+
+				imprimirRecibo(pag);
+				
+			} else
+				Messagebox.show("valor insuficiente");
+			dt_dataPag.setValue(data);
+		}
+	}
+
+	private void imprimirRecibo(Pagamento pagamento) {
+
+		Recibo recibo = new Recibo();
+		ReciboDAO reciboDAO = new ReciboDAO();
+
+		int tamanhoListaParaRediboCodigo = reciboDAO.findAll().size();
+
+		if (tamanhoListaParaRediboCodigo == 0)
+			tamanhoListaParaRediboCodigo = 1;
+
+		recibo.setCodRecibo(tamanhoListaParaRediboCodigo);
+		recibo.setPagamento(pagamento);
+		recibo.setDataImpressao(pagamento.getDataPagamento());
+
+		Map<String, Object> arguments = new HashMap<String, Object>();
+		arguments.put("recibo", recibo);
+
+		Executions.createComponents("/gestao/recibo.zul", null, arguments);
+
+	}
+
+	public void actualizaPagamento() {
 		List<Pagamento> lista = pagDao.pegaPagamento(new GregorianCalendar());
 		modelPagamento = new ListModelList<Pagamento>(lista);
 		lst_pagamento.setModel(modelPagamento);
