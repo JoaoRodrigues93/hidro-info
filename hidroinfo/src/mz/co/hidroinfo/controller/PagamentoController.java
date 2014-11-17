@@ -76,7 +76,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 	private final float MULTA = 20;
 	private Date data;
 	private PagamentoDao pagDao;
-
+private Pagamento pag;
 	@WireVariable
 	private Session _sess;
 
@@ -86,6 +86,7 @@ public class PagamentoController extends SelectorComposer<Component> {
 		pagDao = new PagamentoDao();
 		data = new GregorianCalendar().getTime();
 		operadoraActual = LoginController.operadorActual;
+		 pag = new Pagamento();
 
 	}
 
@@ -157,16 +158,16 @@ public class PagamentoController extends SelectorComposer<Component> {
 
 	@Listen("onClick = #btn_pagar")
 	public void efectuarPagamento() {
-		Clients.showNotification("botao clicado");
+		//Clients.showNotification("paguei");
 		Calendar dataPag = new GregorianCalendar();
 		dataPag.setTime(data);
 		float valorEntr, troco, total, divida;
 		valorEntr = Float.valueOf(tb_vlrEntregue.getValue());
 		divida = Float.valueOf(tb_divida.getValue());
 		total = total();
-		int id = Integer.valueOf(itb_idFatura.getValue());
-		Factura factura = daoFac.findById(id);
-		if (factura == null) {
+	//	int id = Integer.valueOf(itb_idFatura.getValue());
+		//Factura factura = daoFac.findById(id);
+		//if (factura == null) {
 
 			if (valorEntr > total) {
 				troco = valorEntr - total;
@@ -181,12 +182,12 @@ public class PagamentoController extends SelectorComposer<Component> {
 				modelPagamento.add(0, pag);
 
 				imprimirRecibo(pag);
-				
+				clearDados();
 			} else
 				Messagebox.show("valor insuficiente");
 			dt_dataPag.setValue(data);
 		}
-	}
+//	}
 
 	private void imprimirRecibo(Pagamento pagamento) {
 
@@ -215,4 +216,11 @@ public class PagamentoController extends SelectorComposer<Component> {
 		lst_pagamento.setModel(modelPagamento);
 	}
 
+	public void clearDados (){
+		pag.setDivida(0);
+		pag.setFactura(null);
+		pag.setDataPagamento(null);
+		pag.setOperador(null);
+		pag.setValor_a_pagar(0);
+	}
 }
