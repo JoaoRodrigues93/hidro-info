@@ -103,8 +103,6 @@ private Pagamento pag;
 
 	@Listen("onClick = #bt_factura")
 	public void vizualizaFactura() {
-		// Clients.showNotification("Chegou");
-
 		Factura fa = daoFac.findById(itb_codFac.getValue());
 		fac = fa;
 		if (fa != null) {
@@ -180,9 +178,9 @@ private Pagamento pag;
 				pag.setFactura(fac);
 				pagDao.create(pag);
 				modelPagamento.add(0, pag);
-
-				imprimirRecibo(pag);
 				clearDados();
+				imprimirRecibo(pag);
+				
 			} else
 				Messagebox.show("valor insuficiente");
 			dt_dataPag.setValue(data);

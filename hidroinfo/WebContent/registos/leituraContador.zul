@@ -1,3 +1,5 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css" ?>
 <?page title="Registar Leitura no contador" contentType="text/html;charset=UTF-8"?>
 
 <window width="100%" height="100%"
@@ -55,10 +57,10 @@
 					</rows>
 				</grid>
 				<hbox>
-					<button id="bt_guardar" label="Guardar"></button>
-					<button id="bt_alterar" label="Alterar"></button>
-					<button id="bt_eliminar" label="Eliminar"></button>
-					<button id="bt_limpar" label="Limpar"></button>
+					<button id="bt_guardar" label="Guardar" zclass="btn btn-primary"></button>
+<!-- 					<button id="bt_alterar" label="Alterar"></button> -->
+<!-- 					<button id="bt_eliminar" label="Eliminar"></button> -->
+<!-- 					<button id="bt_limpar" label="Limpar"></button> -->
 				</hbox>
 			</vlayout>
 		</north>
