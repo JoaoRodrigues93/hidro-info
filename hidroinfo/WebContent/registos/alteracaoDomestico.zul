@@ -1,6 +1,6 @@
 <zk>
 
-<window id="winAlterarDomestico" title="Registo de Cliente doméstico" border="normal" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteDomesticoController" >
+<window id="winAlterarDomestico" title="Alteração de Cliente doméstico" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteDomesticoController" >
 	<grid id="gd_clienteAlterar">
 		<columns>
 		<column></column>
@@ -18,7 +18,7 @@
 			</row>
 			
 			<row>
-				<cell>Nuit:</cell> <cell> <textbox id="tb_nuit" value="${arg.clienteAlterar.nuit}" > </textbox> </cell>
+				<cell>Nuit:</cell> <cell> <intbox id="tb_nuit" value="${arg.clienteAlterar.nuit}" maxlength="8" width="70%"> </intbox> </cell>
 			</row>
 			
 			<row spans="2">
@@ -46,7 +46,7 @@
 			</row>
 			
 			<row>
-				<cell>Número da residência:</cell> <cell> <textbox id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}"> </textbox> </cell>
+				<cell>Número da residência:</cell> <cell> <intbox width="70%" maxlength="8"	id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}"> </intbox> </cell>
 			</row>
 			
 			<row spans="2" >
@@ -54,15 +54,15 @@
 			</row>
 			
 			<row>
-				<cell>Telefone:</cell> <cell> <textbox id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}"> </textbox> </cell>
+				<cell>Telefone:</cell> <cell> <intbox id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}" maxlength="9" width="70%"> </intbox> </cell>
 			</row>
 			
 			<row>
-				<cell>E-mail</cell> <cell> <textbox id="tb_email" value="${arg.clienteAlterar.contacto.email}"> </textbox> </cell>
+				<cell>E-mail</cell> <cell> <textbox id="tb_email" value="${arg.clienteAlterar.contacto.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico"  > </textbox> </cell>
 			</row>
 			<row>
 				<cell align="right" > <button id="bt_alterar" >Confirmar alteração</button> </cell> 
-				<cell align="left" > <button id="bt_limpar">Limpar</button> </cell>
+				
 			</row>
 		</rows>
 	</grid>

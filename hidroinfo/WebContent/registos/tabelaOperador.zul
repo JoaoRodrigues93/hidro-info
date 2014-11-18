@@ -32,7 +32,7 @@
 			<listcell>
 				<hbox>
 					<button image="/imagens/edit.ico"
-						forward="onClick=lb_operador.onOperadorUpdate">
+						forward="lb_operador.onOperadorUpdate">
 					</button>
 					<button image="/imagens/delete.ico"
 						forward="onClick=lb_operador.onOperadorDelete">

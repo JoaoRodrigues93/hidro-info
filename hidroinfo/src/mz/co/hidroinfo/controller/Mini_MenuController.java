@@ -87,7 +87,7 @@ public Mini_MenuController (){
 @Override 
 public void doAfterCompose(Component comp) throws Exception{
 	super.doAfterCompose(comp);
-	//SetLeitor();
+	//setMontante();
 }
 
 @Listen ("onClick=#btn_operador")
@@ -105,6 +105,15 @@ public void setMontante(){
 	setMontanteAttributes();
 	montante();
 }
+@Listen ("onClick = #bt_pesquisa")
+public void pesquisaFuncionario () {
+	String pesquisa = tb_pesquisa.getText();
+	if(tipoMenu == OPERADOR)
+		actualizaOperador(pesquisa);
+	else
+		if(tipoMenu == LEITOR)
+			actualizaLeitor(pesquisa);
+}
 
 public void montante() {
 	if(pagina.getFirstChild()!=null)
@@ -112,7 +121,7 @@ public void montante() {
 	 Div div=(Div)Executions.createComponents("/gestao/montanteFuncionario.zul", pagina, null);}
 
 
-@Listen ("onClick = #pesquisa")
+@Listen ("onClick = #bt_pesquisa")
 public void pesquisaCliente () {
 	Messagebox.show("Clicou em pesquisa");
 }
@@ -126,7 +135,7 @@ public void setOperadorAttributes (){
 	if(pagina.getFirstChild()!=null)
 		pagina.removeChild(pagina.getFirstChild());
 	lb_operador = (Listbox) Executions.createComponents("/registos/tabelaOperador.zul", pagina, null);
-	actualizaTabelaOperador();
+//	actualizaTabelaOperador();
 	desactivaBusca(false);
 	
 }
@@ -159,9 +168,20 @@ public void actualizaTabelaOperador () {
 	operadorModel = new ListModelList<Operador>(operadores);
 	lb_operador.setModel(operadorModel);
 }
-
 public void actualizaTabelaLeitor () {
 	List<Leitor> leitores = leitorDao.findAll();
+	leitorModel = new ListModelList<Leitor>(leitores);
+	lb_leitor.setModel(leitorModel);
+}
+public void actualizaOperador (String pesquisa) {
+	Listbox tabelaOperador = (Listbox)pagina.getFirstChild();
+	List<Operador> operadores = operadorDao.findAll(pesquisa);
+	operadorModel = new ListModelList<Operador>(operadores);
+	lb_operador.setModel(operadorModel);
+}
+public void actualizaLeitor (String pesquisa) {
+	Listbox tabelaLeitor = (Listbox)pagina.getFirstChild();
+	List<Leitor> leitores = leitorDao.findAll(pesquisa);
 	leitorModel = new ListModelList<Leitor>(leitores);
 	lb_leitor.setModel(leitorModel);
 }
@@ -239,6 +259,11 @@ public void onClickAlterar (ForwardEvent event){
 @Listen ("onClick = #btn_confirmar")
 public void alterarOperador () {
 	String pass=tb_insira_password.getText();
+	List <Operador> list= operadorDao.obtemPorUsername(tb_username.getText(), tb_password.getText());
+	if(!list.isEmpty())
+	{
+		Clients.showNotification("Um operador ja foi cadrastado com esse username", "error", null,null,2000);
+	}else{
 	if(!tb_password.getText().equals(pass)){
 		Clients.showNotification("o password deve ser igual", "error", null, null, 2000);
 		
@@ -253,7 +278,7 @@ public void alterarOperador () {
 	lista.add(0, op);
 	operadorWin.detach();;
 	Clients.showNotification("Dados do operador "+op.getNome()+" foram alterados");
-}}
+}}}
 @Listen ("onLeitorUpdate = #lb_leitor")
 public void onClickAlterarLeitor (ForwardEvent event){
 	Button btn_confirmarLeitor =(Button) event.getOrigin().getTarget();
@@ -289,13 +314,14 @@ operador.setNuit(Integer.valueOf(tb_nuit.getText()));
 operador.setTelefone(Integer.valueOf(tb_telefone.getText()));
 operador.setUsername(tb_username.getText());
 operador.setPassword(tb_password.getText());
+
 }
 public void clearValues (){
 tb_username.setText(null);
 tb_telefone.setText(null);
 tb_password.setText(null);
 tb_bi.setText(null);
-tb_email.setText(null);
+tb_email.setRawValue(null);
 tb_nome.setText(null);
 tb_nuit.setText(null);
 tb_insira_password.setText(null);}
@@ -317,7 +343,7 @@ public void clearValuesLeitor (){
 tb_bairro.setText(null);
 tb_telefone.setText(null);
 tb_bi.setText(null);
-tb_email.setText(null);
+tb_email.setRawValue(null);;
 tb_nome.setText(null);
 tb_nuit.setText(null);
 }

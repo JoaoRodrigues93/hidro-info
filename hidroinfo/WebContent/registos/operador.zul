@@ -30,7 +30,7 @@
 					<label>NUIT</label>
 				</cell>
 				<cell>
-					<intbox id="nuit" sclass="textboxstyle" />
+					<intbox id="nuit" sclass="textboxstyle" maxlength="8" width="75%"/>
 				</cell>
 			</row>
 			<row>
@@ -38,7 +38,7 @@
 					<label>Telefone</label>
 				</cell>
 				<cell>
-					<intbox id="telefone" sclass="textboxstyle" />
+					<intbox id="telefone" sclass="textboxstyle" maxlength="9" width="75%"/>
 				</cell>
 			</row>
 			<row>
