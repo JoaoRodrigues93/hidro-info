@@ -183,7 +183,9 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 		dataLimite = new GregorianCalendar();
 		mesActual = dataEmissao.get(Calendar.DAY_OF_MONTH);
 		dataLimite.set(Calendar.MONTH,mesActual+1);
-		periodo = leitura.getDataAnterior().getTime().toLocaleString()+" a "+leitura.getDataActual().getTime().toLocaleString();
+		periodo = leitura.getDataAnterior().get(Calendar.DATE)+"/"+leitura.getDataAnterior().get(Calendar.MONTH)+"/"+
+				leitura.getDataAnterior().get(Calendar.YEAR)+" a "+
+				leitura.getDataActual().get(Calendar.DATE)+"/"+leitura.getDataActual().get(Calendar.MONTH)+"/"+leitura.getDataActual().get(Calendar.YEAR);
 		vpagar = taxaFixa + taxaPorMetro * (leituraActual-leituraAnterior);
 		vpagar +=IVA*vpagar;
 		factura.setDataEmissao(dataEmissao);
