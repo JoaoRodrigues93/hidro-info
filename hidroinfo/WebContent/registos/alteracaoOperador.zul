@@ -60,15 +60,15 @@
 			</row>
 			<row>
 				<cell>
-					<label>Password</label>
+					<label>Insira o antigo Password</label>
 				</cell>
 				<cell>
-					<textbox id="tb_password" type="password" sclass="textboxstyle" value="${arg.funAlterar.password}"/>
+					<textbox id="tb_password" type="password" sclass="textboxstyle" />
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>Insira denovo o Password</label>
+					<label>Insira o novo Password</label>
 				</cell>
 				<cell>
 					<textbox id="tb_insira_password" type="password" sclass="textboxstyle"  />
