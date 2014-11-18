@@ -1,17 +1,24 @@
 <?page title="Recibo" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<style src="/css/style.css" />
-	<window title="Recibo" border="normal" width="351px" height="500px"
+	<window title="Recibo" border="normal" width="351px" height="550px"
 		mode="highlighted" closable="true" draggable="false" droppable="false"
 		apply="mz.co.hidroinfo.controller.ReciboController">
 
 		<div style="border-color: #00aff0">
 
 			<hbox>
-                  <label style="font-size:25px; margin-top:150px">Hidro</label>
-                  <label style="color: #00aff0; font-size:25px; margin-top: 150px">INFO</label>
-                  
-                  <image style="margin-left:83px; margin-bottom:-10px" src="/imagens/hidroinfo.PNG"></image>
+				<label style="font-size:25px; margin-top:150px">
+					Hidro
+				</label>
+				<label
+					style="color: #00aff0; font-size:25px; margin-top: 150px">
+					INFO
+				</label>
+
+				<image style="margin-left:83px; margin-bottom:-10px"
+					src="/imagens/hidroinfo.PNG">
+				</image>
 			</hbox>
 
 			<hbox style="margin: 10px 0 20px 5px">
@@ -19,19 +26,21 @@
 					<label style="color: #00aff0;font-size:10px">
 						Cod. Cliente
 					</label>
-					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.id}"
+					<textbox
+						value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.id}"
 						style="height: 50px; width: 100px; background-color: #ffffff"
-						disabled="true">
+						readonly="true">
 					</textbox>
-					
+
 				</vbox>
 
 				<vbox style="margin: 0 10px 0 0">
 					<label style="color: #00aff0;font-size:10px">
 						Nome
 					</label>
-					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.nome}"
-						style="height: 50px; width: 100px" disabled="true">
+					<textbox
+						value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.nome}"
+						style="height: 50px; width: 100px" readonly="true">
 					</textbox>
 
 				</vbox>
@@ -40,8 +49,9 @@
 					<label style="color: #00aff0;font-size:10px">
 						NUIT
 					</label>
-					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.nuit}"
-						style="height: 50px; width: 100px" disabled="true">
+					<textbox
+						value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.nuit}"
+						style="height: 50px; width: 100px" readonly="true">
 					</textbox>
 
 				</vbox>
@@ -52,18 +62,20 @@
 					<label style="color: #00aff0;font-size:10px">
 						Cod. Local
 					</label>
-					<textbox value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.endereco.codigoLocal}"
-						style="height: 50px; width: 100px" disabled="true">
+					<textbox
+						value="${arg.recibo.pagamento.factura.leituraContador.contador.proprietario.endereco.codigoLocal}"
+						style="height: 50px; width: 100px" readonly="true">
 					</textbox>
-					
+
 				</vbox>
 
 				<vbox style="margin: 0 10px 0 0">
 					<label style="color: #00aff0;font-size:10px">
 						Valor a Pagar
 					</label>
-					<textbox value="${arg.recibo.pagamento.valor_a_pagar}"
-						style="height: 50px; width: 100px" disabled="true">
+					<textbox
+						value="${arg.recibo.pagamento.valor_a_pagar}"
+						style="height: 50px; width: 100px" readonly="true">
 					</textbox>
 				</vbox>
 
@@ -72,7 +84,7 @@
 						# Recibo
 					</label>
 					<textbox value="${arg.recibo.codRecibo}"
-						style="height: 50px; width: 100px" disabled="true">
+						style="height: 50px; width: 100px" readonly="true">
 					</textbox>
 				</vbox>
 			</hbox>
@@ -83,7 +95,7 @@
 						Data de Emissão do Recibo
 					</label>
 					<datebox buttonVisible="false" readonly="true"  style="height: 50px; width: 100px" 
-					disabled="true" format="short" value="${arg.recibo.dataImpressao.time}" > </datebox>
+					 format="short" value="${arg.recibo.dataImpressao.time}" > </datebox>
 				</vbox>
 
 				<vbox style="margin: 20px 10px 0 0">
@@ -91,7 +103,7 @@
 						Factura No
 					</label>
 					<textbox value="${arg.recibo.pagamento.factura.id}"
-						style="height: 50px; width: 100px" disabled="true">
+						style="height: 50px; width: 100px" readonly="true">
 					</textbox>
 				</vbox>
 
@@ -101,11 +113,20 @@
 					</label>
 					<textbox
 						value="${arg.recibo.pagamento.operador.username}"
-						style="height: 50px; width: 100px" disabled="true">
+						style="height: 50px; width: 100px" readonly="true">
 					</textbox>
 				</vbox>
 			</hbox>
+			<vbox>
+				<label style="color: #00aff0;font-size:10px">
+					Troco:
+				</label>
+				<textbox value="${arg.troco}"
+					style="height: 50px; width: 100px" readonly="true">
+				</textbox>
 
+
+			</vbox>
 			<grid style="opacity: 0">
 				<rows>
 					<row value="${arg.recibo}" id="rw_recibo"></row>

@@ -10,7 +10,7 @@
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <borderlayout width="100%" height="100%">
 		<west width="30%">
-			<grid style="border:none;" >
+			<grid id="gd_pagamento" style="border:none;" >
 				<rows>
 					<row id="rw_fatura" >
 						<cell colspan="2" sclass="text-primary">
@@ -184,8 +184,10 @@
 											</cell>
 											<cell>
 												<textbox
+
 													id="tb_vlrEntregue" placeholder="valor entregue"  
 													sclass="form-control">
+
 												</textbox>
 											</cell>
 										</row>

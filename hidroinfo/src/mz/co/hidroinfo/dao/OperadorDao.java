@@ -41,7 +41,18 @@ public class OperadorDao extends GenericDAO<Operador> {
 		
 		return lista;
 	}
-	
+	public List<Operador> validarUsername (String username){
+		
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+		Criteria criteria = session.createCriteria(Operador.class);
+		criteria.add(Restrictions.eq("username", username));
+		List<Operador> lista = criteria.list();
+		tx.commit();
+		
+		return lista;
+	}
+
 	public List<Operador> pagamento(Calendar dataPagamento) {
 		Session se = getSession();
 		Transaction tx = se.beginTransaction();
@@ -72,7 +83,7 @@ public class OperadorDao extends GenericDAO<Operador> {
 		Criterion nuit = Restrictions.eq("nuit", pesquisaInt);
 		Criterion nome = Restrictions.ilike("nome","%"+pesquisa+"%");
 		Criterion bi = Restrictions.ilike("bi","%"+pesquisa+"%");
-		Criterion telefone = Restrictions.ilike("telefone", "%"+pesquisaInt+"%");
+		Criterion telefone = Restrictions.ilike("telefone", "%"+pesquisaInt);
 		Criterion email = Restrictions.ilike("email", "%"+pesquisa+"%");
 		Criterion username = Restrictions.ilike("username", "%"+pesquisa+"%");
 		Criterion password = Restrictions.ilike("password", "%"+pesquisa+"%");
