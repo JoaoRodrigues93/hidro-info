@@ -35,10 +35,6 @@
 			Username:
 			<label value="${operador.username}" style="font-weight:bold"  />
 		</row>
-		<row>
-			Password
-			<label value="${operador.password}" style="font-weight:bold"  />
-		</row>
 		
 		</rows>
 	</grid>
