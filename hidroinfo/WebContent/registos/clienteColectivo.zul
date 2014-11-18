@@ -15,7 +15,7 @@
 			</row>
 			
 			<row>
-				<cell>Nuit:</cell> <cell> <textbox id="tb_nuit"> </textbox> </cell>
+				<cell>Nuit:</cell> <cell> <intbox  id="tb_nuit" width="71%" maxlength="8" > </intbox> </cell>
 			</row>
 			
 			<row spans="2">
@@ -43,7 +43,7 @@
 			</row>
 			
 			<row>
-				<cell>Número da residência:</cell> <cell> <textbox id="tb_casaNumero"> </textbox> </cell>
+				<cell>Número da residência:</cell> <cell> <intbox id="tb_casaNumero" maxlength="8" width="71%" > </intbox> </cell>
 			</row>
 			
 			<row spans="2" >
@@ -51,11 +51,11 @@
 			</row>
 			
 			<row>
-				<cell>Telefone:</cell> <cell> <textbox id="tb_telefone"> </textbox> </cell>
+				<cell>Telefone:</cell> <cell> <intbox id="tb_telefone" maxlength="9" width="71%" > </intbox> </cell>
 			</row>
 			
 			<row>
-				<cell>E-mail</cell> <cell> <textbox id="tb_email"> </textbox> </cell>
+				<cell>E-mail</cell> <cell> <textbox id="tb_email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico"> </textbox> </cell>
 			</row>
 			<row>
 				<cell align="right"> <button id="bt_guardar">Guardar</button> </cell> 

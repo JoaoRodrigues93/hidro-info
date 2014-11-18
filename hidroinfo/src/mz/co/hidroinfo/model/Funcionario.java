@@ -17,7 +17,6 @@ public class Funcionario {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
 	private String nome;
 	private String bi; 
 	private int nuit;

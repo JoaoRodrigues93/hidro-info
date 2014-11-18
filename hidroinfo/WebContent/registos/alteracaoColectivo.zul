@@ -1,6 +1,6 @@
 <zk>
 
-<window id="winAlterarColectivo" title="Alteração de cliente colectivo" border="normal" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteColectivoController" >
+<window id="winAlterarColectivo" title="Alteração de cliente colectivo" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteColectivoController" >
 	<grid id="gd_clienteAlterar">
 		<columns>
 		<column></column>
@@ -19,7 +19,7 @@
 			</row>
 			
 			<row>
-				<cell>Nuit:</cell> <cell> <textbox id="tb_nuit" value="${arg.clienteAlterar.nuit}" > </textbox> </cell>
+				<cell>Nuit:</cell> <cell> <intbox id="tb_nuit"  value="${arg.clienteAlterar.nuit}" width="74%" maxlength="8"> </intbox> </cell>
 			</row>
 			
 			<row spans="2">
@@ -43,11 +43,11 @@
 			</row>
 			
 			<row>
-				<cell>quarteirao:</cell> <cell> <textbox id="tb_quarteirao" value="${arg.clienteAlterar.endereco.quarteirao}"> </textbox> </cell>
+				<cell>quarteirao:</cell> <cell> <textbox  id="tb_quarteirao" value="${arg.clienteAlterar.endereco.quarteirao}"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Número da residência:</cell> <cell> <textbox id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}"> </textbox> </cell>
+				<cell>Número da residência:</cell> <cell> <intbox id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}" maxlength="8" width="74%" > </intbox> </cell>
 			</row>
 			
 			<row spans="2" >
@@ -55,15 +55,16 @@
 			</row>
 			
 			<row>
-				<cell>Telefone:</cell> <cell> <textbox id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}"> </textbox> </cell>
+				<cell>Telefone:</cell> <cell> <intbox id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}" width="74%" maxlength="9" > </intbox> </cell>
 			</row>
 			
 			<row>
-				<cell>E-mail</cell> <cell> <textbox id="tb_email" value="${arg.clienteAlterar.contacto.email}"> </textbox> </cell>
+				<cell>E-mail</cell> <cell> <textbox id="tb_email" value="${arg.clienteAlterar.contacto.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico"> </textbox> </cell>
 			</row>
-			<row>
-				<cell align="right" > <button id="bt_alterar" >Confirmar alteração</button> </cell> 
-				<cell align="left" > <button id="bt_limpar">Limpar</button> </cell>
+			<row >
+			
+				<cell align="right" > <button id="bt_alterar">Confirmar alteração</button> </cell> 
+				
 			</row>
 		</rows>
 	</grid>

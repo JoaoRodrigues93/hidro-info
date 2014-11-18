@@ -19,6 +19,7 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Grid;
+import org.zkoss.zul.Intbox;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
@@ -45,21 +46,14 @@ public class ClienteDomesticoController extends SelectorComposer<Component> {
 	private Button bt_alterar;
 	@Wire
 	private Textbox tb_nome;
-	
-	@Wire
-	private Textbox tb_nuit;
 	@Wire
 	private Textbox tb_bi;
 	@Wire
 	private Textbox tb_email;
 	@Wire
-	private Textbox tb_telefone;
-	@Wire
 	private Textbox tb_avenida;
 	@Wire
 	private Textbox tb_bairro;
-	@Wire
-	private Textbox tb_casaNumero;
 	@Wire
 	private Textbox tb_cidade;
 	@Wire
@@ -68,6 +62,8 @@ public class ClienteDomesticoController extends SelectorComposer<Component> {
 	private Textbox tb_rua;
 	@Wire
 	private Listbox lb_cliente;
+	@Wire
+	private Intbox tb_telefone, tb_nuit, tb_casaNumero;
 	@Wire
 	private ListModelList<ClienteDomestico> modeloDomestico;
 	@Wire
@@ -94,6 +90,10 @@ System.out.println("Registando um cliente domestico.....\n");
 		ListModelList<ClienteDomestico> lista = (ListModelList)lb_cliente.getModel();
 		lista.add(0, cliente);
 		
+	}
+	@Listen("onClick=#bt_limpar")
+	public void limparCampos (){
+		clearValues();
 	}
 	
 	@Listen ("onClienteDomesticoDelete = #lb_cliente")
@@ -172,7 +172,7 @@ System.out.println("Registando um cliente domestico.....\n");
 		tb_cidade.setText(null);
 		tb_quarteirao.setText(null);
 		tb_rua.setText(null);
-		tb_email.setText(null);
+		tb_email.setRawValue(null);
 		tb_telefone.setText(null);
 		tb_bi.setText(null);
 		tb_nome.setText(null);

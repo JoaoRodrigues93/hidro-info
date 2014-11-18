@@ -99,7 +99,7 @@ public class LoginController extends SelectorComposer<Component> {
 			abreAdministrador();
 		}
 		else
-			Clients.showNotification("Usuario ou palavra-passe invalidos tente novamente",bt_login);
+			Clients.showNotification("Usuario ou palavra-passe invalidos tente novamente","error", bt_login, null, 2000);
 		
 	}
 	

@@ -15,6 +15,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
+import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Datebox;
 import org.zkoss.zul.Label;
@@ -63,8 +64,8 @@ public class MontanteFuncionarioController extends SelectorComposer<Component>{
 		lst_montante.setModel(montanteModel);
 		for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
 		montante += ((Montante) iterator.next()).getValorCobrado();
-		}}else  Messagebox.show("Nao existe dados desse dia");
-		
+		}}else Clients.showNotification("Nao existe dados desse dia");  
+			
 		
 		lf_total.setLabel(String.valueOf(montante));
 	}

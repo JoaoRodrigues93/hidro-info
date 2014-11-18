@@ -1,4 +1,6 @@
 package mz.co.hidroinfo.controller;
+import java.util.List;
+
 import mz.co.hidroinfo.dao.FuncionarioDao;
 import mz.co.hidroinfo.dao.OperadorDao;
 import mz.co.hidroinfo.model.ClienteColectivo;
@@ -36,10 +38,15 @@ public class ControladorOperador extends GenericForwardComposer {
 @Wire
 private Intbox nuit, telefone;
 	
-	Operador o;
+	Operador o; OperadorDao operadorDao;
 	public void onClick$Regista(ForwardEvent e){
 		o=new Operador();
-		
+		operadorDao=new OperadorDao();
+		List <Operador> list= operadorDao.obtemPorUsername(username.getText(), password.getText());
+		if(!list.isEmpty())
+		{
+			Clients.showNotification("Um operador ja foi cadrastado com esse username", "error", null,null,2000);
+		}else{
 		String pass=insira_password.getText();
 		if(!password.getText().equals(pass)){
 			Clients.showNotification("o password deve ser igual");
@@ -62,13 +69,13 @@ private Intbox nuit, telefone;
 		model.add(o);
 		Clients.showNotification("Operador registado com sucesso!");
 		onClick$limparCampos();
-	}}
+	}}}
 	public void onClick$limparCampos(){
 		nome.setText(null);
 		bi.setText(null);
 		nuit.setText(null);
 		telefone.setText(null);
-		email.setText(null);
+		email.setRawValue(null);
 		username.setText(null);
 		password.setText(null);
 		insira_password.setText(null);

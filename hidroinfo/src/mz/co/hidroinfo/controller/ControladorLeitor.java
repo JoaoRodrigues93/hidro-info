@@ -64,7 +64,7 @@ private Intbox nuit, telefone;
 		bi.setText(null);
 		nuit.setText(null);
 		telefone.setText(null);
-		email.setText(null);
+		email.setRawValue(null);
 		bairro.setText(null);
 		
 		

@@ -73,7 +73,7 @@
 					<label>NUIT</label>
 				</cell>
 				<cell>
-					<intbox id="nuit"  />
+					<intbox id="nuit"  width="75%" maxlength="8"/>
 				</cell>
 			</row>
 			<row>
@@ -81,7 +81,7 @@
 					<label>Telefone</label>
 				</cell>
 				<cell>
-					<intbox id="telefone"/>
+					<intbox id="telefone" width="75%" maxlength="9"/>
 				</cell>
 			</row>
 			<row>
