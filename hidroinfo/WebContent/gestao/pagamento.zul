@@ -2,8 +2,12 @@
 <?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <window width="100%" height="100%"
-	apply="mz.co.hidroinfo.controller.PagamentoController">
+	apply="mz.co.hidroinfo.controller.PagamentoController" zclass="form-control">
 
+
+<?page title="Hidro - Efectuar Pagamento" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 <borderlayout width="100%" height="100%">
 		<west width="30%">
 			<grid style="border:none;" >
@@ -16,42 +20,42 @@
 					<row>
 						<cell><label sclass="text-primary">Fatura No:</label></cell>
 						<cell>
-							<textbox readonly="true"
+							<label
 								id="itb_idFatura" zclass="form-control" >
-							</textbox>
+							</label>
 						</cell>
 					</row>
 
 					<row>
 						<cell><label sclass="text-primary">Nome:</label></cell>
 						<cell>
-							<textbox readonly="true" id="tb_nome" zclass="form-control">
-							</textbox>
+							<label id="tb_nome" zclass="form-control">
+							</label>
 						</cell>
 					</row>
 
 					<row>
 						<cell><label sclass="text-primary">Classe:</label></cell>
 						<cell>
-							<textbox readonly="true" id="tb_classe" zclass="form-control">
-							</textbox>
+							<label id="tb_classe" zclass="form-control">
+							</label>
 						</cell>
 					</row>
 
 					<row>
 						<cell><label sclass="text-primary">Cod. Cliente:</label></cell>
 						<cell>
-							<intbox readonly="true"
+							<label
 								id="itb_codCliente" zclass="form-control">
-							</intbox>
+							</label>
 						</cell>
 					</row>
 
 					<row>
 						<cell><label sclass="text-primary">Data Emissao:</label></cell>
 						<cell>
-							<datebox id="dt_emissao" format="short"
-								buttonVisible="false" readonly="true" sclass="form-control">
+							<datebox id="dt_emissao" format="short" readonly="true"
+								buttonVisible="false" sclass="form-control">
 							</datebox>
 						</cell>
 					</row>
@@ -59,8 +63,8 @@
 					<row>
 						<cell><label sclass="text-primary">Data Limite Pagamento:</label></cell>
 						<cell>
-							<datebox id="dt_limitePagamento"
-								format="short" buttonVisible="false" readonly="true" sclass="form-control">
+							<datebox id="dt_limitePagamento" format="short" 
+								buttonVisible="false" sclass="form-control" readonly="true">
 							</datebox>
 						</cell>
 					</row>
@@ -68,17 +72,17 @@
 					<row>
 						<cell><label sclass="text-primary">Periodo de Facturacao:</label></cell>
 						<cell>
-							<textbox id="tb_faturacao"
-								readonly="true" sclass="form-control">
-							</textbox>
+							<label id="tb_faturacao"
+								sclass="form-control">
+							</label>
 						</cell>
 					</row>
 
 					<row>
-						<cell><label sclass="text-primary">Valor em MTN:</label></cell>
+						<cell><label zclass="text-primary" >Valor em MTN:</label></cell>
 						<cell>
-							<textbox id="dtb_valor" readonly="true" sclass="form-control">
-							</textbox>
+							<label id="dtb_valor" sclass="form-control">
+							</label>
 						</cell>
 					</row>
 				</rows>
@@ -94,20 +98,20 @@
 					<row spans="2">
 						<cell>
 							<hlayout spacing="11px">
-								<label value="Divida em MTn:"></label>
+								<label value="Divida em MTn:" sclass="text-primary" ></label>
 
-								<textbox id="tb_divida"
-									placeholder="divida" readonly="true">
-								</textbox>
+								<label id="tb_divida"
+									  sclass="form-control" width="180px">
+								</label>
 							</hlayout>
 						</cell>
 
 						<cell>
-							<hlayout spacing="30px"
+							<hlayout 
 								style="align:right">
 								<intbox id="itb_codFac"
 									placeholder="Código da factura" constraint="no empty"
-									style="align:right">
+									style="align:right" sclass="form-control" width="180px">
 								</intbox>
 								<button id="bt_factura"
 									zclass="btn btn-primary" label="Facturar"
@@ -118,31 +122,46 @@
 					</row>
 					<row spans="1">
 						<cell>
-							<hlayout spacing="20px">
-								<label value="Tolal em MTn:"></label>
-								<textbox id="tb_total"
-									placeholder="tolal" readonly="true">
-								</textbox>
+							<hlayout spacing="18px">
+								<label value="Tolal em MTn:" sclass="text-primary"></label>
+								<label id="tb_total"
+									sclass="form-control" width="180px" style="align:rigth">
+								</label>
 							</hlayout>
 						</cell>
-						<cell >
-							<label zclass="titulo">
-								Pagamentos Diarios:
-							</label>
-						</cell>
+						
 
+					</row>
+					<row>
+					<cell></cell><cell></cell><cell></cell>
+					</row>
+					
+					
+					<row>
+						<cell></cell>
+						<cell>
+						<hlayout>
+							<hbox align="center" style="text-align:center">
+								<cell>
+									<label zclass="titulo" style="font-size:20px" sclass="text-primary">
+										Pagamentos Diarios:
+									</label>
+								</cell>
+							</hbox>
+						</hlayout>
+						</cell>
+						<cell></cell>
 					</row>
 					<row spans="1">
 						<cell></cell>
 						<cell></cell>
 						<cell>
 							<vlayout spacing="0px">
-								<hbox spacing="30px" vflex="20px">
-
-									<label sclass="text-primary">Data:</label>
+								<hbox spacing="11px" vflex="20px">
+									<label sclass="text-primary" >Data:</label>
 									<datebox id="dt_dataPag"
 										format="short" buttonVisible="false" readonly="true"
-										placeholder="dd/mes/aaaa" style="align:right">
+										placeholder="dd/mes/aaaa" sclass="form-control">
 									</datebox>
 								</hbox>
 							</vlayout>
@@ -160,25 +179,25 @@
 										<row>
 											<cell>
 												<label
-													value="Valor entregue:">
+													value="Valor entregue:" sclass="text-primary">
 												</label>
 											</cell>
 											<cell>
 												<textbox
-													id="tb_vlrEntregue" placeholder="valor entregue" constraint="no empty">
+													id="tb_vlrEntregue" placeholder="valor entregue"  
+													sclass="form-control">
 												</textbox>
 											</cell>
 										</row>
 										<row>
 											<cell>
-												<label value="Troco:">
+												<label value="Troco:" sclass="text-primary">
 												</label>
 											</cell>
 											<cell>
-												<textbox id="tb_troco"
-													readonly="true" placeholder="Troco do cliente">
-
-												</textbox>
+												<label id="tb_troco"
+													sclass="form-control">
+												</label>
 											</cell>
 										</row>
 										<row>
@@ -195,8 +214,8 @@
 								</grid>
 							</groupbox>
 						</cell>
-						<cell></cell>
-						<cell>
+<!-- 						<cell></cell> -->
+						<cell colspan="2">
 							<listbox id="lst_pagamento"
 								emptyMessage="Nao existe pagamentos efectuados">
 								<listhead>
