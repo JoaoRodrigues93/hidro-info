@@ -8,61 +8,61 @@
 		<column></column>
 		</columns>
 		<rows>
-		<row id="rw_dadosCliente" spans="2" value="${arg}"><cell><label value="Dados do cliente"></label></cell></row>
+		<row id="rw_dadosCliente" spans="2" value="${arg}"><cell sclass="text-primary"><label sclass="text-primary" style="font-size:20px" value="Dados do cliente"></label></cell></row>
 			<row>
-				<cell>Nome:</cell> <cell> <textbox id="tb_nome"></textbox> </cell>
+				<cell sclass="text-primary">Nome:</cell> <cell> <textbox sclass="form-control" id="tb_nome"></textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Bi:</cell> <cell> <textbox id="tb_bi"> </textbox> </cell>
+				<cell sclass="text-primary">Bi:</cell> <cell> <textbox sclass="form-control" id="tb_bi"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Nuit:</cell> <cell> <intbox id="tb_nuit" maxlength="8" width="71%" > </intbox> </cell>
+				<cell sclass="text-primary">Nuit:</cell> <cell> <intbox id="tb_nuit" sclass="form-control" maxlength="8" width="100%" > </intbox> </cell>
 			</row>
 			
 			<row spans="2">
-				<cell align="center" >Endereço</cell>
+				<cell align="center" sclass="text-primary">Endereço</cell>
 			</row>
 			
 			<row>
-				<cell>Cidade:</cell> <cell> <textbox id="tb_cidade"> </textbox> </cell>
+				<cell sclass="text-primary">Cidade:</cell> <cell> <textbox sclass="form-control" id="tb_cidade"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Bairro:</cell> <cell> <textbox id="tb_bairro"> </textbox> </cell>
+				<cell sclass="text-primary">Bairro:</cell> <cell> <textbox sclass="form-control" id="tb_bairro"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Avenida:</cell> <cell> <textbox id="tb_avenida"> </textbox> </cell>
+				<cell sclass="text-primary">Avenida:</cell> <cell> <textbox sclass="form-control" id="tb_avenida"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Rua:</cell> <cell> <textbox id="tb_rua"> </textbox> </cell>
+				<cell sclass="text-primary">Rua:</cell> <cell> <textbox sclass="form-control" id="tb_rua"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>quarteirao:</cell> <cell> <textbox id="tb_quarteirao"> </textbox> </cell>
+				<cell sclass="text-primary">quarteirao:</cell> <cell> <textbox sclass="form-control" id="tb_quarteirao"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Número da residência:</cell> <cell> <intbox id="tb_casaNumero" width="71%" maxlength="8" > </intbox> </cell>
+				<cell sclass="text-primary">Número da residência:</cell> <cell> <intbox sclass="form-control" id="tb_casaNumero" width="100%" maxlength="8" > </intbox> </cell>
 			</row>
 			
 			<row spans="2" >
-				<cell align="center" >Contacto</cell>
+				<cell align="center" sclass="text-primary">Contacto</cell>
 			</row>
 			
 			<row>
-				<cell>Telefone:</cell> <cell> <intbox id="tb_telefone" maxlength="9" width="71%"> </intbox> </cell>
+				<cell sclass="text-primary">Telefone:</cell> <cell> <intbox sclass="form-control" id="tb_telefone" maxlength="9" width="100%"> </intbox> </cell>
 			</row>
 			
 			<row>
-				<cell>E-mail</cell> <cell> <textbox id="tb_email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza um endereço eletronico valido"> </textbox> </cell>
+				<cell sclass="text-primary">E-mail</cell> <cell> <textbox sclass="form-control" id="tb_email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza um endereço eletronico valido"> </textbox> </cell>
 			</row>
 			<row>
-				<cell align="right"> <button id="bt_guardar">Guardar</button> </cell> 
-				<cell align="left" > <button id="bt_limpar">Limpar</button> </cell>
+				<cell align="right"> <button id="bt_guardar" zclass="btn btn-primary">Guardar</button> </cell> 
+				<cell align="left" > <button id="bt_limpar" zclass="btn btn-primary">Limpar</button> </cell>
 			</row>
 			
 		</rows>

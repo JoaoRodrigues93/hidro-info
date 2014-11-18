@@ -11,7 +11,7 @@
 <button id="bt_colectivo" zclass="btn btn-default" label="Colectivo" ></button>
 </hbox>
 <hbox align="center" sclass="operacoes" id="operacoes">
-	<textbox id="tb_pesquisa"  width="400px" placeholder="pesquise aqui um cliente"></textbox>	
+	<textbox id="tb_pesquisa"  width="400px" placeholder="pesquise aqui um cliente" sclass="form-control"></textbox>	
 	<button id="pesquisa" sclass="pesquisa" image="/imagens/search.ico" >pesquisar</button>
 	<button id="adiciona" sclass="adiciona" image="/imagens/add.ico" >adicionar</button>
 </hbox>
