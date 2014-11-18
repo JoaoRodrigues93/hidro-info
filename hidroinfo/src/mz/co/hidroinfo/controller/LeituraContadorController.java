@@ -1,6 +1,7 @@
 package mz.co.hidroinfo.controller;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +18,7 @@ import mz.co.hidroinfo.model.Factura;
 import mz.co.hidroinfo.model.Leitor;
 import mz.co.hidroinfo.model.LeituraContador;
 import mz.co.hidroinfo.model.Precario;
+import net.sf.ehcache.search.expression.GreaterThan;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -102,11 +104,22 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 	
 	@Listen ("onClick = #bt_guardar")
 	public void guardarLeitura(){
-		LeituraContador leitura = new LeituraContador();
-		setValues(leitura);
-		dao.create(leitura);
-		criarFactura(leitura);
-		leituraModel.add(0, leitura);
+		try{
+			if((db_dataActual.getValue().after(db_dataAnterior.getValue())) && 
+					(ib_leituraActual.getValue()>ib_leituraAnterior.getValue())){
+				if(ib_leituraActual.getValue()>ib_leituraAnterior.getValue()){}
+				LeituraContador leitura = new LeituraContador();
+				setValues(leitura);
+				dao.create(leitura);
+				criarFactura(leitura);
+				leituraModel.add(0, leitura);
+			}else
+				Clients.showNotification("'A 'data acual' nao pode ser inferior que a 'data anterior'\r\nA 'leitura actual' tambem nao pode ser inferior que a 'leitura anterior'",
+						"error",null,null,4000);
+		}catch(NullPointerException ex){
+			Clients.showNotification("Por favor verifique que todos os campos estão preenchidos",
+					"error",null,null,4000);
+		}
 	}
 	
 	public void setValues(LeituraContador leitura){
