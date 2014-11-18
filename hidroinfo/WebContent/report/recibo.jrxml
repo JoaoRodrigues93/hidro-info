@@ -22,13 +22,13 @@
 		<fieldDescription><![CDATA[codRecibo]]></fieldDescription>
 	</field>
 	<field name="dataImpressao" class="java.util.Calendar">
-		<fieldDescription><![CDATA[dataImpressao]]></fieldDescription>
+		<fieldDescription><![CDATA[dataImpressao.getTime()]]></fieldDescription>
 	</field>
 	<field name="pagamento" class="java.util.List">
 		<fieldDescription><![CDATA[pagamento.operador.pagamento]]></fieldDescription>
 	</field>
 	<field name="dataPagamento" class="java.util.Calendar">
-		<fieldDescription><![CDATA[pagamento.dataPagamento]]></fieldDescription>
+		<fieldDescription><![CDATA[pagamento.dataPagamento.getTime()]]></fieldDescription>
 	</field>
 	<field name="valor_a_pagar" class="java.lang.Float">
 		<fieldDescription><![CDATA[pagamento.valor_a_pagar]]></fieldDescription>
