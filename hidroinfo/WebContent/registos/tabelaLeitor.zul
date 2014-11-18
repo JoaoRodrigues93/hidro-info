@@ -18,7 +18,7 @@
 	<template name="model">
 		<listitem value="${each}" popup="detail_${each.id}" style="cursor:pointer">
 		<listcell label="${each.id}"  >
-				<popup id="detail_${each.id}" height="460px" width="400px" >
+				<popup id="detail_${each.id}" height="280px" width="400px" >
 					<include src="/registos/leitor_detail.zul"
 					leitor="${each}"></include>
 				</popup>
