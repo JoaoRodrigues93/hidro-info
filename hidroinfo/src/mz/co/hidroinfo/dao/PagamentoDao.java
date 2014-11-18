@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.DistinctRootEntityResultTransformer;
 
 import mz.co.hidroinfo.model.Operador;
 import mz.co.hidroinfo.model.Pagamento;
@@ -31,7 +32,9 @@ public class PagamentoDao extends GenericDAO<Pagamento> {
 		
 		List<Pagamento> lista = crit.list();
 		tx.commit();
-		return lista;
+		DistinctRootEntityResultTransformer dist = DistinctRootEntityResultTransformer.INSTANCE;
+		List<Pagamento> pagamentos = dist.transformList(lista);
+		return pagamentos;
 	}
 	
 	
