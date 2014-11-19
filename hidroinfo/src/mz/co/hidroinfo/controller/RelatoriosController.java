@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.metamodel.ListAttribute;
 
@@ -21,6 +23,7 @@ import mz.co.hidroinfo.model.TotalPagamento;
 
 import org.zkoss.zhtml.P;
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Desktop;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
@@ -41,6 +44,7 @@ import org.zkoss.zul.Radiogroup;
 import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Vbox;
 import org.zkoss.zul.Vlayout;
+import org.zkoss.zul.Window;
 
 public class RelatoriosController extends SelectorComposer<Component> {
 
@@ -201,9 +205,9 @@ public class RelatoriosController extends SelectorComposer<Component> {
 			tipoRelatorio = PAGAMENTOS;
 			visualizaData();
 		}
-		
+
 		habilitaCampos();
-		
+
 		Clients.showNotification("Escolheu este tipo de relatório", escolha);
 
 	}
@@ -272,7 +276,7 @@ public class RelatoriosController extends SelectorComposer<Component> {
 				gerou = true;
 			}
 
-		} else if(gerou==false)
+		} else if (gerou == false)
 			Clients.showNotification(
 					"Faça todas as escolhas: cidade,bairro, tipo de relatório e data caso necessário. \n"
 							+ "Para poder visualizar o relatório",
@@ -468,13 +472,13 @@ public class RelatoriosController extends SelectorComposer<Component> {
 		}
 	}
 
-	public void habilitaCampos(){
-		if(tipoRelatorio == DIVIDA || tipoRelatorio == PAGAMENTOS)
+	public void habilitaCampos() {
+		if (tipoRelatorio == DIVIDA || tipoRelatorio == PAGAMENTOS)
 			desactivaCamposNavegacao(false);
-		else if(tipoRelatorio == CLIENTES)
+		else if (tipoRelatorio == CLIENTES)
 			desactivaCamposNavegacao(true);
 	}
-	
+
 	public void geraRelatorioClientes() {
 		long numeroCliente = 0;
 		String tipoCliente = "";
@@ -537,44 +541,41 @@ public class RelatoriosController extends SelectorComposer<Component> {
 			db_ultima.setParent(vb_adicional);
 		}
 	}
-	
-	public void desactivaCamposNavegacao(boolean bool){
+
+	public void desactivaCamposNavegacao(boolean bool) {
 		cb_bairro.setDisabled(bool);
 		cb_cidade.setDisabled(bool);
 		cb_periodo.setDisabled(bool);
-		if(db_primeira!=null)
+		if (db_primeira != null)
 			db_primeira.setDisabled(bool);
-		if(db_ultima!=null)
+		if (db_ultima != null)
 			db_ultima.setDisabled(bool);
 	}
-	
-	public void geraDescricao(boolean bool){
-		if(bool){
-			String relatorio = "",data,breveDescricao,descricao = "";
+
+	public void geraDescricao(boolean bool) {
+		if (bool) {
+			String relatorio = "", data, breveDescricao, descricao = "";
 			SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 			data = formato.format(new GregorianCalendar().getTime());
-			breveDescricao ="Descrição";
-			if(tipoRelatorio==DIVIDA){
+			breveDescricao = "Descrição";
+			if (tipoRelatorio == DIVIDA) {
 				relatorio = "Relatório de Dividas";
-				descricao="Este relatório lista todas as dividas dos "
+				descricao = "Este relatório lista todas as dividas dos "
 						+ "clientes registados no sistema de acordo com a cidade e bairro ";
-			}
-			else if(tipoRelatorio==PAGAMENTOS){
+			} else if (tipoRelatorio == PAGAMENTOS) {
 				relatorio = "Relatório de Pagamentos";
-				descricao="Este relatório lista todos os pagamentos dos "
+				descricao = "Este relatório lista todos os pagamentos dos "
 						+ "clientes registados no sistema de acordo com a cidade e bairro ";
-			}
-			else if(tipoRelatorio == CLIENTES){
+			} else if (tipoRelatorio == CLIENTES) {
 				relatorio = "Relatório dos clientes";
-				descricao="Este relatório mostra o total de "
+				descricao = "Este relatório mostra o total de "
 						+ "clientes registados no sistema.";
 			}
-			
+
 			lb_tipoRelatorio.setValue(relatorio);
 			lb_dataRelatorio.setValue(data);
 			lb_breveDescricao.setValue(breveDescricao);
 			tb_descricao.setText(descricao);
-			
 		}
 	}
 }
