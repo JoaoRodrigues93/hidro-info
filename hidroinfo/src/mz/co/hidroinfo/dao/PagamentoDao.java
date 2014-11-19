@@ -22,15 +22,15 @@ public class PagamentoDao extends GenericDAO<Pagamento> {
 		super(Pagamento.class);
 	}
 
-	public List<Pagamento> pegaPagamento(Calendar dataPagamento) {
-
+	public List<Pagamento> pegaPagamento (Calendar dataPagamento){
+		
 		Session session = getSession();
 		Transaction tx = session.beginTransaction();
 		Criteria crit = session.createCriteria(Pagamento.class);
 		Criterion data = Restrictions.eq("dataPagamento", dataPagamento);
 
 		crit.add(data);
-
+		
 		List<Pagamento> lista = crit.list();
 		tx.commit();
 		DistinctRootEntityResultTransformer dist = DistinctRootEntityResultTransformer.INSTANCE;
