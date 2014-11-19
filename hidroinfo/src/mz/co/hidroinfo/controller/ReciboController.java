@@ -49,7 +49,7 @@ public class ReciboController extends SelectorComposer<Component> {
 	        
 	        try {
 	            
-	        	Messagebox.show(path+jasperFile);
+	        	//Messagebox.show(path+jasperFile);
 	        	
 	        	jasperDesign = JRXmlLoader.load(path+jasperFile);
 	        	jasperReport = JasperCompileManager.compileReport(jasperDesign);
