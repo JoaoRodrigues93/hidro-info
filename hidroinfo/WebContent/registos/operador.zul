@@ -3,8 +3,6 @@
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <window title="Operador" id="winoperador" width="300px" apply="mz.co.hidroinfo.controller.ControladorOperador" closable="true" >
 
-	
-
 	<grid>
 	<columns>
 	<column width="40%" ></column>
@@ -95,6 +93,7 @@
 			<row >
 				<cell colspan="2" align="center" >
 					<button id="btn_add" label="Registar"
+						forward="onClick$Regista"
 						zclass="btn btn-primary" />
 				</cell>
 				<cell>

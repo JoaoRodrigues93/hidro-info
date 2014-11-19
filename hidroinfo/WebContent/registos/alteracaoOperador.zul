@@ -3,7 +3,7 @@
 <zk>
 
 
-<window id="operadorWin" title="Alteracao de funcionario operador" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ControladorOperador">
+<window id="operadorWin" title="Alteracao de funcionario operador" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.FuncionarioController">
 
 <grid id="gd_funAlterar">
 	<columns>
