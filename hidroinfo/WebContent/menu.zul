@@ -9,6 +9,9 @@
 			<hlayout>
 				<hbox sclass="nav-menu" pack="center" align="center">
 					<image src="/imagens/hidroinfo.PNG"></image>
+<!-- 					<div width="128px" height="128px" > -->
+<!-- 					<include src="/imagens/animacao-juntado.html"></include> -->
+<!-- 					</div> -->
 					<button zclass="btn btn-menu btn-lg btn-default"
 						id="bt_pagamentos" label="Pagamentos">
 					</button>

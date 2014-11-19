@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>animacao-hidro</title>
+
+<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.4.0.min.js"></script>
+<script>
+	(function (lib, img, cjs) {
+
+var p; // shortcut to reference prototypes
+
+// library properties:
+lib.properties = {
+	width: 400,
+	height: 400,
+	fps: 24,
+	color: "#FFFFFF",
+	manifest: [
+		{src:"images/gota.png", id:"gota"},
+		{src:"images/gotinha.png", id:"gotinha"},
+		{src:"images/torneira.png", id:"torneira"},
+		{src:"images/torneiras.png", id:"torneiras"}
+	]
+};
+
+// stage content:
+(lib.animacaohidro = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// gota
+	this.instance = new lib.mv_gota();
+	this.instance.setTransform(303,327.5,1,1,0,0,0,68,72.5);
+
+	this.instance_1 = new lib.torneira();
+	this.instance_1.setTransform(0.1,0,0.5,0.468);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(2));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(200.1,200,399.9,400.1);
+
+
+// symbols:
+(lib.gota = function() {
+	this.initialize(img.gota);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,800,854);
+
+
+(lib.gotinha = function() {
+	this.initialize(img.gotinha);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,256,315);
+
+
+(lib.torneira = function() {
+	this.initialize(img.torneira);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,800,854);
+
+
+(lib.torneiras = function() {
+	this.initialize(img.torneiras);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,800,854);
+
+
+(lib.Tween2 = function() {
+	this.initialize();
+
+	// Layer 1
+	this.instance = new lib.gotinha();
+	this.instance.setTransform(-68,-72.5,0.531,0.46);
+
+	this.addChild(this.instance);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(-68,-72.5,136,145.1);
+
+
+(lib.Tween1 = function() {
+	this.initialize();
+
+	// Layer 1
+	this.instance = new lib.gotinha();
+	this.instance.setTransform(-68,-72.5,0.531,0.46);
+
+	this.addChild(this.instance);
+}).prototype = p = new cjs.Container();
+p.nominalBounds = new cjs.Rectangle(-68,-72.5,136,145.1);
+
+
+(lib.mv_gota = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.Tween1("synched",0);
+	this.instance.setTransform(63,13.5,0.206,0.256);
+
+	this.instance_1 = new lib.Tween2("synched",0);
+	this.instance_1.setTransform(68,72.5);
+	this.instance_1._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:true,scaleX:1,scaleY:1,x:68,y:72.5},40).wait(40));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).to({_off:false},40).to({y:327.5},39).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(1.2,-5,133.3,147.3);
+
+})(lib = lib||{}, images = images||{}, createjs = createjs||{});
+var lib, images, createjs;
+</script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete() {
+	exportRoot = new lib.animacaohidro();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="400" height="400" style="background-color:#FFFFFF"></canvas>
+</body>
+</html>
