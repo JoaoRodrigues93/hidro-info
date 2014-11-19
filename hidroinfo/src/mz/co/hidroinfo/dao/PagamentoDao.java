@@ -64,14 +64,7 @@ public class PagamentoDao extends GenericDAO<Pagamento> {
 		return operador;
 	}
 
-	public List<Pagamento> devolveFactura(int id) {
-		Session se = getSession();
-		Transaction tx = se.beginTransaction();
-		Criteria crit = se.createCriteria(Pagamento.class);
-		crit.add(Restrictions.eq("factura.id", id));
-		List<Pagamento> lista = crit.list();
-		tx.commit();
-		return lista;
-	}
+
+
 
 }
