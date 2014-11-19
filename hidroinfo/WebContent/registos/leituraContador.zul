@@ -15,56 +15,67 @@
 					</columns>
 					<rows>
 						<row id="rw_contador">
-							<cell>Contador:</cell>
+							<cell sclass="text-primary">Contador:</cell>
 							<cell>
-								<textbox id="tb_contador" />
-								<button id="bt_escolherContador"
-									label="Escolher contador..." />
+								<hlayout>
+								<textbox sclass="form-control" id="tb_contador"/>
+								<button id="bt_escolherContador" label="Escolher contador" zclass="btn btn-primary" width="197px"></button>
+								</hlayout>
 							</cell>
 						</row>
 						<row id="rw_leitor">
-							<cell>Leitor:</cell>
+							<cell sclass="text-primary">Leitor:</cell>
 							<cell>
-								<textbox id="tb_leitor" />
-								<button id="bt_escolherLeitor"
-									label="Escolher leitor..." />
+								<hlayout>
+									<textbox sclass="form-control" id="tb_leitor" />
+									<button id="bt_escolherLeitor"
+										label="Escolher leitor" zclass="btn btn-primary" width="197px"/>
+								</hlayout>
+								
 							</cell>
 						</row>
 						<row>
-							<cell>Data da leitura actual:</cell>
+							<cell sclass="text-primary">Data da leitura actual:</cell>
 							<cell>
-								<datebox id="db_dataActual" />
+								<datebox id="db_dataActual" sclass="text-primary" width="197px"/>
 							</cell>
 						</row>
 						<row>
-							<cell>Data da leitura anterior:</cell>
+							<cell sclass="text-primary">Data da leitura anterior:</cell>
 							<cell>
-								<datebox id="db_dataAnterior" />
+								<hlayout>
+									<datebox id="db_dataAnterior" sclass="text-primary" width="197px"/>
+								
+								</hlayout>
+								
 							</cell>
 						</row>
 						<row>
-							<cell>Leitura actual:</cell>
+							<cell sclass="text-primary">Leitura actual:</cell>
 							<cell>
-								<intbox id="ib_leituraActual" />
+									<intbox id="ib_leituraActual" sclass="form-control" width="197px"/>
 							</cell>
 						</row>
 						<row>
-							<cell>Leitura anterior:</cell>
-							<cell>
-								<intbox id="ib_leituraAnterior" />
-							</cell>
+							<cell sclass="text-primary" rowspan="1">Leitura anterior:</cell>
+								<cell>
+									<intbox id="ib_leituraAnterior" sclass="form-control" width="197px"/>
+								</cell>
 						</row>
 					</rows>
 				</grid>
 				<hbox>
 					<button id="bt_guardar" label="Guardar" zclass="btn btn-primary"></button>
-<!-- 					<button id="bt_alterar" label="Alterar"></button> -->
-<!-- 					<button id="bt_eliminar" label="Eliminar"></button> -->
-<!-- 					<button id="bt_limpar" label="Limpar"></button> -->
+					<button id="bt_alterar" label="Alterar" zclass="btn btn-primary"></button>
+					<button id="bt_eliminar" label="Eliminar" zclass="btn btn-primary"></button>
+					<button id="bt_limpar" label="Limpar" zclass="btn btn-primary"></button>
 				</hbox>
+				<hbox></hbox>
 			</vlayout>
 		</north>
+		
 		<center>
+		
 			<listbox id="lb_leitura">
 				<listhead>
 					<listheader label="Leitura actual" />
@@ -72,7 +83,7 @@
 					<listheader label="Data leitura actual" />
 					<listheader label="Data leitura anterior" />
 					<listheader label="Número de contador" />
-					<listheader label="Opções" />
+<!-- 					<listheader label="Opções" /> -->
 				</listhead>
 				<template name="model">
 					<listitem>
@@ -88,7 +99,7 @@
 							</datebox>
 						</listcell>
 						<listcell label="${each.contador.numero}"></listcell>
-						<listcell label="Opções"></listcell>
+<!-- 						<listcell label="Opções"></listcell> -->
 					</listitem>
 				</template>
 			</listbox>
