@@ -1,6 +1,7 @@
 	<listbox id="lb_cliente" emptyMessage="Nenhum cliente doméstico por mostrar" sclass="tabela"
 	apply="mz.co.hidroinfo.controller.ClienteDomesticoController">
 		<listhead>
+		
 			<listheader>
 			Codigo
 			</listheader>
@@ -26,10 +27,10 @@
 		<template name="model">
 			<listitem value="${each}" popup="detail_${each.id}" style="cursor:pointer" >
 				<listcell label="${each.id}">
-				<popup id="detail_${each.id}" height="460px" width="400px" >
-					<include src="/registos/domestico_detail.zul"
-					cliente="${each}"></include>
-				</popup>
+					<popup id="detail_${each.id}" height="460px" width="400px" >
+						<include src="/registos/domestico_detail.zul"
+						cliente="${each}"></include>
+					</popup>
 				</listcell>
 				<listcell label="${each.nome}"  >
 				</listcell>

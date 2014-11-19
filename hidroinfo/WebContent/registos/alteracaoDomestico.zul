@@ -1,3 +1,5 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
 
 <window id="winAlterarDomestico" title="Alteração de Cliente doméstico" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ClienteDomesticoController" >
@@ -8,60 +10,60 @@
 		</columns>
 		<rows>
 		<row id="rw_dadosCliente" value="${arg}" spans="2">
-		<cell><label value="Dados do cliente a alterar" ></label></cell>
+		<cell><label value="Dados do cliente a alterar" style="font-size:20px" sclass="text-primary"></label></cell>
 		</row>
 			<row>
-				<cell>Nome:</cell> <cell> <textbox id="tb_nome" value="${arg.clienteAlterar.nome}"> </textbox> </cell>
+				<cell sclass="text-primary">Nome:</cell> <cell> <textbox sclass="form-control" id="tb_nome" value="${arg.clienteAlterar.nome}"> </textbox> </cell>
 			</row>
 			<row>
-				<cell>Bi:</cell> <cell> <textbox id="tb_bi" value="${arg.clienteAlterar.bi}" > </textbox> </cell>
+				<cell sclass="text-primary">Bi:</cell> <cell> <textbox sclass="form-control" id="tb_bi" value="${arg.clienteAlterar.bi}" > </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Nuit:</cell> <cell> <intbox id="tb_nuit" value="${arg.clienteAlterar.nuit}" maxlength="8" width="70%"> </intbox> </cell>
+				<cell sclass="text-primary">Nuit:</cell> <cell> <intbox sclass="form-control" id="tb_nuit" value="${arg.clienteAlterar.nuit}" maxlength="8" width="70%"> </intbox> </cell>
 			</row>
 			
 			<row spans="2">
-				<cell align="center" >Endereço</cell>
+				<cell sclass="text-primary" align="center" >Endereço</cell>
 			</row>
 			
 			<row>
-				<cell>Cidade:</cell> <cell> <textbox id="tb_cidade" value="${arg.clienteAlterar.endereco.cidade}" > </textbox> </cell>
+				<cell sclass="text-primary">Cidade:</cell> <cell> <textbox sclass="form-control" id="tb_cidade" value="${arg.clienteAlterar.endereco.cidade}" > </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Bairro:</cell> <cell> <textbox id="tb_bairro" value="${arg.clienteAlterar.endereco.bairro}" > </textbox> </cell>
+				<cell sclass="text-primary">Bairro:</cell> <cell> <textbox sclass="form-control" id="tb_bairro" value="${arg.clienteAlterar.endereco.bairro}" > </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Avenida:</cell> <cell> <textbox id="tb_avenida" value="${arg.clienteAlterar.endereco.avenida}" > </textbox> </cell>
+				<cell sclass="text-primary">Avenida:</cell> <cell> <textbox sclass="form-control" id="tb_avenida" value="${arg.clienteAlterar.endereco.avenida}" > </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Rua:</cell> <cell> <textbox id="tb_rua" value="${arg.clienteAlterar.endereco.rua}"></textbox> </cell>
+				<cell sclass="text-primary">Rua:</cell> <cell> <textbox sclass="form-control" id="tb_rua" value="${arg.clienteAlterar.endereco.rua}"></textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>quarteirao:</cell> <cell> <textbox id="tb_quarteirao" value="${arg.clienteAlterar.endereco.quarteirao}"> </textbox> </cell>
+				<cell sclass="text-primary">quarteirao:</cell> <cell> <textbox sclass="form-control" id="tb_quarteirao" value="${arg.clienteAlterar.endereco.quarteirao}"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell>Número da residência:</cell> <cell> <intbox width="70%" maxlength="8"	id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}"> </intbox> </cell>
+				<cell sclass="text-primary">Número da residência:</cell> <cell> <intbox sclass="form-control" width="70%" maxlength="8"	id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}"> </intbox> </cell>
 			</row>
 			
 			<row spans="2" >
-				<cell align="center" >Contacto</cell>
+				<cell sclass="text-primary" align="center" >Contacto</cell>
 			</row>
 			
 			<row>
-				<cell>Telefone:</cell> <cell> <intbox id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}" maxlength="9" width="70%"> </intbox> </cell>
+				<cell sclass="text-primary">Telefone:</cell> <cell> <intbox sclass="form-control" id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}" maxlength="9" width="70%"> </intbox> </cell>
 			</row>
 			
 			<row>
-				<cell>E-mail</cell> <cell> <textbox id="tb_email" value="${arg.clienteAlterar.contacto.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico"  > </textbox> </cell>
+				<cell sclass="text-primary">E-mail</cell> <cell> <textbox sclass="form-control" id="tb_email" value="${arg.clienteAlterar.contacto.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico"  > </textbox> </cell>
 			</row>
 			<row>
-				<cell align="right" > <button id="bt_alterar" >Confirmar alteração</button> </cell> 
+				<cell colspan="2" align="center"> <button  id="bt_alterar" zclass="btn btn-primary">Confirmar alteração</button> </cell> 
 				
 			</row>
 		</rows>

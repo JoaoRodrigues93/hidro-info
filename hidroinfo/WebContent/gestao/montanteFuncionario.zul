@@ -1,12 +1,14 @@
 <?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 
 
 
 <div apply="mz.co.hidroinfo.controller.MontanteFuncionarioController"
 	width="750px" height="100%">
-	<label>De:</label>
-	<vlayout spacing="10px">
-		<hlayout spacing="250px"><datebox constraint="no future, no empty" id="dt_dataPagamento"
+	
+	<vlayout>
+		<hlayout spacing="10px"><label sclass="text-primary">De:</label><datebox sclass="form-control" constraint="no future, no empty" id="dt_dataPagamento"
 			placeholder="dd/mes/yyy">
 		</datebox>
 		<button label="Procurar" id="btn_procurar" sclass="btn btn-primary"></button>
