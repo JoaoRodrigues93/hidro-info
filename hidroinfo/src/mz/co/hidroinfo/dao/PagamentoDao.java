@@ -21,36 +21,57 @@ public class PagamentoDao extends GenericDAO<Pagamento> {
 		super(Pagamento.class);
 	}
 
-	public List<Pagamento> pegaPagamento (Calendar dataPagamento){
-		
+	public List<Pagamento> pegaPagamento(Calendar dataPagamento) {
+
 		Session session = getSession();
 		Transaction tx = session.beginTransaction();
 		Criteria crit = session.createCriteria(Pagamento.class);
 		Criterion data = Restrictions.eq("dataPagamento", dataPagamento);
-	
+
 		crit.add(data);
-		
+
 		List<Pagamento> lista = crit.list();
 		tx.commit();
 		DistinctRootEntityResultTransformer dist = DistinctRootEntityResultTransformer.INSTANCE;
 		List<Pagamento> pagamentos = dist.transformList(lista);
 		return pagamentos;
 	}
-	
-	public List<Pagamento> pegaPagamento (Calendar primeira, Calendar segunda){
+
+	public List<Pagamento> pegaPagamento(Calendar primeira, Calendar segunda) {
 		Session session = getSession();
 		Transaction tx = session.beginTransaction();
 		Criteria crit = session.createCriteria(Pagamento.class);
 		crit.add(Restrictions.ge("dataPagamento", primeira));
 		crit.add(Restrictions.le("dataPagamento", segunda));
-		
+
 		List<Pagamento> lista = crit.list();
 		tx.commit();
 		return lista;
 	}
-	
 
-	
-	
-	
+	public List<Operador> pegaFactura(int id) {
+		Session se = getSession();
+		Transaction tx = se.beginTransaction();
+		Criteria crit = se.createCriteria(Pagamento.class);
+
+		Criteria factura = crit.createCriteria("factura");
+
+		factura.add(Restrictions.eq("id", id));
+		List<Operador> lista = crit.list();
+		DistinctRootEntityResultTransformer dist = DistinctRootEntityResultTransformer.INSTANCE;
+		List<Operador> operador = dist.transformList(lista);
+		tx.commit();
+		return operador;
+	}
+
+	public List<Pagamento> devolveFactura(int id) {
+		Session se = getSession();
+		Transaction tx = se.beginTransaction();
+		Criteria crit = se.createCriteria(Pagamento.class);
+		crit.add(Restrictions.eq("factura.id", id));
+		List<Pagamento> lista = crit.list();
+		tx.commit();
+		return lista;
+	}
+
 }
