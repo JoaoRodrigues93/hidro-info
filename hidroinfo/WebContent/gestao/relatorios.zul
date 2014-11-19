@@ -1,0 +1,82 @@
+	<window width="100%"  height="100%" border="none"
+		apply="mz.co.hidroinfo.controller.RelatoriosController">
+		<borderlayout width="100%" height="100%">
+			<west width="20%">
+				<vlayout id="vl_navegacao">
+					<vbox>
+						<label value="Relatórios"></label>
+						<radiogroup id="rg_relatorio" />
+						<radio id="rd_dividas"
+							label="Clientes em dividas" radiogroup="rg_relatorio">
+						</radio>
+						<radio id="rd_clientes"
+							label="Total de clientes" radiogroup="rg_relatorio">
+						</radio>
+						<radio id="rd_pagamentos"
+							label="Total de pagamentos" radiogroup="rg_relatorio">
+						</radio>
+					</vbox>
+					<vbox id="vb_locais">
+						<label value="Locais"></label>
+						<combobox id="cb_cidade"
+							placeholder="Escolha a cidade"
+							constraint="no empty: Por favor faça uma escolha">
+							<template name="model">
+								<comboitem value="${each}"
+									label="${each}">
+								</comboitem>
+							</template>
+						</combobox>
+						<combobox id="cb_bairro"
+							placeholder="Escolha o bairro"
+							constraint="no empty: Por favor faça uma escolha">
+							<template name="model">
+								<comboitem value="${each}"
+									label="${each}">
+								</comboitem>
+							</template>
+						</combobox>
+					</vbox>
+					<vbox>
+						<label value="Categorias"></label>
+						<radiogroup id="rg_categoria"></radiogroup>
+
+						<radio id="rd_domestico" label="Domestico"
+							radiogroup="rg_categoria">
+						</radio>
+						<radio id="rd_colectivo" label="Colectivo"
+							radiogroup="rg_categoria">
+						</radio>
+					</vbox>
+					<vbox id="vb_periodo">
+						<combobox id="cb_periodo"
+							placeholder="Escolha o periodo"
+							constraint="no empty: Por favor faça uma escolha">
+							<comboitem label="Diariamente"></comboitem>
+							<comboitem label="Semanalmente"></comboitem>
+							<comboitem label="Mensalmente"></comboitem>
+						</combobox>
+					</vbox>
+					<vbox id="vb_adicional"></vbox>
+					<button id="bt_gerar" label="Gerar"></button>
+				</vlayout>
+			</west>
+			<center>
+				<borderlayout>
+					<center>
+						<vlayout>
+												<div id="dv_conteudo" width="100%"
+							height="100%">
+						</div>
+						
+						</vlayout>
+					</center>
+					<south>
+						<hbox id="hb_imprimir">
+							<button id="bt_imprimir" label="imprimir"></button>
+						</hbox>
+					</south>
+				</borderlayout>
+			</center>
+		</borderlayout>
+	</window>

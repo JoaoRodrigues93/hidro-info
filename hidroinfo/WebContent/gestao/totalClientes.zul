@@ -1,0 +1,12 @@
+<listbox id="lb_pagamento" width="100%" height="100%" autopaging="true" mold="paging" emptyMessage="Nenhum relatório de pagamentos por mostrar" >
+	<listhead>
+		<listheader label="Tipo de clientes"></listheader>
+		<listheader label="Número total de clientes"></listheader>
+	</listhead>
+	<template name="model">
+	<listitem>
+		<listcell label="${each.dia}" ></listcell>
+		<listcell label="${each.total}" ></listcell>
+	</listitem>
+	</template>
+</listbox>
