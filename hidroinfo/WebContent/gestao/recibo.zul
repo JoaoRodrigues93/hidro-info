@@ -94,7 +94,7 @@
 					<label style="color: #00aff0; font-size:10px">
 						Data de Emissão do Recibo
 					</label>
-					<datebox buttonVisible="false" readonly="true"  style="height: 50px; width: 100px" 
+					<datebox height="50" buttonVisible="false" readonly="true"  style="width: 100px" 
 					 format="short" value="${arg.recibo.dataImpressao.time}" > </datebox>
 				</vbox>
 
