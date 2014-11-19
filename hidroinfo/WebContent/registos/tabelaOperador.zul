@@ -22,7 +22,7 @@
 					operador="${each}"></include>
 				</popup>
 				</listcell>
-			<listcell label="${each.id}"></listcell>
+<!-- 			<listcell label="${each.id}"></listcell> -->
 			<listcell label="${each.nome}"></listcell>
 			<listcell label="${each.bi}"></listcell>
 			<listcell label="${each.nuit}"></listcell>
