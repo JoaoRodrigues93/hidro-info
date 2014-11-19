@@ -63,7 +63,7 @@
 						
 				        <datebox placeholder="Escolha a Data" id="calendario"/>
                             
-						<button label="Gerar" id="btn_gerar" width="40%" forward="onClickGerar() zclass="btn btn-primary""/>
+						<button label="Gerar" id="btn_gerar" width="40%" forward="onClickGerar()" zclass="btn btn-primary"/>
 						
 					</vbox>
         </west>
