@@ -22,6 +22,7 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zul.Button;
 import org.zkoss.zul.Messagebox;
 import org.zkoss.zul.Row;
+import org.zkoss.zul.Window;
 
 public class ReciboController extends SelectorComposer<Component> {
 
@@ -61,7 +62,7 @@ public class ReciboController extends SelectorComposer<Component> {
 	        		        	
 	        	jasperPrint = JasperFillManager.fillReport(jasperReport, null, new JRBeanCollectionDataSource(ReciboCollection.getCollectionBean()));
 	        	JasperExportManager.exportReportToPdfFile(jasperPrint,path+pdfFile+horaActual+".pdf");
-	        	
+	        		        	        	
 	        	File myFile = new File(path+pdfFile+horaActual+".pdf");
 	            Desktop.getDesktop().open(myFile);
 	        	
