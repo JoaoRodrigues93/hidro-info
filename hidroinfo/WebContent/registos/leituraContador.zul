@@ -37,14 +37,14 @@
 						<row>
 							<cell sclass="text-primary">Data da leitura actual:</cell>
 							<cell>
-								<datebox id="db_dataActual" sclass="text-primary" width="197px"/>
+								<datebox id="db_dataActual" sclass="text-primary" width="197px" constraint="no future"/>
 							</cell>
 						</row>
 						<row>
 							<cell sclass="text-primary">Data da leitura anterior:</cell>
 							<cell>
 								<hlayout>
-									<datebox id="db_dataAnterior" sclass="text-primary" width="197px"/>
+									<datebox id="db_dataAnterior" constraint="no future" sclass="text-primary" width="197px"/>
 								
 								</hlayout>
 								
