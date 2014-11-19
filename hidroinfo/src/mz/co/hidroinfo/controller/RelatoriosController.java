@@ -19,6 +19,7 @@ import mz.co.hidroinfo.model.ClienteDomestico;
 import mz.co.hidroinfo.model.Pagamento;
 import mz.co.hidroinfo.model.TotalPagamento;
 
+import org.zkoss.zhtml.P;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
@@ -37,6 +38,7 @@ import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Radio;
 import org.zkoss.zul.Radiogroup;
+import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Vbox;
 import org.zkoss.zul.Vlayout;
 
@@ -83,7 +85,18 @@ public class RelatoriosController extends SelectorComposer<Component> {
 	private Vbox vb_periodo;
 	@Wire
 	private Vbox vb_locais;
-
+	@Wire
+	private Vlayout vl_dadosRelatorio;
+	@Wire
+	private Vbox vb_dadosRelatorio;
+	@Wire
+	private Label lb_tipoRelatorio;
+	@Wire
+	private Label lb_dataRelatorio;
+	@Wire
+	private Label lb_breveDescricao;
+	@Wire
+	private Textbox tb_descricao;
 	private Datebox db_primeira;
 	private Datebox db_ultima;
 
@@ -265,6 +278,7 @@ public class RelatoriosController extends SelectorComposer<Component> {
 							+ "Para poder visualizar o relatório",
 					Clients.NOTIFICATION_TYPE_WARNING, vl_navegacao, null,
 					2000, true);
+		geraDescricao(gerou);
 	}
 
 	private boolean selecaoValida() {
@@ -532,5 +546,35 @@ public class RelatoriosController extends SelectorComposer<Component> {
 			db_primeira.setDisabled(bool);
 		if(db_ultima!=null)
 			db_ultima.setDisabled(bool);
+	}
+	
+	public void geraDescricao(boolean bool){
+		if(bool){
+			String relatorio = "",data,breveDescricao,descricao = "";
+			SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+			data = formato.format(new GregorianCalendar().getTime());
+			breveDescricao ="Descrição";
+			if(tipoRelatorio==DIVIDA){
+				relatorio = "Relatório de Dividas";
+				descricao="Este relatório lista todas as dividas dos "
+						+ "clientes registados no sistema de acordo com a cidade e bairro ";
+			}
+			else if(tipoRelatorio==PAGAMENTOS){
+				relatorio = "Relatório de Pagamentos";
+				descricao="Este relatório lista todos os pagamentos dos "
+						+ "clientes registados no sistema de acordo com a cidade e bairro ";
+			}
+			else if(tipoRelatorio == CLIENTES){
+				relatorio = "Relatório dos clientes";
+				descricao="Este relatório mostra o total de "
+						+ "clientes registados no sistema.";
+			}
+			
+			lb_tipoRelatorio.setValue(relatorio);
+			lb_dataRelatorio.setValue(data);
+			lb_breveDescricao.setValue(breveDescricao);
+			tb_descricao.setText(descricao);
+			
+		}
 	}
 }
