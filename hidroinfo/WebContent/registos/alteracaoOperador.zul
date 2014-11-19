@@ -1,4 +1,7 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
+
 
 <window id="operadorWin" title="Alteracao de funcionario operador" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.Mini_MenuController">
 <grid id="gd_funAlterar">
@@ -8,78 +11,80 @@
 	</columns>
 		<rows>
 			<row id="rw_dadosOperador" value="${arg}" spans="2">
-			<cell><label value="Dados do funcionario a alterar" ></label></cell>
-				</row>
+				<cell>
+					<label style="font-size:20px" sclass="text-primary" value="Dados do funcionario a alterar"></label>
+				</cell>
+			</row>
 				<row>
 				<cell>
-					<label>Nome</label>
+					<label sclass="text-primary">Nome</label>
 				</cell>
 				<cell>
-					<textbox id="tb_nome" sclass="textboxstyle" value="${arg.funAlterar.nome}"/>
-				</cell>
-			</row>
-			<row>
-				<cell>
-					<label>BI</label>
-				</cell>
-				<cell>
-					<textbox id="tb_bi" sclass="textboxstyle" value="${arg.funAlterar.bi}"/>
+					<textbox sclass="form-control" id="tb_nome" value="${arg.funAlterar.nome}"/>
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>NUIT</label>
+					<label sclass="text-primary">BI</label>
 				</cell>
 				<cell>
-					<intbox id="tb_nuit" sclass="textboxstyle" value="${arg.funAlterar.nuit}" maxlength="8" width="71%" />
-				</cell>
-			</row>
-			<row>
-				<cell>
-					<label>Telefone</label>
-				</cell>
-				<cell>
-					<intbox id="tb_telefone" sclass="textboxstyle" value="${arg.funAlterar.telefone}" maxlength="9" width="71%"/>
+					<textbox sclass="form-control" id="tb_bi"  value="${arg.funAlterar.bi}"/>
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>Email</label>
+					<label sclass="text-primary">NUIT</label>
 				</cell>
 				<cell>
-					<textbox sclass="textboxstyle" value="${arg.funAlterar.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico " id="tb_email" />
-				</cell>
-			</row>
-			<row>
-				<cell>
-					<label>Username</label>
-				</cell>
-				<cell>
-				<textbox id="tb_username" sclass="textboxstyle" value="${arg.funAlterar.username}"/>	
+					<intbox sclass="form-control" id="tb_nuit"  value="${arg.funAlterar.nuit}" maxlength="8" width="71%" />
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>Insira o antigo Password</label>
+					<label sclass="text-primary">Telefone</label>
 				</cell>
 				<cell>
-					<textbox id="tb_password" type="password" sclass="textboxstyle" />
+					<intbox sclass="form-control" id="tb_telefone"  value="${arg.funAlterar.telefone}" maxlength="9" width="71%"/>
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>Insira o novo Password</label>
+					<label sclass="text-primary">Email</label>
 				</cell>
 				<cell>
-					<textbox id="tb_insira_password" type="password" sclass="textboxstyle"  />
+					<textbox sclass="form-control"  value="${arg.funAlterar.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico " id="tb_email" />
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label sclass="text-primary">Username</label>
+				</cell>
+				<cell>
+				<textbox sclass="form-control" id="tb_username"  value="${arg.funAlterar.username}"/>	
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label sclass="text-primary">Insira o antigo Password</label>
+				</cell>
+				<cell>
+					<textbox sclass="form-control" id="tb_password" type="password"  />
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label sclass="text-primary">Insira o novo Password</label>
+				</cell>
+				<cell>
+					<textbox sclass="form-control" id="tb_insira_password" type="password"  />
 				</cell>
 			</row>
 			<row>
 				
-				<cell align="right">
+				<cell align="center" colspan="2">
 					<button id="btn_confirmar" 
-					sclass="botaostyle" >Confirmar alteracao</button>
-					</cell>
+					zclass="btn btn-primary" >Confirmar alteracao</button>
+				</cell>
 				
 				
 			</row>

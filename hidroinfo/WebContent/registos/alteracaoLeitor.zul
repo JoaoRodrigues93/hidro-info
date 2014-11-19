@@ -1,4 +1,5 @@
-
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
 <window id="winAlterarLeitor" title="Alteracao de funcionario leitor" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.Mini_MenuController">
 <grid id="gd_funAlterar">
@@ -8,62 +9,62 @@
 	</columns>
 		<rows>
 			<row id="rw_dadosLeitor" value="${arg}" spans="2">
-			<cell><label value="Dados do funcionario a alterar" ></label></cell>
+			<cell><label style="font-size:20px" sclass="text-primary" value="Dados do funcionario a alterar" ></label></cell>
 				</row>
 				<row>
 				<cell>
-					<label>Nome</label>
+					<label sclass="text-primary">Nome</label>
 				</cell>
 				<cell>
-					<textbox id="tb_nome" sclass="textboxstyle" value="${arg.funAlterar.nome}"/>
-				</cell>
-			</row>
-			<row>
-				<cell>
-					<label>BI</label>
-				</cell>
-				<cell>
-					<textbox id="tb_bi" sclass="textboxstyle" value="${arg.funAlterar.bi}"/>
+					<textbox id="tb_nome" sclass="form-control" value="${arg.funAlterar.nome}"/>
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>NUIT</label>
+					<label sclass="text-primary">BI</label>
 				</cell>
 				<cell>
-					<intbox id="tb_nuit" sclass="textboxstyle" value="${arg.funAlterar.nuit}"  maxlength="8" width="71%"/>
-				</cell>
-			</row>
-			<row>
-				<cell>
-					<label>Telefone</label>
-				</cell>
-				<cell>
-					<intbox id="tb_telefone" sclass="textboxstyle"  value="${arg.funAlterar.telefone}" maxlength="9" width="71%"/>
+					<textbox id="tb_bi" sclass="form-control" value="${arg.funAlterar.bi}"/>
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>Email</label>
+					<label sclass="text-primary">NUIT</label>
 				</cell>
 				<cell>
-					<textbox id="tb_email" sclass="textboxstyle" value="${arg.funAlterar.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico"/>
+					<intbox id="tb_nuit" sclass="form-control" value="${arg.funAlterar.nuit}"  maxlength="8" width="71%"/>
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>Bairro de trabalho</label>
+					<label sclass="text-primary">Telefone</label>
 				</cell>
 				<cell>
-					<textbox id="tb_bairro" sclass="textboxstyle" value="${arg.funAlterar.bairro}"/>
+					<intbox id="tb_telefone" sclass="form-control"  value="${arg.funAlterar.telefone}" maxlength="9" width="71%"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label sclass="text-primary">Email</label>
+				</cell>
+				<cell>
+					<textbox sclass="form-control" id="tb_email" value="${arg.funAlterar.email}" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label sclass="text-primary">Bairro de trabalho</label>
+				</cell>
+				<cell>
+					<textbox sclass="form-control" id="tb_bairro" value="${arg.funAlterar.bairro}"/>
 				</cell>
 			</row>
 			<row>
 				
-				<cell align="right">
+				<cell colspan="2" align="center">
 					<button id="btn_confirmarLeitor" label="Confirmar alteracao"
-					sclass="botaostyle" />
-					</cell>
+					zclass="btn btn-primary" />
+				</cell>
 				
 
 			</row>
