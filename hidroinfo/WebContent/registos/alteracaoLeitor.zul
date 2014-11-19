@@ -1,7 +1,7 @@
 <?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
 <?link rel="stylesheet" type="text/css" href="/style.css"?>
 <zk>
-<window id="winAlterarLeitor" title="Alteracao de funcionario leitor" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.ControladorLeitor">
+<window id="winAlterarLeitor" title="Alteracao de funcionario leitor" border="none" width="400px" closable="true" apply="mz.co.hidroinfo.controller.FuncionarioController">
 <grid id="gd_funAlterar">
 	<columns>
 	<column></column>
