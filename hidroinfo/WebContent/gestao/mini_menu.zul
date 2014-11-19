@@ -12,7 +12,7 @@
 <button id="btn_montante" zclass="btn btn-default" label="Montante" ></button>
 </hbox>
 <hbox align="center" sclass="operacoes" id="operacoes">
-	<textbox id="tb_pesquisa"  width="400px" placeholder="procura por um funcionario?"></textbox>	
+	<textbox id="tb_pesquisa"  width="400px" placeholder="procura por um funcionario?" sclass="form-control"></textbox>	
 	<button id="bt_pesquisa" sclass="pesquisa" image="/imagens/search.ico" >pesquisar</button>
 	<button id="bt_adiciona" sclass="adiciona" image="/imagens/add.ico" >adicionar</button>
 </hbox>

@@ -1,3 +1,5 @@
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 <?page title="Pesquisa" contentType="text/html;charset=UTF-8"?>
 <zk>
 <window title="Pesquisa" border="normal" apply="controller.ControladorPesquisa"
