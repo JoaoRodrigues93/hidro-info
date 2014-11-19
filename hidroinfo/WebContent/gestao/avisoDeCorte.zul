@@ -17,7 +17,7 @@
 				<row>
 					<cell>
 						<label sclass="text-primary">Destinatário:</label>
-						<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destina">
+						<combobox width="197px" id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destina">
 							<comboitem label="Todos"></comboitem>
 							<comboitem label="individual"  id="cbb_item_individual">
 							</comboitem>
@@ -33,7 +33,7 @@
 				</row>
 				<row>
 					<cell colspan="2" >
-						<textbox rows="5" width="100%" id="txt_mensagem"></textbox>
+						<textbox sclass="form-control" rows="5" width="100%" id="txt_mensagem"></textbox>
 					</cell>
 				</row>
 				<row>
