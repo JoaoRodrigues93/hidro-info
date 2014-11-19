@@ -56,60 +56,59 @@
 		<rows>
 			<row>
 				<cell>
-					<label>Nome</label>
+					<label sclass="text-primary">Nome</label>
 				</cell>
 				<cell>
-					<textbox id="nome"  />
-				</cell>
-			</row>
-			<row>
-				<cell>
-					<label>BI</label>
-				</cell>
-				<cell>
-					<textbox id="bi"/>
+					<textbox sclass="form-control" id="nome"  />
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>NUIT</label>
+					<label sclass="text-primary">BI</label>
 				</cell>
 				<cell>
-					<intbox id="nuit"  width="75%" maxlength="8"/>
+					<textbox sclass="form-control" id="bi"/>
+				</cell>
+			</row>
+			<row>
+				<cell>
+					<label sclass="text-primary">NUIT</label>
+				</cell>
+				<cell>
+					<intbox sclass="form-control" id="nuit"  width="75%" maxlength="8"/>
 				</cell>
 			</row>
 			<row>
 				<cell >
-					<label>Telefone</label>
+					<label sclass="text-primary">Telefone</label>
 				</cell>
 				<cell>
-					<intbox id="telefone" width="75%" maxlength="9"/>
-				</cell>
-			</row>
-			<row>
-				<cell>
-					<label>Email</label>
-				</cell>
-				<cell>
-					<textbox id="email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
+					<intbox sclass="form-control" id="telefone" width="75%" maxlength="9"/>
 				</cell>
 			</row>
 			<row>
 				<cell>
-					<label>Bairro de trabalho</label>
+					<label sclass="text-primary">Email</label>
 				</cell>
 				<cell>
-					<textbox id="bairro"/>
+					<textbox sclass="form-control" id="email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
 				</cell>
 			</row>
 			<row>
 				<cell>
+					<label sclass="text-primary">Bairro de trabalho</label>
+				</cell>
+				<cell>
+					<textbox sclass="form-control" id="bairro"/>
+				</cell>
+			</row>
+			<row>
+				<cell align="center" colspan="2">
 					<button id="btn_add" label="Registar"
-						forward="onClick$Regista()"/>
-				</cell>
-				<cell>
+						forward="onClick$Regista()" zclass="btn btn-primary"/>
+					<label width="2px" value=" "></label>
 					<button id="btn_canc" label="Limpar"
-						forward="onClick$limparCampos" />
+						forward="onClick$limparCampos" zclass="btn btn-primary"/>
 				</cell>
 			</row>
 		</rows>
