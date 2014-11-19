@@ -217,6 +217,18 @@ public class PagamentoController extends SelectorComposer<Component> {
 		modelPagamento = new ListModelList<Pagamento>(lista);
 		lst_pagamento.setModel(modelPagamento);
 	}
+	public void actualizaPag(){
+		List <Pagamento> lista=pagDao.findAll();
+		for (Iterator iterator = lista.iterator(); iterator.hasNext();) {
+			Pagamento pagamento = (Pagamento) iterator.next();
+			Calendar data=pagamento.getDataPagamento();
+			dt_dataPag.setValue(data.getTime());
+		}
+		modelPagamento=new ListModelList<Pagamento>(lista);
+		lst_pagamento.setModel(modelPagamento);
+		
+		
+	}
 
 	public void clearDados() {
 		tb_divida.setValue(null);
