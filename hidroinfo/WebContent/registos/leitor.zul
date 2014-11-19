@@ -1,4 +1,6 @@
 <?page title="Leitor" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="/css/bootstrap.css"?>
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
 <window title="Leitor" id="winleitor" width="300px" apply="mz.co.hidroinfo.controller.ControladorLeitor" closable="true" >
 
 	<!--
