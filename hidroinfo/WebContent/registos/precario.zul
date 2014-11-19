@@ -8,7 +8,7 @@
 				<rows>
 					<row align="center">
 						<cell align="center">
-							<label sclass="h4">Tarifa Colectiva</label>
+							<label style="font-size:20px" sclass="text-primary">Tarifa Colectiva</label>
 						</cell>
 					</row>
 					<row align="center">
@@ -18,7 +18,7 @@
 					</row>
 					<row align="center">
 						<cell>
-							<textbox id="taxafixac" placeholder="Digita a taxa fixa" />
+							<textbox sclass="form-control" id="taxafixac" placeholder="Digita a taxa fixa" />
 						</cell>
 					</row>
 					<row align="center">
@@ -28,7 +28,7 @@
 					</row>
 					<row>
 						<cell align="center">
-							<textbox id="taxamcubicoc" placeholder="digite a taxa por metro cubico" />
+							<textbox sclass="form-control" id="taxamcubicoc" placeholder="digite a taxa por metro cubico" />
 						</cell>
 					</row>
 					<row align="center">
@@ -48,7 +48,7 @@
 				<rows>
 					<row>
 						<cell align =" center ">
-							<label sclass="h4" >Tarifa Domestica</label>
+							<label style="font-size:20px" sclass="text-primary">Tarifa Domestica</label>
 							</cell>
 					</row>
 					<row>
@@ -58,7 +58,7 @@
 					</row>
 					<row>
 						<cell align="center">
-							<textbox id="taxafixad" placeholder="digite a taxa fixa" />
+							<textbox sclass="form-control" id="taxafixad" placeholder="digite a taxa fixa" />
 						</cell>
 					</row>
 					<row>
@@ -68,7 +68,7 @@
 					</row>
 					<row>
 						<cell align="center">
-							<textbox id="taxamcubicod"  placeholder="digite a taxa por metro cubico"/>
+							<textbox sclass="form-control" id="taxamcubicod"  placeholder="digite a taxa por metro cubico"/>
 						</cell>
 					</row>
 					<row>
