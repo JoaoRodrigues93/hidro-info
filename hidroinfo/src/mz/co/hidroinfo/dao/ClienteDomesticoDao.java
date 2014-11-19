@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import mz.co.hidroinfo.model.ClienteDomestico;
@@ -61,6 +62,17 @@ public class ClienteDomesticoDao extends GenericDAO<ClienteDomestico> {
 		List<ClienteDomestico> lista = criteria.list();
 		tx.commit();
 		return lista;
+	}
+
+	public long getNumeroClientes() {
+		
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+		Criteria criteria = session.createCriteria(ClienteDomestico.class);
+		criteria.setProjection(Projections.rowCount());
+		long numero = (Long)criteria.uniqueResult();
+		tx.commit();
+		return numero;
 	}
 
 }
