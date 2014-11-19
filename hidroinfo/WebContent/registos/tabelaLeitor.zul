@@ -1,7 +1,7 @@
 
 
 <listbox id="lb_leitor"
-	apply="mz.co.hidroinfo.controller.Mini_MenuController" emptyMessage="Nenhum funcionario leitor por mostrar">
+	apply="mz.co.hidroinfo.controller.FuncionarioController" emptyMessage="Nenhum funcionario leitor por mostrar">
 	<listhead>
 		<listheader label="Código" />
 		<listheader label="Nome" />
