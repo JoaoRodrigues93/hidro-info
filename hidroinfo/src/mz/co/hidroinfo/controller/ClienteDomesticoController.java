@@ -32,12 +32,11 @@ import org.zkoss.zul.Vlayout;
 import org.zkoss.zul.Window;
 
 public class ClienteDomesticoController extends SelectorComposer<Component> {
-	
-	
-	public ClienteDomesticoController (){
+
+	public ClienteDomesticoController() {
 		dao = new ClienteDomesticoDao();
 	}
-	
+
 	@Wire
 	private Button bt_guardar;
 	@Wire
@@ -73,109 +72,146 @@ public class ClienteDomesticoController extends SelectorComposer<Component> {
 	@Wire
 	private Window winAlterarDomestico;
 	private Listitem itemAlterar;
-	
+
 	private ClienteDomesticoDao dao;
-	
-	@Listen ("onClick = #bt_guardar")
-	
-	public void guardar () {
-System.out.println("Registando um cliente domestico.....\n");
+
+	@Listen("onClick = #bt_guardar")
+	public void guardar() {
+		System.out.println("Registando um cliente domestico.....\n");
 		ClienteDomestico cliente = new ClienteDomestico();
 		setValues(cliente);
 		dao.create(cliente);
 		clearValues();
 		Clients.showNotification("Cliente registado");
-		Map<String, Object> arguments = (Map)rw_dadosCliente.getValue();
-		lb_cliente = (Listbox)arguments.get("tabelaDomestico");
-		ListModelList<ClienteDomestico> lista = (ListModelList)lb_cliente.getModel();
+		Map<String, Object> arguments = (Map) rw_dadosCliente.getValue();
+		lb_cliente = (Listbox) arguments.get("tabelaDomestico");
+		ListModelList<ClienteDomestico> lista = (ListModelList) lb_cliente
+				.getModel();
 		lista.add(0, cliente);
-		
+
 	}
+
 	@Listen("onClick=#bt_limpar")
-	public void limparCampos (){
+	public void limparCampos() {
 		clearValues();
 	}
-	
-	@Listen ("onClienteDomesticoDelete = #lb_cliente")
-	public void onClickApagar (ForwardEvent event) {
-		Button bt_apagar =(Button) event.getOrigin().getTarget();
-		Listcell celula = (Listcell)bt_apagar.getParent().getParent();
-		Listitem item = (Listitem)celula.getParent();
-		ClienteDomestico clienteApagar = (ClienteDomestico)item.getValue();
+
+	@Listen("onClienteDomesticoDelete = #lb_cliente")
+	public void onClickApagar(ForwardEvent event) {
+		Button bt_apagar = (Button) event.getOrigin().getTarget();
+		Listcell celula = (Listcell) bt_apagar.getParent().getParent();
+		Listitem item = (Listitem) celula.getParent();
+		ClienteDomestico clienteApagar = (ClienteDomestico) item.getValue();
 		lb_cliente.removeChild(item);
 		String nome = clienteApagar.getNome();
 		dao.delete(clienteApagar);
-		Clients.showNotification("Os dados do cliente "+nome+" foram apagados");
+		Clients.showNotification("Os dados do cliente " + nome
+				+ " foram apagados");
 	}
-	
-	@Listen ("onClienteDomesticoUpdate = #lb_cliente")
-	public void onClickAlterar (ForwardEvent event){
-		Button bt_alterar =(Button) event.getOrigin().getTarget();
-		Listcell celula = (Listcell)bt_alterar.getParent().getParent();
-		itemAlterar = (Listitem)celula.getParent();
-		ClienteDomestico clienteAlterar = (ClienteDomestico)itemAlterar.getValue();
-		Map<String, Object> arguments = new HashMap<String, Object>(); 
-		arguments.put("clienteAlterar",clienteAlterar);
-		arguments.put("lb_cliente",lb_cliente);
-		Window win = (Window)Executions.createComponents("/registos/alteracaoDomestico.zul", null, arguments);
+
+	@Listen("onClienteDomesticoUpdate = #lb_cliente")
+	public void onClickAlterar(ForwardEvent event) {
+		Button bt_alterar = (Button) event.getOrigin().getTarget();
+		Listcell celula = (Listcell) bt_alterar.getParent().getParent();
+		itemAlterar = (Listitem) celula.getParent();
+		ClienteDomestico clienteAlterar = (ClienteDomestico) itemAlterar
+				.getValue();
+		Map<String, Object> arguments = new HashMap<String, Object>();
+		arguments.put("clienteAlterar", clienteAlterar);
+		arguments.put("lb_cliente", lb_cliente);
+		Window win = (Window) Executions.createComponents(
+				"/registos/alteracaoDomestico.zul", null, arguments);
 		win.doHighlighted();
 	}
-	
-	@Listen ("onClick = #bt_alterar")
-	public void alterarCliente () {
 
-		Map<String, Object> arguments = (Map)rw_dadosCliente.getValue();
-		ClienteDomestico cliente =(ClienteDomestico)arguments.get("clienteAlterar");
+	@Listen("onClick = #bt_alterar")
+	public void alterarCliente() {
+
+		Map<String, Object> arguments = (Map) rw_dadosCliente.getValue();
+		ClienteDomestico cliente = (ClienteDomestico) arguments
+				.get("clienteAlterar");
 		lb_cliente = (Listbox) arguments.get("lb_cliente");
-		ListModelList<ClienteDomestico> lista = (ListModelList)lb_cliente.getModel();
+		ListModelList<ClienteDomestico> lista = (ListModelList) lb_cliente
+				.getModel();
 		lista.remove(cliente);
 		setValues(cliente);
 		dao.update(cliente);
 		lista.add(0, cliente);
 		winAlterarDomestico.detach();
-		Clients.showNotification("Dados do cliente "+cliente.getNome()+" foram alterados");
+		Clients.showNotification("Dados do cliente " + cliente.getNome()
+				+ " foram alterados");
 	}
-	
-	
-	public void actualizaTabelaDomestico (){
+
+	public void actualizaTabelaDomestico() {
 		List<ClienteDomestico> listaDomestico = dao.findAll();
-		ListModelList<ClienteDomestico> modeloDomestico = new ListModelList<ClienteDomestico>(listaDomestico);
+		ListModelList<ClienteDomestico> modeloDomestico = new ListModelList<ClienteDomestico>(
+				listaDomestico);
 		lb_cliente.setModel(modeloDomestico);
 	}
-	
-	public void setValues (ClienteDomestico cliente){
+
+	/*
+	 * public void setValues (ClienteDomestico cliente){ Endereco endereco = new
+	 * Endereco(); Contacto contacto = new Contacto();
+	 * endereco.setAvenida(tb_avenida.getText());
+	 * endereco.setBairro(tb_bairro.getText()); try{
+	 * endereco.setCasaNumero(Integer.valueOf(tb_casaNumero.getValue()));} catch
+	 * (Exception ex){ //tb_casaNumero.setText(null);
+	 * Clients.showNotification("Introduza numero da casa", "error",
+	 * tb_casaNumero, null,2000); } endereco.setCidade(tb_cidade.getText());
+	 * endereco.setCodigoLocal(1);
+	 * endereco.setQuarteirao(tb_quarteirao.getText());
+	 * endereco.setRua(tb_rua.getText()); try{
+	 * contacto.setEmail(tb_email.getText());} catch (Exception ex) {
+	 * tb_email.setText("email@conta.com"); }
+	 * contacto.setTelefone(tb_telefone.getText());
+	 * 
+	 * cliente.setBi(tb_bi.getText()); cliente.setNome(tb_nome.getText()); try{
+	 * cliente.setNuit(Integer.valueOf(tb_nuit.getValue()));} catch (Exception
+	 * ex) { //tb_nuit.setText(null);
+	 * Clients.showNotification("Introduza numero de NUIT", "error", tb_nuit,
+	 * null,2000); }
+	 * 
+	 * cliente.setContacto(contacto); cliente.setEndereco(endereco); }
+	 */
+	public void setValues(ClienteDomestico cliente) {
 		Endereco endereco = new Endereco();
 		Contacto contacto = new Contacto();
 		endereco.setAvenida(tb_avenida.getText());
 		endereco.setBairro(tb_bairro.getText());
-		endereco.setCasaNumero(Integer.valueOf(tb_casaNumero.getText()));
+		endereco.setCasaNumero(Integer.valueOf(tb_casaNumero.getValue()));
+
 		endereco.setCidade(tb_cidade.getText());
 		endereco.setCodigoLocal(1);
 		endereco.setQuarteirao(tb_quarteirao.getText());
 		endereco.setRua(tb_rua.getText());
-		
-		contacto.setEmail(tb_email.getText());
+		try {
+			contacto.setEmail(tb_email.getText());
+		} catch (Exception ex) {
+			tb_email.setText("email@conta.com");
+		}
 		contacto.setTelefone(tb_telefone.getText());
-		
+
 		cliente.setBi(tb_bi.getText());
 		cliente.setNome(tb_nome.getText());
-		cliente.setNuit(Integer.valueOf(tb_nuit.getText()));
-		
+
+		cliente.setNuit(Integer.valueOf(tb_nuit.getValue()));
+
 		cliente.setContacto(contacto);
 		cliente.setEndereco(endereco);
 	}
-	
-	public void clearValues(){
-		tb_avenida.setText(null);
-		tb_bairro.setText(null);
-		tb_casaNumero.setText(null);
-		tb_cidade.setText(null);
-		tb_quarteirao.setText(null);
-		tb_rua.setText(null);
+
+	public void clearValues() {
+		tb_avenida.setRawValue(null);
+		tb_bairro.setRawValue(null);
+		tb_casaNumero.setRawValue(null);
+		tb_cidade.setRawValue(null);
+		tb_quarteirao.setRawValue(null);
+		tb_rua.setRawValue(null);
 		tb_email.setRawValue(null);
-		tb_telefone.setText(null);
-		tb_bi.setText(null);
-		tb_nome.setText(null);
-		tb_nuit.setText(null);
+		tb_telefone.setRawValue(null);
+		tb_bi.setRawValue(null);
+		tb_nome.setRawValue(null);
+		tb_nuit.setRawValue(null);
+
 	}
 }

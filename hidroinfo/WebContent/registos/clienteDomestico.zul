@@ -10,15 +10,15 @@
 		<rows>
 		<row id="rw_dadosCliente" spans="2" value="${arg}"><cell sclass="text-primary"><label sclass="text-primary" style="font-size:20px" value="Dados do cliente"></label></cell></row>
 			<row>
-				<cell sclass="text-primary">Nome:</cell> <cell> <textbox sclass="form-control" id="tb_nome"></textbox> </cell>
+				<cell sclass="text-primary">Nome:</cell> <cell> <textbox sclass="form-control" id="tb_nome" constraint="no empty"></textbox> </cell>
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Bi:</cell> <cell> <textbox sclass="form-control" id="tb_bi"> </textbox> </cell>
+				<cell sclass="text-primary">Bi:</cell> <cell> <textbox sclass="form-control" id="tb_bi" constraint="no empty"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Nuit:</cell> <cell> <intbox id="tb_nuit" sclass="form-control" maxlength="8" width="100%" > </intbox> </cell>
+				<cell sclass="text-primary">Nuit:</cell> <cell> <intbox id="tb_nuit" sclass="form-control" maxlength="8" width="100%" constraint="no empty"> </intbox> </cell>
 			</row>
 			
 			<row spans="2">
@@ -26,11 +26,11 @@
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Cidade:</cell> <cell> <textbox sclass="form-control" id="tb_cidade"> </textbox> </cell>
+				<cell sclass="text-primary">Cidade:</cell> <cell> <textbox sclass="form-control" id="tb_cidade" constraint="no empty"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Bairro:</cell> <cell> <textbox sclass="form-control" id="tb_bairro"> </textbox> </cell>
+				<cell sclass="text-primary">Bairro:</cell> <cell> <textbox sclass="form-control" id="tb_bairro" constraint="no empty"> </textbox> </cell>
 			</row>
 			
 			<row>
@@ -46,7 +46,7 @@
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Número da residência:</cell> <cell> <intbox sclass="form-control" id="tb_casaNumero" width="100%" maxlength="8" > </intbox> </cell>
+				<cell sclass="text-primary">Número da residência:</cell> <cell> <intbox sclass="form-control" id="tb_casaNumero" width="100%" maxlength="8" constraint="no empty"> </intbox> </cell>
 			</row>
 			
 			<row spans="2" >
@@ -54,7 +54,7 @@
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Telefone:</cell> <cell> <intbox sclass="form-control" id="tb_telefone" maxlength="9" width="100%"> </intbox> </cell>
+				<cell sclass="text-primary">Telefone:</cell> <cell> <intbox sclass="form-control" id="tb_telefone" maxlength="9" width="100%" constraint="no empty"> </intbox> </cell>
 			</row>
 			
 			<row>

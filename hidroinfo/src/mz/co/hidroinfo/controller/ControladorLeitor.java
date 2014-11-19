@@ -135,18 +135,22 @@ public class ControladorLeitor extends SelectorComposer<Component> {
 	}
 	
 	public void clearValuesLeitor() {
-		tb_bairro.setText(null);
-		tb_telefone.setText(null);
-		tb_bi.setText(null);
+		tb_bairro.setRawValue(null);
+		tb_telefone.setRawValue(null);
+		tb_bi.setRawValue(null);
 		tb_email.setRawValue(null);
 
-		tb_nome.setText(null);
-		tb_nuit.setText(null);
+		tb_nome.setRawValue(null);
+		tb_nuit.setRawValue(null);
 	}
 
 	public void setValuesLeitor(Leitor leitor) {
 		leitor.setBi(tb_bi.getText());
+		try{
 		leitor.setEmail(tb_email.getText());
+		}catch (Exception ex) {
+			tb_email.setText("email@conta.com");
+		}
 		leitor.setNome(tb_nome.getText());
 		leitor.setNuit(Integer.valueOf(tb_nuit.getText()));
 		leitor.setTelefone(Integer.valueOf(tb_telefone.getText()));

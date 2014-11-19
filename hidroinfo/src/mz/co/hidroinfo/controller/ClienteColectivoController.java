@@ -150,7 +150,11 @@ public class ClienteColectivoController extends SelectorComposer<Component> {
 		endereco.setQuarteirao(tb_quarteirao.getText());
 		endereco.setRua(tb_rua.getText());
 		
-		contacto.setEmail(tb_email.getText());
+		try {
+			contacto.setEmail(tb_email.getText());
+		} catch (Exception ex) {
+			tb_email.setText("email@conta.com");
+		}
 		contacto.setTelefone(tb_telefone.getText());
 		
 		cliente.setRepresentante(tb_representante.getText());
@@ -162,16 +166,17 @@ public class ClienteColectivoController extends SelectorComposer<Component> {
 	}
 	
 	public void clearValues(){
-		tb_avenida.setText(null);
-		tb_bairro.setText(null);
-		tb_casaNumero.setText(null);
-		tb_cidade.setText(null);
-		tb_quarteirao.setText(null);
-		tb_rua.setText(null);
+		tb_avenida.setRawValue(null);
+		tb_bairro.setRawValue(null);
+		tb_casaNumero.setRawValue(null);
+		tb_cidade.setRawValue(null);
+		tb_quarteirao.setRawValue(null);
+		tb_rua.setRawValue(null);
 		tb_email.setRawValue(null);
-		tb_telefone.setText(null);
-		tb_representante.setText(null);
-		tb_nome.setText(null);
-		tb_nuit.setText(null);
+		tb_telefone.setRawValue(null);
+		tb_nome.setRawValue(null);
+		tb_nuit.setRawValue(null);
+		tb_representante.setRawValue(null);
+		
 	}
 }
