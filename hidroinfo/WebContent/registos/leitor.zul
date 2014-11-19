@@ -61,7 +61,7 @@
 				</cell>
 				<cell>
 
-					<textbox id="tb_nome" sclass="form-control" />
+					<textbox id="tb_nome" sclass="form-control" constraint="no empty"/>
 
 				</cell>
 			</row>
@@ -71,7 +71,7 @@
 				</cell>
 				<cell>
 
-					<textbox id="tb_bi" sclass="form-control"/>
+					<textbox id="tb_bi" sclass="form-control" constraint="no empty"/>
 
 				</cell>
 			</row>
@@ -81,7 +81,7 @@
 				</cell>
 				<cell>
 
-					<intbox sclass="form-control" id="tb_nuit"  width="75%" maxlength="8"/>
+					<intbox sclass="form-control" id="tb_nuit"  width="75%" maxlength="8" constraint="no empty"/>
 
 				</cell>
 			</row>
@@ -111,7 +111,7 @@
 				</cell>
 				<cell>
 
-					<textbox id="tb_bairro" sclass="form-control"/>
+					<textbox id="tb_bairro" sclass="form-control" constraint="no empty"/>
 
 				</cell>
 			</row>

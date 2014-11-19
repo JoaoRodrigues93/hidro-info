@@ -13,14 +13,14 @@
 		<cell><label value="Dados do cliente a alterar" style="font-size:20px" sclass="text-primary"></label></cell>
 		</row>
 			<row>
-				<cell sclass="text-primary">Nome:</cell> <cell> <textbox sclass="form-control" id="tb_nome" value="${arg.clienteAlterar.nome}"> </textbox> </cell>
+				<cell sclass="text-primary">Nome:</cell> <cell> <textbox sclass="form-control" id="tb_nome" value="${arg.clienteAlterar.nome}" constraint="no empty"> </textbox> </cell>
 			</row>
 			<row>
-				<cell sclass="text-primary">Bi:</cell> <cell> <textbox sclass="form-control" id="tb_bi" value="${arg.clienteAlterar.bi}" > </textbox> </cell>
+				<cell sclass="text-primary">Bi:</cell> <cell> <textbox sclass="form-control" id="tb_bi" value="${arg.clienteAlterar.bi}" constraint="no empty"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Nuit:</cell> <cell> <intbox sclass="form-control" id="tb_nuit" value="${arg.clienteAlterar.nuit}" maxlength="8" width="70%"> </intbox> </cell>
+				<cell sclass="text-primary">Nuit:</cell> <cell> <intbox sclass="form-control" id="tb_nuit" constraint="no empty" value="${arg.clienteAlterar.nuit}" maxlength="8" width="70%"> </intbox> </cell>
 			</row>
 			
 			<row spans="2">
@@ -28,11 +28,11 @@
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Cidade:</cell> <cell> <textbox sclass="form-control" id="tb_cidade" value="${arg.clienteAlterar.endereco.cidade}" > </textbox> </cell>
+				<cell sclass="text-primary">Cidade:</cell> <cell> <textbox sclass="form-control" id="tb_cidade" value="${arg.clienteAlterar.endereco.cidade}" constraint="no empty"> </textbox> </cell>
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Bairro:</cell> <cell> <textbox sclass="form-control" id="tb_bairro" value="${arg.clienteAlterar.endereco.bairro}" > </textbox> </cell>
+				<cell sclass="text-primary">Bairro:</cell> <cell> <textbox sclass="form-control" id="tb_bairro" value="${arg.clienteAlterar.endereco.bairro}" constraint="no empty"> </textbox> </cell>
 			</row>
 			
 			<row>
@@ -48,7 +48,7 @@
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Número da residência:</cell> <cell> <intbox sclass="form-control" width="70%" maxlength="8"	id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}"> </intbox> </cell>
+				<cell sclass="text-primary">Número da residência:</cell> <cell> <intbox sclass="form-control" width="70%" maxlength="8"	id="tb_casaNumero" value="${arg.clienteAlterar.endereco.casaNumero}" constraint="no empty"> </intbox> </cell>
 			</row>
 			
 			<row spans="2" >
@@ -56,7 +56,7 @@
 			</row>
 			
 			<row>
-				<cell sclass="text-primary">Telefone:</cell> <cell> <intbox sclass="form-control" id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}" maxlength="9" width="70%"> </intbox> </cell>
+				<cell sclass="text-primary">Telefone:</cell> <cell> <intbox sclass="form-control" id="tb_telefone" value="${arg.clienteAlterar.contacto.telefone}" maxlength="9" width="70%" constraint="no empty"> </intbox> </cell>
 			</row>
 			
 			<row>

@@ -16,7 +16,7 @@
 					<label sclass="text-primary">Nome</label>
 				</cell>
 				<cell>
-					<textbox id="tb_nome" sclass="form-control" value="${arg.funAlterar.nome}"/>
+					<textbox id="tb_nome" sclass="form-control" value="${arg.funAlterar.nome}" constraint="no empty"/>
 				</cell>
 			</row>
 			<row>
@@ -24,7 +24,7 @@
 					<label sclass="text-primary">BI</label>
 				</cell>
 				<cell>
-					<textbox id="tb_bi" sclass="form-control" value="${arg.funAlterar.bi}"/>
+					<textbox id="tb_bi" sclass="form-control" value="${arg.funAlterar.bi}" constraint="no empty"/>
 				</cell>
 			</row>
 			<row>
@@ -32,7 +32,7 @@
 					<label sclass="text-primary">NUIT</label>
 				</cell>
 				<cell>
-					<intbox id="tb_nuit" sclass="form-control" value="${arg.funAlterar.nuit}"  maxlength="8" width="71%"/>
+					<intbox id="tb_nuit" sclass="form-control" value="${arg.funAlterar.nuit}"  maxlength="8" width="71%" constraint="no empty"/>
 				</cell>
 			</row>
 			<row>

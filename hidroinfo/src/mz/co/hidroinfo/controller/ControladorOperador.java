@@ -165,7 +165,11 @@ lista.add(0, o);
 
 	public void setValues(Operador operador) {
 		operador.setBi(tb_bi.getText());
+		try{
 		operador.setEmail(tb_email.getText());
+		}catch (Exception ex) {
+			tb_email.setText("email@conta.com");
+		}
 		operador.setNome(tb_nome.getText());
 		operador.setNuit(Integer.valueOf(tb_nuit.getText()));
 		operador.setTelefone(Integer.valueOf(tb_telefone.getText()));
@@ -175,14 +179,14 @@ lista.add(0, o);
 	}
 
 	public void clearValues() {
-		tb_username.setText(null);
-		tb_telefone.setText(null);
-		tb_password.setText(null);
-		tb_bi.setText(null);
+		tb_username.setRawValue(null);
+		tb_telefone.setRawValue(null);
+		tb_bi.setRawValue(null);
 		tb_email.setRawValue(null);
-		tb_nome.setText(null);
-		tb_nuit.setText(null);
-		tb_insira_password.setText(null);
+        tb_password.setRawValue(null);
+		tb_nome.setRawValue(null);
+		tb_nuit.setRawValue(null);
+		tb_insira_password.setRawValue(null);
 	}
 
 	@Listen("onClick=#btn_limpar")
