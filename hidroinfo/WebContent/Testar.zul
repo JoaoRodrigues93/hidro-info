@@ -1,0 +1,11 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" border="normal">
+<hlayout>
+	<div><include src="animacao-juntado.html"></include></div>
+	<button zclass="btn btn-menu btn-lg btn-default"
+						id="bt_clientes" label="Clientes">
+					</button>
+	</hlayout>
+</window>
+</zk>
