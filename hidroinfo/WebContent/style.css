@@ -1,9 +1,6 @@
-
-
 /*!
 CSS: Para cliente.zul
 */
-
 .tabela {
 	/*!
 	top right bottom left
@@ -11,92 +8,138 @@ CSS: Para cliente.zul
 	margin: 20px 10px 0px 10px;
 }
 
-.navegacao,.conteudo {
-	border:none;
+.navegacao, .conteudo {
+	border: none;
 	margin: 5px 5px 5px 5px;
 }
 
 .navegacao {
-	padding:5px 5px 5px 25px;
+	padding: 5px 5px 5px 25px;
 }
-
 
 .navegacao .clientes {
 	
 }
 
 .navegacao .operacoes {
-	margin-left:40px;
+	margin-left: 40px;
 }
 
-
-
 .pesquisa {
-	margin-left:20px;
+	margin-left: 20px;
 	background: none;
-	border:none;
+	border: none;
 }
 
 .adiciona {
-	margin-left:60px;
+	margin-left: 60px;
 	background: none;
-	border:none;
+	border: none;
 }
 
 .nt_menu {
-	border:none;
+	border: none;
 }
 
-.btn-menu{
-	border-radius:0px;
-	margin:0px;
-}
-
-.form-signin{
-	border-style: inset;
-	border-radius:5px;
-	border-color: #428bca;	
-}
-
-
-//Sign-in menu
-.body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
+.btn-menu {
+	border-radius: 0px;
+	margin: 0px;
 }
 
 .form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+	border-style: inset;
+	border-radius: 5px;
+	border-color: #428bca;
 }
-.form-signin .form-signin-heading,
+
+//
+Sign-in menu
+.body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
+}
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
 .form-signin .checkbox {
-  margin-bottom: 10px;
+	font-weight: normal;
 }
-.form-signin .checkbox {
-  font-weight: normal;
-}
+
 .form-signin .form-control {
-  position: relative;
-  font-size: 16px;
-  height: auto;
-  padding: 10px;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
+
 .form-signin .form-control:focus {
-  z-index: 2;
+	z-index: 2;
 }
+
 .form-signin input[type="text"] {
-  margin-bottom: -1px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 }
+
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.afastarPagamentos {
+	margin-left: 162px;
+}
+
+.imagemLogo {
+	height: 86px;
+	width: 95px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.sessaoText {
+	font-size: 10px;
+	margin-left: 35px;
+	margin-top: 100px;
+}
+
+.botaoSair {
+	margin-top: 18px;
+	margin-left: 26px;
+	margin-right: 5px;
+	width: 43px;
+	height: 28px;
+	
+	text-align: center;
+	display: inline-block;
+	
+	margin-bottom: 0;
+	
+	
+	white-space: nowrap;
+	
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
