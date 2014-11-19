@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +38,7 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 public class LeituraContadorController extends SelectorComposer<Component> {
-	
+
 	@Wire
 	private Row rw_contador;
 	@Wire
@@ -68,74 +69,144 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 	private Listbox lb_leitura;
 	@Wire
 	private ListModelList<LeituraContador> leituraModel;
-	
+
 	private LeituraContador selectedLeitura;
 	private LeituraContadorDao dao;
 	private FacturaDao daoFactura;
-	
+	private Contador contador;
+	private LeituraContador leitura;
+
 	@Override
-	public void doAfterCompose(Component comp) throws Exception{
+	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		pesquisa();
+
 	}
-	
-	public LeituraContadorController(){
+
+	public LeituraContadorController() {
 		dao = new LeituraContadorDao();
 		daoFactura = new FacturaDao();
 	}
-	
-	@Listen ("onClick = #bt_escolherContador")
-	public void escolheContador(){
-		Map<String, Object> arguments = new HashMap<String,Object>();
+
+	@Listen("onClick = #bt_escolherContador")
+	public void escolheContador() {
+
+		Map<String, Object> arguments = new HashMap<String, Object>();
 		arguments.put("rw_contador", rw_contador);
 		arguments.put("tb_contador", tb_contador);
-		Window win = (Window) Executions.createComponents("/registos/escolheContador.zul", null, arguments);
+		Window win = (Window) Executions.createComponents(
+				"/registos/escolheContador.zul", null, arguments);
+		// porLeitura();
 		win.doHighlighted();
+
 	}
-	
-	@Listen ("onClick = #bt_escolherLeitor")
-	public void escolheLeitor(){
-		Map<String, Object> arguments = new HashMap<String,Object>();
-		arguments.put("rw_leitor", rw_leitor);
-		arguments.put("tb_leitor", tb_leitor);
-		Window win = (Window) Executions.createComponents("/registos/escolheLeitor.zul", null, arguments);
-		win.doHighlighted();
-	}
-	
-	@Listen ("onClick = #bt_guardar")
-	public void guardarLeitura(){
-		try{
-			if((db_dataActual.getValue().after(db_dataAnterior.getValue())) && 
-					(ib_leituraActual.getValue()>ib_leituraAnterior.getValue())){
-				if(ib_leituraActual.getValue()>ib_leituraAnterior.getValue()){}
-				LeituraContador leitura = new LeituraContador();
-				setValues(leitura);
-				dao.create(leitura);
-				criarFactura(leitura);
-				leituraModel.add(0, leitura);
-			}else
-				Clients.showNotification("'A 'data acual' nao pode ser inferior que a 'data anterior'\r\nA 'leitura actual' tambem nao pode ser inferior que a 'leitura anterior'",
-						"error",null,null,4000);
-		}catch(NullPointerException ex){
-			Clients.showNotification("Por favor verifique que todos os campos estão preenchidos",
-					"error",null,null,4000);
+
+	public void porLeitura() {
+		Clients.showNotification("aahaa11111");
+		Calendar dataAnterior, dataActual;
+		int leituraAnterior, leituraActual;
+		Leitor leitor;
+		try {
+			contador = (Contador) rw_contador.getValue();
+			leitor = (Leitor) rw_leitor.getValue();
+			dataAnterior = new GregorianCalendar();
+			dataAnterior.setTime(db_dataAnterior.getValue());
+			dataActual = new GregorianCalendar();
+			dataActual.setTime(db_dataActual.getValue());
+			leituraActual = ib_leituraActual.getValue();
+			leituraAnterior = ib_leituraAnterior.getValue();
+		
+			List<LeituraContador> lei = dao.pegaContador(contador.getNumero());
+			
+			if (!lei.isEmpty()) {
+
+				for (Iterator iterator = lei.iterator(); iterator.hasNext();) {
+					LeituraContador leituraContador = (LeituraContador) iterator
+							.next();
+					int i = ((LeituraContador) iterator.next())
+							.getLeituraAnterior();
+					Calendar data = ((LeituraContador) iterator.next())
+							.getDataAnterior();
+					Clients.showNotification("aahaa");
+					ib_leituraAnterior.setRawValue(i);
+					db_dataAnterior.setValue(data.getTime());
+					ib_leituraAnterior.setDisabled(true);
+					db_dataAnterior.setDisabled(true);
+					leitura.setLeituraAnterior(i);
+					leitura.setDataAnterior(data);
+					leitura.setLeituraActual(leituraActual);
+					leitura.setDataActual(dataActual);
+					leitura.setContador(contador);
+					leitura.setLeitor(leitor);
+				}
+
+			} else {
+				leitura.setLeituraActual(leituraActual);
+				leitura.setLeituraAnterior(leituraAnterior);
+				leitura.setDataAnterior(dataAnterior);
+				leitura.setDataActual(dataActual);
+				leitura.setContador(contador);
+				leitura.setLeitor(leitor);
+			}
+
+		} catch (Exception ex) {
+			Clients.showNotification("ja nao sei");
 		}
 	}
-	
-	public void setValues(LeituraContador leitura){
+
+	@Listen("onClick = #bt_escolherLeitor")
+	public void escolheLeitor() {
+		Map<String, Object> arguments = new HashMap<String, Object>();
+		arguments.put("rw_leitor", rw_leitor);
+		arguments.put("tb_leitor", tb_leitor);
+		Window win = (Window) Executions.createComponents(
+				"/registos/escolheLeitor.zul", null, arguments);
+		win.doHighlighted();
+	}
+
+	@Listen("onClick = #bt_guardar")
+	public void guardarLeitura() {
+
+		try {
+			if (db_dataAnterior.getValue().after(db_dataActual.getValue())) {
+				Clients.showNotification(
+						"A data actual nao pode ser inferior que a data anterior",
+						"error", db_dataActual, null, 4000);
+			} else {
+				if (ib_leituraActual.getValue() < ib_leituraAnterior.getValue()) {
+					Clients.showNotification(
+							"A leitura actual nao pode ser inferior que a leitura anterior",
+							"error", ib_leituraActual, null, 4000);
+				} else {
+					LeituraContador leitura = new LeituraContador();
+					//setValues(leitura);
+					porLeitura();
+					dao.create(leitura);
+					criarFactura(leitura);
+					leituraModel.add(0, leitura);
+				}
+			}
+		}
+
+		catch (NullPointerException ex) {
+			Clients.showNotification(
+					"Por favor verifique que todos os campos estão preenchidos",
+					"error", null, null, 4000);
+		}
+	}
+
+	public void setValues(LeituraContador leitura) {
 		Calendar dataAnterior, dataActual;
-		int leituraAnterior,leituraActual;
-		Contador contador;
+		int leituraAnterior, leituraActual;
 		Leitor leitor;
+		contador = (Contador) rw_contador.getValue();
+		leitor = (Leitor) rw_leitor.getValue();
 		dataAnterior = new GregorianCalendar();
 		dataAnterior.setTime(db_dataAnterior.getValue());
 		dataActual = new GregorianCalendar();
 		dataActual.setTime(db_dataActual.getValue());
 		leituraActual = ib_leituraActual.getValue();
 		leituraAnterior = ib_leituraAnterior.getValue();
-		contador = (Contador) rw_contador.getValue();
-		leitor = (Leitor)rw_leitor.getValue();
-		//Set values
 		leitura.setLeituraActual(leituraActual);
 		leitura.setLeituraAnterior(leituraAnterior);
 		leitura.setDataAnterior(dataAnterior);
@@ -143,59 +214,60 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 		leitura.setContador(contador);
 		leitura.setLeitor(leitor);
 	}
-	
-	public void pesquisa (){
+
+	public void pesquisa() {
 		List<LeituraContador> leituras = dao.findAll();
 		leituraModel = new ListModelList<LeituraContador>(leituras);
 		lb_leitura.setModel(leituraModel);
-		
+
 	}
-	
-	public void criarFactura (LeituraContador leitura) {
+
+	public void criarFactura(LeituraContador leitura) {
 		PrecarioDao dao = new PrecarioDao();
 		Factura factura = new Factura();
 		String periodo;
-		float vpagar, taxaPorMetro=10,taxaFixa=100;
+		float vpagar, taxaPorMetro = 10, taxaFixa = 100;
 		Cliente cliente = leitura.getContador().getProprietario();
-		
-		if(cliente instanceof ClienteColectivo){
-					Precario colectivo = dao.pegaTarifa("Coletivo");
-					if (colectivo !=null){
-						taxaPorMetro = colectivo.getTaxa_por_metro_cubico();
-						taxaFixa = colectivo.getTaxa_por_metro_cubico();
-						}
+
+		if (cliente instanceof ClienteColectivo) {
+			Precario colectivo = dao.pegaTarifa("Coletivo");
+			if (colectivo != null) {
+				taxaPorMetro = colectivo.getTaxa_por_metro_cubico();
+				taxaFixa = colectivo.getTaxa_por_metro_cubico();
+			}
+		} else if (cliente instanceof ClienteDomestico) {
+			Precario domestico = dao.pegaTarifa("Domestico");
+			if (domestico != null) {
+				taxaPorMetro = domestico.getTaxa_por_metro_cubico();
+				taxaFixa = domestico.getTaxa_por_metro_cubico();
+			}
 		}
-		else if(cliente instanceof ClienteDomestico){
-		Precario domestico = dao.pegaTarifa("Domestico");
-		if (domestico !=null){
-		taxaPorMetro = domestico.getTaxa_por_metro_cubico();
-		taxaFixa = domestico.getTaxa_por_metro_cubico();
-		}
-		}
-		
+
 		int leituraAnterior, leituraActual;
 		leituraActual = leitura.getLeituraActual();
 		leituraAnterior = leitura.getLeituraAnterior();
 		int diaActual, mesActual;
-		final float IVA=0.17f;
+		final float IVA = 0.17f;
 		Calendar dataEmissao, dataLimite;
 		dataEmissao = new GregorianCalendar();
 		dataLimite = new GregorianCalendar();
 		mesActual = dataEmissao.get(Calendar.DAY_OF_MONTH);
-		dataLimite.set(Calendar.MONTH,mesActual+1);
-		periodo = leitura.getDataAnterior().get(Calendar.DATE)+"/"+leitura.getDataAnterior().get(Calendar.MONTH)+"/"+
-				leitura.getDataAnterior().get(Calendar.YEAR)+" a "+
-				leitura.getDataActual().get(Calendar.DATE)+"/"+leitura.getDataActual().get(Calendar.MONTH)+"/"+leitura.getDataActual().get(Calendar.YEAR);
-		vpagar = taxaFixa + taxaPorMetro * (leituraActual-leituraAnterior);
-		vpagar +=IVA*vpagar;
+		dataLimite.set(Calendar.MONTH, mesActual + 1);
+		periodo = leitura.getDataAnterior().get(Calendar.DATE) + "/"
+				+ leitura.getDataAnterior().get(Calendar.MONTH) + "/"
+				+ leitura.getDataAnterior().get(Calendar.YEAR) + " a "
+				+ leitura.getDataActual().get(Calendar.DATE) + "/"
+				+ leitura.getDataActual().get(Calendar.MONTH) + "/"
+				+ leitura.getDataActual().get(Calendar.YEAR);
+		vpagar = taxaFixa + taxaPorMetro * (leituraActual - leituraAnterior);
+		vpagar += IVA * vpagar;
 		factura.setDataEmissao(dataEmissao);
 		factura.setDataLimite(dataLimite);
 		factura.setLeituraContador(leitura);
 		factura.setPeriodoFacturacao(periodo);
 		factura.setValorAPagar(vpagar);
-		
+
 		daoFactura.create(factura);
 	}
-	
-	
+
 }

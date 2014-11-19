@@ -66,6 +66,10 @@ public class ContadorController extends SelectorComposer<Component> {
 	
 	@Listen ("onClick = #bt_guardar")
 	public void guardarContador (){
+		List <Contador> contadr=dao.pegaContador(Integer.valueOf(tb_numeroContador.getText()));
+		if(!contadr.isEmpty()){
+			Clients.showNotification("Esse contador ja foi registado","error", tb_numeroContador,null,2000);
+		}else{
 		Cliente selectedCliente = (Cliente) rw_proprietario.getValue();
 		Contador contador = new Contador();
 		contador.setNumero(Integer.valueOf(tb_numeroContador.getText()));
@@ -73,7 +77,7 @@ public class ContadorController extends SelectorComposer<Component> {
 		dao.create(contador);
 		contadorModel.add(0, contador);
 		Clients.showNotification("Contador com o número "+contador.getNumero()+" foi registado");
-	}
+	}}
 	
 	public void pesquisa (){
 		List<Contador> contadores = dao.findAll();

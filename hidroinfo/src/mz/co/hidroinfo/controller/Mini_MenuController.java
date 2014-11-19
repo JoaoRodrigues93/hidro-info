@@ -82,7 +82,7 @@ public class Mini_MenuController extends SelectorComposer<Component> {
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		setOperador();
+	//	setOperador();
 	}
 
 	@Listen("onClick=#btn_operador")
