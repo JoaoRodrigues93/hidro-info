@@ -4,15 +4,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class ClienteDomestico extends Cliente {
-	private String nome;
-	private String bi;
 	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+	private String bi;
 	public String getBi() {
 		return bi;
 	}
