@@ -19,6 +19,16 @@ public class Cliente {
 	@Embedded
 	protected Contacto contacto;
 	
+	protected String nome; 
+	
+	
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	public int getId() {
 		return id;
 	}
