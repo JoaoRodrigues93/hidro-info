@@ -7,7 +7,7 @@
 	<borderlayout width="100%" height="100%" sclass="well">
 		<north id="nt_menu" sclass="nt_menu" height="100px">
 			<hlayout>
-<!-- 				<hbox sclass="nav-menu" pack="center" align="center"> -->
+				<hbox sclass="nav-menu" pack="center" align="center">
 <!-- 					<image src="/imagens/hidroinfo.PNG"></image> -->
 					<div><include src="animacao-juntado.html"></include></div>
 					<button zclass="btn btn-menu btn-lg btn-default"
@@ -31,7 +31,7 @@
 					<button zclass="btn btn-menu btn-lg btn-default"
 						id="bt_ajuda" label="Ajuda">
 					</button>
-<!-- 				</hbox> -->
+				</hbox>
 				<div style="margin-left:90px;">
 						<div>
 						<label zclass="text-primary text-muted" style="text-decoration:underline;" value="Sessão Iniciada"></label>
