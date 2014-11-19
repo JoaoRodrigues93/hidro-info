@@ -13,14 +13,19 @@
 		</columns>
 		<rows>
 			<row>
-			<cell> <label value="Número do contador:"></label> </cell>
-			<cell> <textbox id="tb_numeroContador"></textbox> </cell>
+			<cell> <label sclass="text-primary" value="Número do contador:"></label> </cell>
+			<cell><hlayout>
+				<textbox sclass="form-control" id="tb_numeroContador" width="197px" placeholder="insira numero do contador"></textbox> 
+			</hlayout></cell>
 			</row>
 			<row id="rw_proprietario" >
-				<cell> <label value="Proprietario do contador:"></label></cell>
+				<cell > <label sclass="text-primary" value="Proprietario do contador:"></label></cell>
 				<cell id="cl_cliente">
-				<textbox id="tb_escolherCliente"></textbox>
-					<button id="bt_escolherCliente" label="Escolher cliente..." ></button>
+					<hlayout>
+						<textbox width="197px" sclass="form-control" id="tb_escolherCliente" readonly="true"></textbox>
+						<button  id="bt_escolherCliente" label="Escolher cliente" zclass="btn btn-primary"></button>
+					</hlayout>
+				
 				</cell>
 			</row>
 		</rows>

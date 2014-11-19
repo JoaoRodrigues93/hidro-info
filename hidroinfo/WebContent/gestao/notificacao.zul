@@ -15,17 +15,17 @@
 				</row>
 				<row>
 					<cell>
-						<combobox id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destinatarios">
+						<combobox width="197px" id="cbb_destinatario" autocomplete="true" placeholder="Por favor escolha os destinatarios">
 							<comboitem label="Todos Clientes"></comboitem>
 							<comboitem label="individual"  id="cbb_item_individual">
 							</comboitem>
 						</combobox>
-						<textbox id="tb_cliente" >
+						<textbox sclass="form-control" id="tb_cliente" readonly="true">
 						</textbox>
 					</cell>
 					
 					<cell>
-						<textbox id="txt_assunto">
+						<textbox id="txt_assunto" sclass="form-control" width="197px">
 						</textbox>
 					</cell>
 				</row>
@@ -35,7 +35,7 @@
 				</row>
 				<row>
 					<cell colspan="2" >
-						<textbox rows="5" width="100%" id="txt_mensagem"></textbox>
+						<textbox rows="5" width="100%" id="txt_mensagem" sclass="form-control"></textbox>
 					</cell>
 				</row>
 				<row>

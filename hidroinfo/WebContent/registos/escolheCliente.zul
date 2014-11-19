@@ -5,8 +5,8 @@ apply="mz.co.hidroinfo.controller.EscolherClienteController">
 <borderlayout width="100%" height="100%">
 	<north>
 	<hlayout>
-		<textbox id="tb_pesquisa"></textbox>
-		<button id="bt_pesquisa" label="Pesquisar cliente"></button>
+		<textbox id="tb_pesquisa"  sclass="form-control"></textbox>
+		<button id="bt_pesquisa" label="Pesquisar cliente"  zclass="btn btn-primary"></button>
 		<grid>
 		<columns>
 		<column></column>
@@ -29,7 +29,7 @@ apply="mz.co.hidroinfo.controller.EscolherClienteController">
 			<listcell label="${each.id}" ></listcell>
 			<listcell label="${each.nome}"></listcell>
 			<listcell>
-			<button label="Escolher" forward="onClick=lb_cliente.onClienteEscolhe"></button>
+			<button label="Escolher" forward="onClick=lb_cliente.onClienteEscolhe"  zclass="btn btn-primary"></button>
 			</listcell>
 		</listitem>
 		</template>
