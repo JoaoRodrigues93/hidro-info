@@ -54,12 +54,15 @@
 	<column width="60%" ></column>
 	</columns>
 		<rows>
+		<row id="rw_dadosFuncionario" spans="2" value="${arg}"><cell><label style="font-size:20px" sclass="text-primary" value="Dados do leitor"></label></cell></row>
 			<row>
 				<cell>
 					<label sclass="text-primary">Nome</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="nome"  />
+
+					<textbox id="tb_nome" sclass="form-control" />
+
 				</cell>
 			</row>
 			<row>
@@ -67,7 +70,9 @@
 					<label sclass="text-primary">BI</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="bi"/>
+
+					<textbox id="tb_bi" sclass="form-control"/>
+
 				</cell>
 			</row>
 			<row>
@@ -75,7 +80,9 @@
 					<label sclass="text-primary">NUIT</label>
 				</cell>
 				<cell>
-					<intbox sclass="form-control" id="nuit"  width="75%" maxlength="8"/>
+
+					<intbox sclass="form-control" id="tb_nuit"  width="75%" maxlength="8"/>
+
 				</cell>
 			</row>
 			<row>
@@ -83,7 +90,9 @@
 					<label sclass="text-primary">Telefone</label>
 				</cell>
 				<cell>
-					<intbox sclass="form-control" id="telefone" width="75%" maxlength="9"/>
+
+					<intbox id="tb_telefone" width="75%" maxlength="9" sclass="form-control"/>
+
 				</cell>
 			</row>
 			<row>
@@ -91,7 +100,9 @@
 					<label sclass="text-primary">Email</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
+
+					<textbox sclass="form-control" id="tb_email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
+
 				</cell>
 			</row>
 			<row>
@@ -99,14 +110,21 @@
 					<label sclass="text-primary">Bairro de trabalho</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="bairro"/>
+
+					<textbox id="tb_bairro" sclass="form-control"/>
+
 				</cell>
 			</row>
 			<row>
 				<cell align="center" colspan="2">
 					<button id="btn_add" label="Registar"
-						forward="onClick$Regista()" zclass="btn btn-primary"/>
+
+					zclass="btn btn-primary"	/>
+				</cell>
+				<cell>
+
 					<label width="2px" value=" "></label>
+
 					<button id="btn_canc" label="Limpar"
 						forward="onClick$limparCampos" zclass="btn btn-primary"/>
 				</cell>

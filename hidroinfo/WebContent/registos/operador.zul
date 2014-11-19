@@ -11,12 +11,15 @@
 	<column width="60%" ></column>
 	</columns>
 		<rows>
+		<row id="rw_dadosFuncionario" spans="2" value="${arg}"><cell><label style="font-size:20px" sclass="text-primary" value="Dados do operador"></label></cell></row>
 			<row>
 				<cell>
 					<label sclass="text-primary">Nome</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="nome" />
+
+					<textbox id="tb_nome" sclass="form-control" />
+
 				</cell>
 			</row>
 			<row>
@@ -24,7 +27,9 @@
 					<label sclass="text-primary">BI</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="bi" />
+
+					<textbox id="tb_bi" sclass="form-control" />
+
 				</cell>
 			</row>
 			<row>
@@ -32,7 +37,9 @@
 					<label sclass="text-primary">NUIT</label>
 				</cell>
 				<cell>
-					<intbox sclass="form-control" id="nuit" maxlength="8" width="75%"/>
+
+					<intbox id="tb_nuit" sclass="form-control" maxlength="8" width="75%"/>
+
 				</cell>
 			</row>
 			<row>
@@ -40,7 +47,9 @@
 					<label sclass="text-primary">Telefone</label>
 				</cell>
 				<cell>
-					<intbox sclass="form-control" id="telefone" maxlength="9" width="75%"/>
+
+					<intbox id="tb_telefone" sclass="form-control" maxlength="9" width="75%"/>
+
 				</cell>
 			</row>
 			<row>
@@ -48,15 +57,19 @@
 					<label sclass="text-primary">Email</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="email" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
+
+					<textbox id="tb_email" sclass="form-control" type="email" constraint="/.+@.+\.[a-z]+/: por favor introduza o seu endereço eletronico "/>
+
 				</cell>
 			</row>
 			<row>
 				<cell>
 					<label sclass="text-primary">Username</label>
 				</cell>
+
 				<cell sclass="text-primary">
-					<textbox sclass="form-control" id="username" />
+					<textbox id="tb_username" sclass="form-control" />
+
 				</cell>
 			</row>
 			<row>
@@ -64,7 +77,9 @@
 					<label sclass="text-primary">Password</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="password" type="password" />
+
+					<textbox id="tb_password" type="password" sclass="form-control" />
+
 				</cell>
 			</row>
 			<row>
@@ -72,14 +87,20 @@
 					<label sclass="text-primary">Insira denovo o Password</label>
 				</cell>
 				<cell>
-					<textbox sclass="form-control" id="insira_password" type="password" />
+
+					<textbox id="tb_insira_password" type="password" sclass="form-control" />
+
 				</cell>
 			</row>
 			<row >
 				<cell colspan="2" align="center" >
 					<button id="btn_add" label="Registar"
-						forward="onClick$Regista()" zclass="btn btn-primary" />
+						zclass="btn btn-primary" />
+				</cell>
+				<cell>
+
 					<label value=" " width="2px"></label>
+
 					<button id="btn_canc" label="Limpar"
 						forward="onClick$limparCampos" zclass="btn btn-primary" />
 				</cell>
