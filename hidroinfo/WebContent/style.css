@@ -42,8 +42,7 @@ CSS: Para cliente.zul
 }
 
 .btn-menu {
-	border-radius: 0px;
-	margin: 0px;
+	border-radius:0px;
 }
 
 .form-signin {
@@ -142,4 +141,8 @@ Sign-in menu
 	background-image: none;
 	border: 1px solid transparent;
 	border-radius: 4px;
+}
+
+.centro {
+	vertical-align: center;
 }

@@ -6,67 +6,71 @@
 	apply="mz.co.hidroinfo.controller.MenuController">
 	<borderlayout width="100%" height="100%" sclass="well">
 		<north id="nt_menu" sclass="nt_menu" height="100px">
-			<hlayout>
-				<hbox sclass="nav-menu" pack="center" align="center">
-<!-- 					<image src="/imagens/hidroinfo.PNG"></image> -->
-					<div><include src="animacao-juntado.html"></include></div>
-					<button zclass="btn btn-menu btn-lg btn-default"
-						id="bt_pagamentos" label="Pagamentos">
-					</button>
-					<button zclass="btn btn-menu btn-lg btn-default"
-						id="bt_clientes" label="Clientes">
-					</button>
-					<button zclass="btn btn-menu btn-lg btn-default"
-						id="bt_funcionarios" label="Funcionarios">
-					</button>
-					<button zclass="btn btn-menu btn-lg btn-default"
-						id="bt_relatorios" label="Relatórios">
-					</button>
-					<button zclass="btn btn-menu btn-lg btn-default"
-						id="bt_notificacoes" label="Notificações">
-					</button>
-					<button zclass="btn btn-menu btn-lg btn-default"
-						id="bt_administracao" label="Administração">
-					</button>
-					<button zclass="btn btn-menu btn-lg btn-default"
-						id="bt_ajuda" label="Ajuda">
-					</button>
-				</hbox>
-				<div style="margin-left:90px;">
-						<div>
-						<label zclass="text-primary text-muted" style="text-decoration:underline;" value="Sessão Iniciada"></label>
-						</div>
-						<div>
-						<label id="lb_usuario" zclass="text-primary text-right h4"></label>
-						</div>
-						<div>
-						<button id="bt_sair" label="Sair" zclass="btn btn-default">
-						</button>
-						</div>
+			<div zclass="centro">
+				<div zclass="col-sm-1 col-lg-1 col-md-1">
+					<include src="animacao-juntado.html"></include>
 				</div>
-			</hlayout>
+				<!-- 				<hbox sizedByContent="true" pack="center" align="center" > -->
+				<!-- 					<image src="/imagens/hidroinfo.PNG"></image> -->
+				
+				<div zclass="col-sm-11 col-md-11 col-lg-11"
+					style="margin-top:25px; float:right;">
+					<div
+						zclass="btn-group col-lg-10 col-md-10 col-sm-10">
+						<button zclass="btn btn-lg btn-default "
+							id="bt_pagamentos" label="Pagamentos">
+						</button>
+						<button zclass="btn  btn-lg btn-default"
+							id="bt_clientes" label="Clientes">
+						</button>
+						<button zclass="btn  btn-lg btn-default"
+							id="bt_funcionarios" label="Funcionarios">
+						</button>
+						<button zclass="btn  btn-lg btn-default"
+							id="bt_relatorios" label="Relatórios">
+						</button>
+						<button zclass="btn  btn-lg btn-default"
+							id="bt_notificacoes" label="Notificações">
+						</button>
+						<button zclass="btn  btn-lg btn-default"
+							id="bt_administracao" label="Administração">
+						</button>
+						<button zclass="btn  btn-lg btn-default"
+							id="bt_ajuda" label="Ajuda">
+						</button>
+					</div>
+					<!-- 				</hbox> -->
+					<!-- 				<vbox sizedByContent="true" pack="center" align="center" > -->
+					<div>
+						<label id="lb_usuario"
+							zclass="text-primary text-right h3">
+						</label>
+					</div>
+					<div>
+						<label id="lb_sair"
+							zclass="text-primary text-right h4"
+							style="text-decoration:underline; cursor:pointer;"
+							value="Sair">
+						</label>
+					</div>
+				</div>
+				<!-- 				</vbox> -->
+			</div>
 		</north>
 		<center id="ct_conteudo">
-		
+
 			<html>
-	<![CDATA[
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<h1 class="text-center">Bem vindo ao Hidro-info</h1>
-<style>
- .center {
-	 text-align:center;
- 	margin-left:35%;
- 	margin-right:35%;
- 	width:30%;
- 	height:400px;
- }
-</style>
-<p>
-<img height="400px" class="center" width="300px" src="imagens/torneiras.png">
-</p>
-<p class="center"> &copy; Todos os direitos reservados.2014</p>
-]]></html>
-		
+				
+				<![CDATA[ <link rel="stylesheet" type="text/css"
+				href="css/bootstrap.css"> <h1 class="text-center">Bem
+				vindo ao Hidro-info</h1> <style> .center {
+				text-align:center; margin-left:35%; margin-right:35%;
+				width:30%; height:400px; } </style> <p> <img
+				height="400px" class="center" width="300px"
+				src="imagens/torneiras.png"> </p> <p class="center">
+				&copy; Todos os direitos reservados.2014</p> ]]>
+			</html>
+
 		</center>
 	</borderlayout>
 </window>
