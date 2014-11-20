@@ -39,8 +39,6 @@
 							id="bt_ajuda" label="Ajuda">
 						</button>
 					</div>
-					<!-- 				</hbox> -->
-					<!-- 				<vbox sizedByContent="true" pack="center" align="center" > -->
 					<div>
 						<label id="lb_usuario"
 							zclass="text-primary text-right h3">
