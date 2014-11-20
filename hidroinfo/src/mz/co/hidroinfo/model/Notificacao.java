@@ -11,7 +11,7 @@ import javax.persistence.Id;
 public class Notificacao{
 	@Id @GeneratedValue (strategy = GenerationType.AUTO)
 	protected int id;
-	protected String asssunto;
+	protected String assunto;
 	protected String mensagem;
 	
 	public Notificacao(){}
@@ -24,11 +24,11 @@ public class Notificacao{
 		this.id = id;
 	}
 
-	public String getAsssunto() {
-		return asssunto;
+	public String getAssunto() {
+		return assunto;
 	}
 	public void setAsssunto(String asssunto) {
-		this.asssunto = asssunto;
+		this.assunto = asssunto;
 	}
 	public String getMensagem() {
 		return mensagem;
