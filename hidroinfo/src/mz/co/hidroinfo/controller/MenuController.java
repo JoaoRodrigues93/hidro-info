@@ -57,32 +57,32 @@ public class MenuController extends SelectorComposer<Component> {
 	private String escolhaZul="";
 	private Button bt_default;
 	@Wire
-	private Button bt_sair;
+	private Label lb_sair;
 	@Wire
 	private Label lb_usuario;
 	
 	public void escolha(){
 		switch(escolha){
 		case 1: escolhaZul=PAGAMENTOSZUL;
-				bt_pagamentos.setZclass("btn btn-menu btn-lg btn-primary btn-active");
+				bt_pagamentos.setZclass("btn  btn-lg btn-primary btn-active");
 		break;
 		case 2: escolhaZul = CLIENTESZUL; 
-		bt_clientes.setZclass("btn btn-menu btn-lg btn-primary btn-active");
+		bt_clientes.setZclass("btn  btn-lg btn-primary btn-active");
 		break;
 		case 3: escolhaZul=FUNCIONARIOSZUL; 
-		bt_funcionarios.setZclass("btn btn-menu btn-lg btn-primary btn-active");
+		bt_funcionarios.setZclass("btn  btn-lg btn-primary btn-active");
 		break;
 		case 4: escolhaZul = RELATORIOSZUL; 
-		bt_relatorios.setZclass("btn btn-menu btn-lg btn-primary btn-active");
+		bt_relatorios.setZclass("btn  btn-lg btn-primary btn-active");
 		break;
 		case 5: escolhaZul=NOTIFICAOESZUL; 
-		bt_notificacoes.setZclass("btn btn-menu btn-lg btn-primary btn-active");
+		bt_notificacoes.setZclass("btn  btn-lg btn-primary btn-active");
 		break;
 		case 6: escolhaZul = ADMINISTRACAOZUL;
-		bt_administracao.setZclass("btn btn-menu btn-lg btn-primary btn-active");
+		bt_administracao.setZclass("btn  btn-lg btn-primary btn-active");
 		break;
 		case 7: escolhaZul=AJUDAZUL;
-		bt_ajuda.setZclass("btn btn-menu btn-lg btn-primary btn-active");
+		bt_ajuda.setZclass("btn  btn-lg btn-primary btn-active");
 		break;
 		}
 		escolheConteudo();
@@ -148,7 +148,7 @@ public class MenuController extends SelectorComposer<Component> {
 		selecionaBotao(bt_ajuda, AJUDA);
 	}
 	
-	@Listen ("onClick = #bt_sair")
+	@Listen ("onClick = #lb_sair")
 	public void sair(){
 		LoginController.logado=false;
 		Executions.createComponents("/index.zul", null, null);
@@ -182,7 +182,7 @@ public class MenuController extends SelectorComposer<Component> {
 		break;
 		}
 	if(botaoAnterior!=null){
-	botaoAnterior.setZclass("btn btn-menu btn-lg btn-default");
+	botaoAnterior.setZclass("btn  btn-lg btn-default");
 	botaoAnterior.setDisabled(false);
 	}
 	}

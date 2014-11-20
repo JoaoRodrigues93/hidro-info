@@ -63,7 +63,7 @@
 		<listitem>
 			<listcell label="${each.id}">
 			</listcell>
-			<listcell label="${each.asssunto}">
+			<listcell label="${each.assunto}">
 			</listcell>
 			<listcell label="${each.mensagem}">
 			</listcell>
