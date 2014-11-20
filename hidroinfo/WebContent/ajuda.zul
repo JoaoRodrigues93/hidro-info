@@ -3,31 +3,18 @@
 
 <window border="none">
 	<html>
-	<![CDATA[
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<h1 class="text-center">Bem vindo ao Hidro-info</h1>
-<style>
- .center {
-	 text-align:center;
- }
-</style>
+		
+		<![CDATA[ <link rel="stylesheet" type="text/css"
+		href="css/bootstrap.css"> <h1 class="text-center">Bem vindo ao
+		Hidro-info</h1> <style> .center { text-align:center; } </style>
 
-<div>
-<div class="col-md-8 col-lg-8">
-<p>
-<p>
-<p>
-<p><b>Hidro-info é um software de gestão de água simples para facilitar a vida do usuario. Criado por: </b> </p>
-<p>Azevedo, Manuel.
-<p>Carsan, Nureicha
-<p>Garife, Yolanda
-<p>Mateus, Severino
-<p>Munguambe, Nelson
-<p>Rodrigues, Joao
-</div>
-<img class="col-md-4 col-lg-4" src="imagens/torneiras.png">
-</div>
-</div>
-<p class="center"> &copy; Todos os direitos reservados.2014
-]]></html>
+		<div> <div class="col-md-8 col-lg-8"> <p> <p> <p>
+		<p><b>Hidro-info é um software de gestão de água simples para
+		facilitar a vida do usuario. Criado por: </b> </p> <p>Azevedo,
+		Manuel. <p>Carsan, Nureicha <p>Garife, Yolanda <p>Mateus,
+		Severino <p>Munguambe, Nelson <p>Rodrigues, Joao </div> <img
+		class="col-md-4 col-lg-4" src="imagens/torneiras.png"> </div>
+		</div> <p class="center"> &copy; Todos os direitos
+		reservados.2014 ]]>
+	</html>
 </window>
