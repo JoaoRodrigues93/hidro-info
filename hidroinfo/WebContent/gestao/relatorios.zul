@@ -2,9 +2,9 @@
 <?link rel="stylesheet" type="text/css" href="/style.css" ?>
 <window width="100%" height="100%" border="none"
 	apply="mz.co.hidroinfo.controller.RelatoriosController">
-	<borderlayout width="100%" height="100%">
-		<west width="20%">
-			<vlayout id="vl_navegacao">
+	<borderlayout width="100%" height="100%" sclass="conteudo">
+		<west width="20%" sclass="container conteudo">
+			<vlayout id="vl_navegacao" height="100%" sclass="well">
 				<vbox>
 					<label value="Relatórios"></label>
 					<radiogroup id="rg_relatorio" />
@@ -60,15 +60,14 @@
 					</combobox>
 				</vbox>
 				<vbox id="vb_adicional"></vbox>
-				<button id="bt_gerar" label="Gerar"></button>
+				<button id="bt_gerar" zclass="btn btn-lg btn-primary" label="Gerar relatório"></button>
 			</vlayout>
 		</west>
-		<center>
-			<borderlayout>
-				<center>
-					<vlayout id="vl_dadosRelatorio">
+		
+		<center sclass="container conteudo">
+					<vlayout id="vl_dadosRelatorio" zclass="well" height="100%" >
 						<vbox id="vb_dadosRelatorio">
-							<label zclass="text h1" id="lb_tipoRelatorio"></label>
+							<label zclass="text-right h1" id="lb_tipoRelatorio"></label>
 							<label zclass="text-right" id="lb_dataRelatorio"></label>
 						</vbox>
 						<div id="dv_conteudo" width="100%"
@@ -80,15 +79,6 @@
 							<textbox style="border:none; background:none;" id="tb_descricao" readonly="true" cols="120" multiline="true" ></textbox>
 						</vbox>
 					</vlayout>
-				</center>
-<!-- 				<south> -->
-<!-- 					<hbox id="hb_imprimir"> -->
-<!-- 					<div> -->
-<!-- 						<button id="bt_imprimir" label="imprimir"></button> -->
-<!-- 					</div> -->
-<!-- 					</hbox> -->
-<!-- 				</south> -->
-			</borderlayout>
 		</center>
 	</borderlayout>
 </window>
