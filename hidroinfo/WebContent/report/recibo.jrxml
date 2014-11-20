@@ -41,10 +41,6 @@
 	</field>
 	<title>
 		<band height="103" splitType="Stretch">
-			<image>
-				<reportElement x="408" y="2" width="144" height="97" />
-				<imageExpression><![CDATA["C:\\Users\\Nelson Alexandrino\\workspace\\hidroinfo\\hidroinfo\\WebContent\\imagens\\hidroinfoBig.png"]]></imageExpression>
-			</image>
 			<staticText>
 				<reportElement x="13" y="14" width="92" height="50" />
 				<textElement>
@@ -59,6 +55,10 @@
 				</textElement>
 				<text><![CDATA[INFO]]></text>
 			</staticText>
+			<image>
+				<reportElement x="414" y="-2" width="135" height="102" />
+				<imageExpression><![CDATA["C:\\Users\\Nelson Alexandrino\\workspace\\hidroinfo\\hidroinfo\\WebContent\\report\\hidroinfoBig.png"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<columnHeader>
@@ -71,7 +71,7 @@
 				<text><![CDATA[Cod. Cliente]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="205" y="1" width="61" height="20"/>
+				<reportElement x="205" y="1" width="61" height="20" />
 				<textElement>
 					<font size="11"/>
 				</textElement>
@@ -107,7 +107,7 @@
 				<textFieldExpression><![CDATA[$F{codRecibo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="392" y="41" width="100" height="20"/>
+				<reportElement x="392" y="41" width="100" height="20" />
 				<textFieldExpression><![CDATA[$F{nuit}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -119,7 +119,7 @@
 	<detail>
 		<band height="93" splitType="Stretch">
 			<rectangle radius="10">
-				<reportElement mode="Transparent" x="0" y="28" width="168" height="54" />
+				<reportElement mode="Transparent" x="0" y="28" width="168" height="54"/>
 				<graphicElement>
 					<pen lineColor="#00CCFF"/>
 				</graphicElement>
