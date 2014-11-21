@@ -102,7 +102,7 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 	}
 
 	public void porLeitura() {
-		Clients.showNotification("aahaa11111");
+		leitura = new LeituraContador();
 		Calendar dataAnterior, dataActual;
 		int leituraAnterior, leituraActual;
 		Leitor leitor;
@@ -123,11 +123,10 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 				for (Iterator iterator = lei.iterator(); iterator.hasNext();) {
 					LeituraContador leituraContador = (LeituraContador) iterator
 							.next();
-					int i = ((LeituraContador) iterator.next())
-							.getLeituraAnterior();
-					Calendar data = ((LeituraContador) iterator.next())
-							.getDataAnterior();
-					Clients.showNotification("aahaa");
+					int i = leituraContador
+							.getLeituraActual();
+					Calendar data = leituraContador
+							.getDataActual();
 					ib_leituraAnterior.setRawValue(i);
 					db_dataAnterior.setValue(data.getTime());
 					ib_leituraAnterior.setDisabled(true);
@@ -150,7 +149,7 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 			}
 
 		} catch (Exception ex) {
-			Clients.showNotification("ja nao sei");
+			ex.printStackTrace();
 		}
 	}
 
@@ -166,8 +165,6 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 
 	@Listen("onClick = #bt_guardar")
 	public void guardarLeitura() {
-
-		try {
 			if (db_dataAnterior.getValue().after(db_dataActual.getValue())) {
 				Clients.showNotification(
 						"A data actual nao pode ser inferior que a data anterior",
@@ -178,8 +175,6 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 							"A leitura actual nao pode ser inferior que a leitura anterior",
 							"error", ib_leituraActual, null, 4000);
 				} else {
-					LeituraContador leitura = new LeituraContador();
-					//setValues(leitura);
 					porLeitura();
 					dao.create(leitura);
 					criarFactura(leitura);
@@ -188,12 +183,6 @@ public class LeituraContadorController extends SelectorComposer<Component> {
 			}
 		}
 
-		catch (NullPointerException ex) {
-			Clients.showNotification(
-					"Por favor verifique que todos os campos estão preenchidos",
-					"error", null, null, 4000);
-		}
-	}
 
 	public void setValues(LeituraContador leitura) {
 		Calendar dataAnterior, dataActual;

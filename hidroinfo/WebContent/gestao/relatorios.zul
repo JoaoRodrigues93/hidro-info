@@ -20,16 +20,16 @@
 				</vbox>
 				<vbox id="vb_locais">
 					<label value="Locais"></label>
-					<combobox id="cb_cidade"
+					<combobox readonly="true" id="cb_cidade"
 						placeholder="Escolha a cidade"
 						constraint="no empty: Por favor faça uma escolha">
 						<template name="model">
-							<comboitem value="${each}"
+							<comboitem  value="${each}"
 								label="${each}">
 							</comboitem>
 						</template>
 					</combobox>
-					<combobox id="cb_bairro"
+					<combobox readonly="true" id="cb_bairro"
 						placeholder="Escolha o bairro"
 						constraint="no empty: Por favor faça uma escolha">
 						<template name="model">
@@ -51,7 +51,7 @@
 					</radio>
 				</vbox>
 				<vbox id="vb_periodo">
-					<combobox id="cb_periodo"
+					<combobox readonly="true" id="cb_periodo"
 						placeholder="Escolha o periodo"
 						constraint="no empty: Por favor faça uma escolha">
 						<comboitem label="Diariamente"></comboitem>
