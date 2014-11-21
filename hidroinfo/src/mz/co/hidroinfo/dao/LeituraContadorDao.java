@@ -29,8 +29,6 @@ public class LeituraContadorDao extends GenericDAO<LeituraContador> {
 		cont.add(Restrictions.eq("numero", num));
 
 		List<LeituraContador> lista = crit.list();
-		DistinctRootEntityResultTransformer dist = DistinctRootEntityResultTransformer.INSTANCE;
-		List<LeituraContador> leitura = dist.transformList(lista);
 		tx.commit();
 		
 		return lista;

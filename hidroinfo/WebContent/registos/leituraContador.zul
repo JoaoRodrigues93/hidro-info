@@ -76,7 +76,7 @@
 		
 		<center>
 		
-			<listbox id="lb_leitura">
+			<listbox id="lb_leitura" mold="paging" rows="4" pageSize="4" >
 				<listhead>
 					<listheader label="Leitura actual" />
 					<listheader label="Leitura anterior" />
